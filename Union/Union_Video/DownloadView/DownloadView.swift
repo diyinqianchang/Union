@@ -69,7 +69,7 @@ class DownloadView: UIView {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
+        super.touchesBegan(touches, withEvent: event);
         let startTouch = (touches as NSSet).anyObject() as! UITouch;
         self.startPoint = startTouch.locationInView(self.superview);
         self.animator.removeAllBehaviors();
@@ -78,7 +78,7 @@ class DownloadView: UIView {
     
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
+        super.touchesMoved(touches, withEvent: event);
         let startTouch = (touches as NSSet).anyObject() as! UITouch;
         self.center = startTouch.locationInView(self.superview);
         
@@ -87,6 +87,7 @@ class DownloadView: UIView {
     
    override  func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
     
+    super.touchesEnded(touches, withEvent: event);
     
        let endTouch = (touches as NSSet).anyObject() as! UITouch;
        self.endPoint = endTouch.locationInView(self.superview);
