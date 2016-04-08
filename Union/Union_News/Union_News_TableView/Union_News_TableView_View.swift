@@ -22,7 +22,7 @@ class Union_News_TableView_View: UIView {
                 self.urlString = newValue;
             }
         }
-        didSet(newUrlString){
+        didSet{
 
             self.loadData();
         }

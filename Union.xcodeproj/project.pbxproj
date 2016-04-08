@@ -22,6 +22,8 @@
 		64DA97E31CB798E40009261D /* StringDeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA97E21CB798E40009261D /* StringDeal.swift */; };
 		64DA97E51CB7A64A0009261D /* TimeFormattor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA97E41CB7A64A0009261D /* TimeFormattor.swift */; };
 		64DA97E71CB7AEFE0009261D /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DA97E61CB7AEFD0009261D /* Reveal.framework */; };
+		64DA97EA1CB7C3820009261D /* MyUnion_UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA97E91CB7C3820009261D /* MyUnion_UserTableViewCell.swift */; };
+		64DA97EC1CB7C5940009261D /* MyUnion_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA97EB1CB7C5940009261D /* MyUnion_TableViewCell.swift */; };
 		64E0E7341CB6268400555075 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64E0E7331CB6268400555075 /* Assets.xcassets */; };
 		64E0E7371CB6268400555075 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E0E7351CB6268400555075 /* LaunchScreen.storyboard */; };
 		64E0E7421CB6268400555075 /* UnionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0E7411CB6268400555075 /* UnionTests.swift */; };
@@ -243,6 +245,8 @@
 		64DA97E21CB798E40009261D /* StringDeal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringDeal.swift; sourceTree = "<group>"; };
 		64DA97E41CB7A64A0009261D /* TimeFormattor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormattor.swift; sourceTree = "<group>"; };
 		64DA97E61CB7AEFD0009261D /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		64DA97E91CB7C3820009261D /* MyUnion_UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUnion_UserTableViewCell.swift; sourceTree = "<group>"; };
+		64DA97EB1CB7C5940009261D /* MyUnion_TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUnion_TableViewCell.swift; sourceTree = "<group>"; };
 		64E0E7291CB6268400555075 /* Union.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Union.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E0E7331CB6268400555075 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64E0E7361CB6268400555075 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -554,6 +558,15 @@
 				64DA97E41CB7A64A0009261D /* TimeFormattor.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		64DA97E81CB7C3610009261D /* Union_MyUnion_Cells */ = {
+			isa = PBXGroup;
+			children = (
+				64DA97E91CB7C3820009261D /* MyUnion_UserTableViewCell.swift */,
+				64DA97EB1CB7C5940009261D /* MyUnion_TableViewCell.swift */,
+			);
+			path = Union_MyUnion_Cells;
 			sourceTree = "<group>";
 		};
 		64E0E7201CB6268400555075 = {
@@ -932,6 +945,7 @@
 		64E0E8C01CB62ADF00555075 /* Union_MyUinon */ = {
 			isa = PBXGroup;
 			children = (
+				64DA97E81CB7C3610009261D /* Union_MyUnion_Cells */,
 				64E0E8D71CB6498000555075 /* Union_MyUnionViewController.swift */,
 			);
 			path = Union_MyUinon;
@@ -1375,6 +1389,8 @@
 			files = (
 				64E0E8E51CB65EAF00555075 /* DownloadView.swift in Sources */,
 				64E0E8D41CB6495300555075 /* Union_VideoViewController.swift in Sources */,
+				64DA97EC1CB7C5940009261D /* MyUnion_TableViewCell.swift in Sources */,
+				64DA97EA1CB7C3820009261D /* MyUnion_UserTableViewCell.swift in Sources */,
 				64DA97E31CB798E40009261D /* StringDeal.swift in Sources */,
 				5809D2501CB68DBF0011FC71 /* TabView.swift in Sources */,
 				64E0E8D61CB6496900555075 /* Union_EncyViewController.swift in Sources */,
