@@ -182,18 +182,18 @@ class DownloadView: UIView {
     
     func HighlightAnimation(){
         
-        UIView.animateWithDuration(1.5, animations: { () -> Void in
-            self.backgroundView?.backgroundColor = self.backgroundView?.backgroundColor?.colorWithAlphaComponent(0.1);
-            }) { (finished) -> Void in
-                self.DarkAnimation();
+        UIView.animateWithDuration(1.5, animations: {[weak self] () -> Void in
+            self!.backgroundView?.backgroundColor = self!.backgroundView?.backgroundColor?.colorWithAlphaComponent(0.1);
+            }) {[weak self] (finished) -> Void in
+                self!.DarkAnimation();
         }
     }
     
     func DarkAnimation(){
-        UIView.animateWithDuration(1.5, animations: { () -> Void in
-            self.backgroundView?.backgroundColor = self.backgroundView?.backgroundColor?.colorWithAlphaComponent(0.6);
-            }) { (finished) -> Void in
-                self.HighlightAnimation();
+        UIView.animateWithDuration(1.5, animations: {[weak self]() -> Void in
+            self!.backgroundView?.backgroundColor = self!.backgroundView?.backgroundColor?.colorWithAlphaComponent(0.6);
+            }) {[weak self](finished) -> Void in
+                self!.HighlightAnimation();
         }
     }
     deinit{

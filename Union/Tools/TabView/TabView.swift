@@ -41,10 +41,7 @@ class TabView: UIView {
             self.removeAllViews();
             self.loadButton();
         
-        
         }
-        
-    
     
     }
     

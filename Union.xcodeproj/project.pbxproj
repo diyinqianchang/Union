@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		5486416BA907E613A8E4E7A6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D6E4860E500534EB5FA197 /* libPods.a */; };
 		5809D2501CB68DBF0011FC71 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5809D24F1CB68DBF0011FC71 /* TabView.swift */; };
+		64544D391CB7498D009847E2 /* Union_News_TableView_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64544D381CB7498D009847E2 /* Union_News_TableView_View.swift */; };
+		64544D431CB74DDA009847E2 /* maingear.png in Resources */ = {isa = PBXBuildFile; fileRef = 64544D3D1CB74DDA009847E2 /* maingear.png */; };
+		64544D441CB74DDA009847E2 /* maingear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64544D3E1CB74DDA009847E2 /* maingear@2x.png */; };
+		64544D451CB74DDA009847E2 /* MainGear@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64544D3F1CB74DDA009847E2 /* MainGear@3x.png */; };
+		64544D461CB74DDA009847E2 /* othergear.png in Resources */ = {isa = PBXBuildFile; fileRef = 64544D401CB74DDA009847E2 /* othergear.png */; };
+		64544D471CB74DDA009847E2 /* othergear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64544D411CB74DDA009847E2 /* othergear@2x.png */; };
+		64544D481CB74DDA009847E2 /* othergear@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64544D421CB74DDA009847E2 /* othergear@3x.png */; };
+		64544D4A1CB74F8A009847E2 /* Union_News_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64544D491CB74F8A009847E2 /* Union_News_TableViewCell.swift */; };
+		64544D4D1CB75227009847E2 /* AFNetWorkingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64544D4C1CB75227009847E2 /* AFNetWorkingTool.swift */; };
+		64DA97E01CB787E30009261D /* Union_News_TableView_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA97DF1CB787E30009261D /* Union_News_TableView_Model.swift */; };
+		64DA97E31CB798E40009261D /* StringDeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA97E21CB798E40009261D /* StringDeal.swift */; };
+		64DA97E51CB7A64A0009261D /* TimeFormattor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA97E41CB7A64A0009261D /* TimeFormattor.swift */; };
+		64DA97E71CB7AEFE0009261D /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DA97E61CB7AEFD0009261D /* Reveal.framework */; };
 		64E0E7341CB6268400555075 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64E0E7331CB6268400555075 /* Assets.xcassets */; };
 		64E0E7371CB6268400555075 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E0E7351CB6268400555075 /* LaunchScreen.storyboard */; };
 		64E0E7421CB6268400555075 /* UnionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0E7411CB6268400555075 /* UnionTests.swift */; };
@@ -217,6 +230,19 @@
 		26D6E4860E500534EB5FA197 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDD245B5EB30F8E7AD012BB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5809D24F1CB68DBF0011FC71 /* TabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		64544D381CB7498D009847E2 /* Union_News_TableView_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Union_News_TableView_View.swift; sourceTree = "<group>"; };
+		64544D3D1CB74DDA009847E2 /* maingear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maingear.png; sourceTree = "<group>"; };
+		64544D3E1CB74DDA009847E2 /* maingear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maingear@2x.png"; sourceTree = "<group>"; };
+		64544D3F1CB74DDA009847E2 /* MainGear@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MainGear@3x.png"; sourceTree = "<group>"; };
+		64544D401CB74DDA009847E2 /* othergear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = othergear.png; sourceTree = "<group>"; };
+		64544D411CB74DDA009847E2 /* othergear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "othergear@2x.png"; sourceTree = "<group>"; };
+		64544D421CB74DDA009847E2 /* othergear@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "othergear@3x.png"; sourceTree = "<group>"; };
+		64544D491CB74F8A009847E2 /* Union_News_TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Union_News_TableViewCell.swift; sourceTree = "<group>"; };
+		64544D4C1CB75227009847E2 /* AFNetWorkingTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFNetWorkingTool.swift; sourceTree = "<group>"; };
+		64DA97DF1CB787E30009261D /* Union_News_TableView_Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Union_News_TableView_Model.swift; sourceTree = "<group>"; };
+		64DA97E21CB798E40009261D /* StringDeal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringDeal.swift; sourceTree = "<group>"; };
+		64DA97E41CB7A64A0009261D /* TimeFormattor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormattor.swift; sourceTree = "<group>"; };
+		64DA97E61CB7AEFD0009261D /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		64E0E7291CB6268400555075 /* Union.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Union.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E0E7331CB6268400555075 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64E0E7361CB6268400555075 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -418,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5486416BA907E613A8E4E7A6 /* libPods.a in Frameworks */,
+				64DA97E71CB7AEFE0009261D /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +468,9 @@
 		5809D24D1CB68D900011FC71 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				64DA97E11CB798570009261D /* Others */,
+				64544D4B1CB751EE009847E2 /* NetWork */,
+				64544D3A1CB74DB6009847E2 /* GearPoweredLoading */,
 				5809D24E1CB68DA60011FC71 /* TabView */,
 			);
 			path = Tools;
@@ -452,6 +482,78 @@
 				5809D24F1CB68DBF0011FC71 /* TabView.swift */,
 			);
 			path = TabView;
+			sourceTree = "<group>";
+		};
+		64544D351CB73DA6009847E2 /* Union_News_TableView */ = {
+			isa = PBXGroup;
+			children = (
+				64544D361CB73DA6009847E2 /* Union_News_TableView_ViewCell */,
+				64544D371CB73DA6009847E2 /* Union_News_TableView_ViewModel */,
+				64544D381CB7498D009847E2 /* Union_News_TableView_View.swift */,
+			);
+			path = Union_News_TableView;
+			sourceTree = "<group>";
+		};
+		64544D361CB73DA6009847E2 /* Union_News_TableView_ViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				64544D491CB74F8A009847E2 /* Union_News_TableViewCell.swift */,
+			);
+			path = Union_News_TableView_ViewCell;
+			sourceTree = "<group>";
+		};
+		64544D371CB73DA6009847E2 /* Union_News_TableView_ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				64DA97DF1CB787E30009261D /* Union_News_TableView_Model.swift */,
+			);
+			path = Union_News_TableView_ViewModel;
+			sourceTree = "<group>";
+		};
+		64544D3A1CB74DB6009847E2 /* GearPoweredLoading */ = {
+			isa = PBXGroup;
+			children = (
+				64544D3B1CB74DB6009847E2 /* GearResources */,
+				64544D3C1CB74DB6009847E2 /* LoadingView */,
+			);
+			path = GearPoweredLoading;
+			sourceTree = "<group>";
+		};
+		64544D3B1CB74DB6009847E2 /* GearResources */ = {
+			isa = PBXGroup;
+			children = (
+				64544D3D1CB74DDA009847E2 /* maingear.png */,
+				64544D3E1CB74DDA009847E2 /* maingear@2x.png */,
+				64544D3F1CB74DDA009847E2 /* MainGear@3x.png */,
+				64544D401CB74DDA009847E2 /* othergear.png */,
+				64544D411CB74DDA009847E2 /* othergear@2x.png */,
+				64544D421CB74DDA009847E2 /* othergear@3x.png */,
+			);
+			path = GearResources;
+			sourceTree = "<group>";
+		};
+		64544D3C1CB74DB6009847E2 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
+		64544D4B1CB751EE009847E2 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				64544D4C1CB75227009847E2 /* AFNetWorkingTool.swift */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
+		64DA97E11CB798570009261D /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				64DA97E21CB798E40009261D /* StringDeal.swift */,
+				64DA97E41CB7A64A0009261D /* TimeFormattor.swift */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 		64E0E7201CB6268400555075 = {
@@ -838,6 +940,7 @@
 		64E0E8C11CB62ADF00555075 /* Union_News */ = {
 			isa = PBXGroup;
 			children = (
+				64544D351CB73DA6009847E2 /* Union_News_TableView */,
 				64E0E8D11CB6493E00555075 /* Union_NewsViewController.swift */,
 			);
 			path = Union_News;
@@ -899,6 +1002,7 @@
 		7908857C24D4D7297A671FB0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				64DA97E61CB7AEFD0009261D /* Reveal.framework */,
 				26D6E4860E500534EB5FA197 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -1066,6 +1170,7 @@
 				64E0E83C1CB6270500555075 /* iconfont-caidanyingyong@2x.png in Resources */,
 				64E0E82E1CB6270500555075 /* EnycHero.png in Resources */,
 				64E0E8811CB6270500555075 /* iconfont-gengduo@2x.png in Resources */,
+				64544D441CB74DDA009847E2 /* maingear@2x.png in Resources */,
 				64E0E8841CB6270500555075 /* iconfont-iconfont-sharebutton@2x.png in Resources */,
 				64E0E8321CB6270500555075 /* HeroDetailsBackground.png in Resources */,
 				64E0E8761CB6270500555075 /* iconfont-zhandouli.png in Resources */,
@@ -1084,6 +1189,7 @@
 				64E0E8B91CB6270500555075 /* iconfont-yinliangxiao.png in Resources */,
 				64E0E83A1CB6270500555075 /* GearBackground@2x.png in Resources */,
 				64E0E8781CB6270500555075 /* stateImageisNo@2x.png in Resources */,
+				64544D481CB74DDA009847E2 /* othergear@3x.png in Resources */,
 				64E0E8151CB6270500555075 /* startImage.png in Resources */,
 				64E0E82F1CB6270500555075 /* EnycHero@2x.png in Resources */,
 				64E0E8221CB6270500555075 /* ency_demaxiya@3x.png in Resources */,
@@ -1127,9 +1233,12 @@
 				64E0E8831CB6270500555075 /* iconfont-iconfont-sharebutton.png in Resources */,
 				64E0E8211CB6270500555075 /* ency_demaxiya@2x.png in Resources */,
 				64E0E84A1CB6270500555075 /* poluoimage@2x.png in Resources */,
+				64544D431CB74DDA009847E2 /* maingear.png in Resources */,
 				64E0E8871CB6270500555075 /* iconfont-sharebutton@2x.png in Resources */,
+				64544D471CB74DDA009847E2 /* othergear@2x.png in Resources */,
 				64E0E8771CB6270500555075 /* stateImageisNo.png in Resources */,
 				64E0E8701CB6270500555075 /* iconfont-dacumojian@3x.png in Resources */,
+				64544D461CB74DDA009847E2 /* othergear.png in Resources */,
 				64E0E8971CB6270500555075 /* iconfont-xiazaiimage@2x.png in Resources */,
 				64E0E8AB1CB6270500555075 /* iconfont-bofang@3x.png in Resources */,
 				64E0E8671CB6270500555075 /* 37x-Checkmark@2x.png in Resources */,
@@ -1165,6 +1274,7 @@
 				64E0E8A91CB6270500555075 /* iconfont-bofang.png in Resources */,
 				64E0E81C1CB6270500555075 /* ency_bandeercheng@3x.png in Resources */,
 				64E0E88E1CB6270500555075 /* iconfont-zan.png in Resources */,
+				64544D451CB74DDA009847E2 /* MainGear@3x.png in Resources */,
 				64E0E8731CB6270500555075 /* iconfont-youxia.png in Resources */,
 				64E0E81B1CB6270500555075 /* ency_bandeercheng@2x.png in Resources */,
 				64E0E82B1CB6270500555075 /* ency_zuoen@3x.png in Resources */,
@@ -1265,16 +1375,22 @@
 			files = (
 				64E0E8E51CB65EAF00555075 /* DownloadView.swift in Sources */,
 				64E0E8D41CB6495300555075 /* Union_VideoViewController.swift in Sources */,
+				64DA97E31CB798E40009261D /* StringDeal.swift in Sources */,
 				5809D2501CB68DBF0011FC71 /* TabView.swift in Sources */,
 				64E0E8D61CB6496900555075 /* Union_EncyViewController.swift in Sources */,
 				64E0E8D81CB6498000555075 /* Union_MyUnionViewController.swift in Sources */,
 				64E0E8E11CB6547F00555075 /* GCDSemaphore.swift in Sources */,
+				64DA97E01CB787E30009261D /* Union_News_TableView_Model.swift in Sources */,
 				64E0E8CE1CB6484E00555075 /* BaseTabBarController.swift in Sources */,
+				64544D4A1CB74F8A009847E2 /* Union_News_TableViewCell.swift in Sources */,
 				64E0E8DF1CB6547F00555075 /* GCDGroup.swift in Sources */,
 				64E0E8D21CB6493E00555075 /* Union_NewsViewController.swift in Sources */,
+				64544D391CB7498D009847E2 /* Union_News_TableView_View.swift in Sources */,
 				64E0E8C91CB62C9800555075 /* config.swift in Sources */,
 				64E0E8E21CB6547F00555075 /* GCDTimer.swift in Sources */,
 				64E0E8E01CB6547F00555075 /* GCDQueue.swift in Sources */,
+				64DA97E51CB7A64A0009261D /* TimeFormattor.swift in Sources */,
+				64544D4D1CB75227009847E2 /* AFNetWorkingTool.swift in Sources */,
 				64E0E8BE1CB62A4600555075 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1409,6 +1525,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Union/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1425,6 +1545,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Union/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -19,35 +19,89 @@ class Union_NewsViewController: UIViewController {
         return tabView;
     
     }();
+    var mainScrollView:UIScrollView = {
+    
+        let scrollView = UIScrollView(frame: CGRectMake(0,40,SCREEN_WIDTH,SCREEN_HEIGHT-153));
+        scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 6.0,SCREEN_HEIGHT-153);
+        scrollView.pagingEnabled = true;
+        scrollView.directionalLockEnabled = true;
+        scrollView.showsHorizontalScrollIndicator = false;
+        return scrollView;
+    
+    }();
+    var newsTopTableView:Union_News_TableView_View?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.view.addSubview(self.tabView);
-        self.tabView.tabIndex_Block = ({(selectIndex:NSInteger)->Void in
+        self.tabView.tabIndex_Block = ({[weak self](selectIndex:NSInteger)->Void in
         
             let se = selectIndex;
-            print(se);
+            self!.switchViewBySelectIndex(se);
             
         });
+        self.loadAllViews();
 
         
     }
-
+    /**
+        切换视图
+     
+     - parameter selectIndex: 编号
+     */
+    func switchViewBySelectIndex(selectIndex:NSInteger){
+    
+        self.mainScrollView.contentOffset = CGPointMake(CGRectGetWidth(self.mainScrollView.frame) * CGFloat(selectIndex), 0);
+    
+    }
+    func loadAllViews() {
+        //头条
+        self.view.addSubview(self.mainScrollView);
+        self.mainScrollView.delegate = self;
+        self.loadNewsTableViews();
+        
+        
+        
+        
+    }
+    func loadNewsTableViews(){
+    
+        do{
+            self.newsTopTableView = Union_News_TableView_View(frame: CGRectMake(0,0,CGRectGetWidth(self.mainScrollView.frame),CGRectGetHeight(self.mainScrollView.frame)));
+            self.newsTopTableView?.detailBlock = {[weak self](string:String,type:String) -> Void in
+            
+                print("\(string)hehe\(type)");
+            
+            }
+            self.newsTopTableView?.topicBlock = {(string:String,type:String) -> Void in
+            
+                
+                print("\(string)hehe\(type)");
+            
+            }
+            self.newsTopTableView?.urlString = NSString(format: kNews_ListURL as NSString, "headlineNews","0") as String;
+            self.mainScrollView.addSubview(self.newsTopTableView!);
+        }
+       
+    
+    
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+       
     }
     
 
-    /*
-    // MARK: - Navigation
+    
+}
+extension Union_NewsViewController:UIScrollViewDelegate{
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
+
+
+
 
 }
