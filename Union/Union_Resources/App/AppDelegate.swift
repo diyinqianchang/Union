@@ -36,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let version:String = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String;
         MobClick.setAppVersion(version);
         UMFeedback.setAppkey("55d4404ae0f55a066500096e");
+        
+        MobClick.updateOnlineConfig();
        
         return true
     }
@@ -44,8 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.addSubview(self.downloadVC);
         self.window?.bringSubviewToFront(self.downloadVC);
         
-        let isShowDownLoad = true;
-        if isShowDownLoad{
+       print("\(MobClick.getConfigParams("isShowDownLoad"))")
+        
+        let isShowDownLoad = NSString(string: MobClick.getConfigParams("isShowDownLoad")).boolValue;
+        
+        if isShowDownLoad {
         
             let defaults = NSUserDefaults.standardUserDefaults();
             var isHiddenDownloadView = false;
@@ -64,7 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else{
          
             self.downloadVC.hidden = true;
-        
         }
         
     

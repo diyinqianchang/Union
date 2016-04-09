@@ -2,6 +2,7 @@ platform :ios, "7.0"
 
 pod 'SDWebImage', '~>3.7'
 
+pod 'FMDB'
 
 pod "pop"
 
@@ -19,6 +20,6 @@ pod "CBZSplashView", "~> 1.0.0"
 
 pod "skpsmtpmessage"
 
-pod "UMengAnalytics"
+pod "UMengAnalytics","~> 3.5.14"
 
 pod "UMengFeedback", "~> 2.3.4"

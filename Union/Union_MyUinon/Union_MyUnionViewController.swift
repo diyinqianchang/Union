@@ -10,6 +10,9 @@ import UIKit
 
 class Union_MyUnionViewController: UIViewController {
 
+    
+    
+    
     var myTableView:UITableView?
     lazy var dictArr:NSDictionary={
     
@@ -24,27 +27,26 @@ class Union_MyUnionViewController: UIViewController {
         super.viewDidLoad()
         
         
+//        let model = SummonerModel();
+//        
+//        let manager = SummonerDataBaseManager.sharedInstance;
+//        
+//        manager.getModelProperties(model);
+        
         
             self.myTableView = UITableView(frame: CGRectMake(0,0,SCREEN_WIDTH,SCREEN_HEIGHT - 113), style: .Grouped);
             self.myTableView?.backgroundColor = RGB(245, g: 245, b: 245);
             self.myTableView?.registerClass(MyUnion_TableViewCell.classForCoder(), forCellReuseIdentifier: "cell");
+            self.myTableView?.registerClass(MyUnion_UserTableViewCell.classForCoder(), forCellReuseIdentifier:"Cell");
             self.myTableView?.delegate = self;
             self.myTableView?.dataSource = self;
-            
-        
-             self.view.addSubview(self.myTableView!);
-        
-            print(self.dictArr);
-
-       
+            self.view.addSubview(self.myTableView!);
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
-    
-
     
 
 }
@@ -80,10 +82,47 @@ extension Union_MyUnionViewController:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath);
+        if indexPath.section == 0{
+        
+            let Cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! MyUnion_UserTableViewCell ;
+            
+            return Cell;
         
         
-        return cell;
+        }else{
+        
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! MyUnion_TableViewCell;
+    
+            let index = NSString(format: "%ld", indexPath.section);
+        
+            let dataArr = self.dictArr[index];
+            
+            if indexPath.section != 3{
+                
+                cell.titleLabel?.text = dataArr![0] as? String;
+                
+            }else{
+            
+                let section3Data = dataArr![indexPath.row] as! Array<String>;
+                
+                cell.titleLabel?.text = section3Data[0]
+                
+                if indexPath.row == 3{
+                
+                    let defaults = NSBundle.mainBundle().infoDictionary;
+                    
+                    let version = defaults!["CFBundleShortVersionString"] as! String;
+                    
+                    cell.detailTitleLabel?.text = "V" + version;
+                
+                }
+            
+            }
+            cell.accessoryType = .DisclosureIndicator;
+            return cell;
+        
+        }
     }
     
 //    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -110,6 +149,13 @@ extension Union_MyUnionViewController:UITableViewDelegate,UITableViewDataSource{
         
             return 48;
         }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: false);
+        
+        
     }
 
 

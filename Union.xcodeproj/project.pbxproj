@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5486416BA907E613A8E4E7A6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D6E4860E500534EB5FA197 /* libPods.a */; };
 		5809D2501CB68DBF0011FC71 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5809D24F1CB68DBF0011FC71 /* TabView.swift */; };
+		643101811CB8F0010091CB0D /* SummonerDataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643101801CB8F0010091CB0D /* SummonerDataBaseManager.swift */; };
 		64544D391CB7498D009847E2 /* Union_News_TableView_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64544D381CB7498D009847E2 /* Union_News_TableView_View.swift */; };
 		64544D431CB74DDA009847E2 /* maingear.png in Resources */ = {isa = PBXBuildFile; fileRef = 64544D3D1CB74DDA009847E2 /* maingear.png */; };
 		64544D441CB74DDA009847E2 /* maingear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64544D3E1CB74DDA009847E2 /* maingear@2x.png */; };
@@ -209,6 +210,7 @@
 		64E0E8E11CB6547F00555075 /* GCDSemaphore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0E8DD1CB6547F00555075 /* GCDSemaphore.swift */; };
 		64E0E8E21CB6547F00555075 /* GCDTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0E8DE1CB6547F00555075 /* GCDTimer.swift */; };
 		64E0E8E51CB65EAF00555075 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0E8E41CB65EAF00555075 /* DownloadView.swift */; };
+		64F377581CB88FAF00EE3EEE /* SummonerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F377571CB88FAF00EE3EEE /* SummonerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +234,7 @@
 		26D6E4860E500534EB5FA197 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDD245B5EB30F8E7AD012BB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5809D24F1CB68DBF0011FC71 /* TabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		643101801CB8F0010091CB0D /* SummonerDataBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerDataBaseManager.swift; sourceTree = "<group>"; };
 		64544D381CB7498D009847E2 /* Union_News_TableView_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Union_News_TableView_View.swift; sourceTree = "<group>"; };
 		64544D3D1CB74DDA009847E2 /* maingear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maingear.png; sourceTree = "<group>"; };
 		64544D3E1CB74DDA009847E2 /* maingear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maingear@2x.png"; sourceTree = "<group>"; };
@@ -439,6 +442,7 @@
 		64E0E8DD1CB6547F00555075 /* GCDSemaphore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDSemaphore.swift; sourceTree = "<group>"; };
 		64E0E8DE1CB6547F00555075 /* GCDTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDTimer.swift; sourceTree = "<group>"; };
 		64E0E8E41CB65EAF00555075 /* DownloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
+		64F377571CB88FAF00EE3EEE /* SummonerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerModel.swift; sourceTree = "<group>"; };
 		C9BC953AF3FE34E33A1DE64D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -486,6 +490,13 @@
 				5809D24F1CB68DBF0011FC71 /* TabView.swift */,
 			);
 			path = TabView;
+			sourceTree = "<group>";
+		};
+		643101821CB9081A0091CB0D /* Union_SettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Union_SettingViewController;
 			sourceTree = "<group>";
 		};
 		64544D351CB73DA6009847E2 /* Union_News_TableView */ = {
@@ -945,6 +956,9 @@
 		64E0E8C01CB62ADF00555075 /* Union_MyUinon */ = {
 			isa = PBXGroup;
 			children = (
+				643101821CB9081A0091CB0D /* Union_SettingViewController */,
+				64F377551CB88EA800EE3EEE /* Union_SummonerDataBase */,
+				64F377561CB88EA800EE3EEE /* Union_SummonerModel */,
 				64DA97E81CB7C3610009261D /* Union_MyUnion_Cells */,
 				64E0E8D71CB6498000555075 /* Union_MyUnionViewController.swift */,
 			);
@@ -1011,6 +1025,22 @@
 				64E0E8E41CB65EAF00555075 /* DownloadView.swift */,
 			);
 			path = DownloadView;
+			sourceTree = "<group>";
+		};
+		64F377551CB88EA800EE3EEE /* Union_SummonerDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				643101801CB8F0010091CB0D /* SummonerDataBaseManager.swift */,
+			);
+			path = Union_SummonerDataBase;
+			sourceTree = "<group>";
+		};
+		64F377561CB88EA800EE3EEE /* Union_SummonerModel */ = {
+			isa = PBXGroup;
+			children = (
+				64F377571CB88FAF00EE3EEE /* SummonerModel.swift */,
+			);
+			path = Union_SummonerModel;
 			sourceTree = "<group>";
 		};
 		7908857C24D4D7297A671FB0 /* Frameworks */ = {
@@ -1398,10 +1428,12 @@
 				64E0E8E11CB6547F00555075 /* GCDSemaphore.swift in Sources */,
 				64DA97E01CB787E30009261D /* Union_News_TableView_Model.swift in Sources */,
 				64E0E8CE1CB6484E00555075 /* BaseTabBarController.swift in Sources */,
+				643101811CB8F0010091CB0D /* SummonerDataBaseManager.swift in Sources */,
 				64544D4A1CB74F8A009847E2 /* Union_News_TableViewCell.swift in Sources */,
 				64E0E8DF1CB6547F00555075 /* GCDGroup.swift in Sources */,
 				64E0E8D21CB6493E00555075 /* Union_NewsViewController.swift in Sources */,
 				64544D391CB7498D009847E2 /* Union_News_TableView_View.swift in Sources */,
+				64F377581CB88FAF00EE3EEE /* SummonerModel.swift in Sources */,
 				64E0E8C91CB62C9800555075 /* config.swift in Sources */,
 				64E0E8E21CB6547F00555075 /* GCDTimer.swift in Sources */,
 				64E0E8E01CB6547F00555075 /* GCDQueue.swift in Sources */,
@@ -1541,6 +1573,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1561,6 +1594,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
