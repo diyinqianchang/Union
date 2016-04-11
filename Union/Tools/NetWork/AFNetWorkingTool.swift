@@ -23,6 +23,8 @@ class AFNetWorkingTool: NSObject {
         manager.requestSerializer.timeoutInterval = 10;
         manager.requestSerializer.didChangeValueForKey("timeoutInterval");
         
+        manager.operationQueue.cancelAllOperations();
+        
 //        [NSSet setWithObjects:@"application/json", @"text/html",@"text/json", @"text/javascript", nil];﻿﻿
         let set :Set = NSSet(objects: "application/json","text/html","text/json","text/javascript") as Set;
         

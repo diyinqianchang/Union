@@ -23,8 +23,11 @@ class Union_News_TableView_View: UIView {
             }
         }
         didSet{
-
+            
             self.loadData();
+            self.tableView?.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+            self.gearPowered?.url = NSURL(string:NSString(format: self.urlString, self.page!) as String);
+
         }
     
     }      //NSString
@@ -47,6 +50,10 @@ class Union_News_TableView_View: UIView {
     
     var page:NSInteger?
     
+    var gearPowered:GearPowered?
+    var loadingView:LoadingView?
+    var isBottomLoading:Bool?
+    
     override init(frame: CGRect) {
         self.urlString = String();
         super.init(frame: frame);
@@ -57,6 +64,19 @@ class Union_News_TableView_View: UIView {
         self.tableView?.dataSource = self;
         self.addSubview(self.tableView!);
         self.tableView?.registerClass(Union_News_TableViewCell.classForCoder(), forCellReuseIdentifier: "CELL");
+        
+        self.page = 1;
+        self.gearPowered = GearPowered();
+        self.gearPowered?.mainScrollView = self.tableView!
+        self.gearPowered?.isAuxiliaryGear = true;
+//        self.gearPowered?.delegate = self;
+        
+        self.loadingView = LoadingView(frame: CGRectMake(0,0,CGRectGetWidth(self.frame),CGRectGetHeight(self.frame)));
+        self.loadingView?.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3);
+        self.loadingView?.loadingColor = UIColor.whiteColor();
+        self.loadingView?.viewHidden = true;
+        self.addSubview(self.loadingView!);
+        
     }
 
     
@@ -66,32 +86,65 @@ class Union_News_TableView_View: UIView {
         
         print(self.urlString);
         
-        AFNetWorkingTool.getDataFromNet(self.urlString, params:NSDictionary(), success: {[weak self] (responseObject) -> Void in
-            
-             let dict = responseObject as! NSDictionary
+        
+        let cacheData = DataCache.shareInstance.getDataForDocument(dataName:NSString(format:"%@%ld","NewsListData",self.scrollPage!) as String, ClassifyName: "News");
+        if cacheData is NSNull{
+            self.loadingView?.hidden = true;
+        }else{
+          
+            self.dataArray.removeAllObjects();
+            self.tableView?.reloadData();
+            self.JSONSerializationWithData(cacheData);
+           
+        }
+        self.isBottomLoading = false;
+        
+        AFNetWorkingTool.getDataFromNet(NSString(format: self.urlString, self.page!) as String, params:NSDictionary(), success: {[weak self] (responseObject) -> Void in
 
-            
-            let dataArr:NSArray = dict["data"] as! NSArray;
-//            print(dataArr.count);
-            
-            for(_,dictData) in dataArr.enumerate() {
-                let model:Union_News_TableView_Model = Union_News_TableView_Model();
-                model.setValuesForKeysWithDictionary(dictData as! [String : AnyObject]);
-                self?.dataArray.addObject(model);
-            }
+//             let dict = responseObject as! NSDictionary
+//
+//
+//            let dataArr:NSArray = dict["data"] as! NSArray;
+////            print(dataArr.count);
+//
+//            for(_,dictData) in dataArr.enumerate() {
+//                let model:Union_News_TableView_Model = Union_News_TableView_Model();
+//                model.setValuesForKeysWithDictionary(dictData as! [String : AnyObject]);
+//                self?.dataArray.addObject(model);
+//            }
+            self?.dataArray.removeAllObjects();
             self?.tableView?.reloadData();
-
+            self?.JSONSerializationWithData(responseObject);
+            DataCache.shareInstance.saveDataForDocument(responseObject, DataName:"NewsListData" + ((NSString(format: "%ld", (self?.scrollPage)!)) as String) as String, Classify: "News");
+           
+            self?.loadingView?.hidden = true;
+            
             }) { (error) -> Void in
+                
+               
                 
                 print("error=="+"\(error)");
         }
-    
+
         
-    
-    
     
     }
     
+    func JSONSerializationWithData(data:AnyObject?){
+    
+        if data != nil{
+            
+            let dict = data as! NSDictionary
+            let dataArr:NSArray = dict["data"] as! NSArray;
+            for(_,dictData) in dataArr.enumerate() {
+            let model:Union_News_TableView_Model = Union_News_TableView_Model();
+            model.setValuesForKeysWithDictionary(dictData as! [String : AnyObject]);
+            self.dataArray.addObject(model);
+           }
+           self.tableView?.reloadData();
+        
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

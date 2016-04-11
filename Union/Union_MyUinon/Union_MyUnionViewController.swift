@@ -155,7 +155,26 @@ extension Union_MyUnionViewController:UITableViewDelegate,UITableViewDataSource{
         
         tableView.deselectRowAtIndexPath(indexPath, animated: false);
         
+        switch indexPath.section{
         
+        case 0:
+            break;
+        case 1:
+            break;
+        case 2:
+            do{
+            
+                let settingVc = SettingViewController();
+                self.navigationController?.pushViewController(settingVc, animated: true);
+                
+            }
+            break;
+        case 3:
+            break;
+        default:
+            break;
+        
+        }
     }
 
 

@@ -70,6 +70,7 @@ class Union_NewsViewController: UIViewController {
     
         do{
             self.newsTopTableView = Union_News_TableView_View(frame: CGRectMake(0,0,CGRectGetWidth(self.mainScrollView.frame),CGRectGetHeight(self.mainScrollView.frame)));
+            self.newsTopTableView?.scrollPage = 0;
             self.newsTopTableView?.detailBlock = {[weak self](string:String,type:String) -> Void in
             
                 print("\(string)hehe\(type)");
@@ -81,7 +82,7 @@ class Union_NewsViewController: UIViewController {
                 print("\(string)hehe\(type)");
             
             }
-            self.newsTopTableView?.urlString = NSString(format: kNews_ListURL as NSString, "headlineNews","0") as String;
+            self.newsTopTableView?.urlString = NSString(format: kNews_ListURL as NSString, "headlineNews","%ld") as String;
             self.mainScrollView.addSubview(self.newsTopTableView!);
         }
        
