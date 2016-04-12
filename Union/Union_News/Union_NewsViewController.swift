@@ -100,7 +100,15 @@ class Union_NewsViewController: UIViewController {
 }
 extension Union_NewsViewController:UIScrollViewDelegate{
 
-
+ 
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        
+        let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width);
+        print("page === \(page)");
+        self.tabView.selectIndex = page;
+        
+        
+    }
 
 
 

@@ -139,7 +139,7 @@ class Union_News_TableViewCell: UITableViewCell {
         text = text.removeSensitiveWordsWithArray(["手机盒子"]);
         let height = String.getHeightWithString(text, width: CGRectGetWidth(self.titleLabel!.frame), fontSize: 12);
         
-        print("gaodu"+"\(height)");
+//        print("gaodu"+"\(height)");
         
         
         self.contentLabel?.frame = CGRectMake(80 + 10, 16, self.titleLabel!.frame.size.width, height > 30 ? 30 : height);
@@ -151,8 +151,8 @@ class Union_News_TableViewCell: UITableViewCell {
         self.contentLabel?.text = text;
         
         //先赋值在计算
-        let size = self.contentLabel?.sizeThatFits(CGSize(width: CGRectGetWidth(self.titleLabel!.frame),height: CGFloat.max));
-        print("errr"+"\(size!.height)")
+//        let size = self.contentLabel?.sizeThatFits(CGSize(width: CGRectGetWidth(self.titleLabel!.frame),height: CGFloat.max));
+//        print("errr"+"\(size!.height)")
 
     
     }
@@ -190,14 +190,9 @@ class Union_News_TableViewCell: UITableViewCell {
     }
     
     
-    
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
     
 
     override func awakeFromNib() {

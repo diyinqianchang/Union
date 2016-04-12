@@ -16,6 +16,7 @@ class GPLoadingView: UIView {
     var didLoadBlock:DidLoadAnimationBlock?
     
     var topView:UIView?
+    
     var mainGear:UIImageView?
     var topGear:UIImageView?
     var leftGear:UIImageView?
@@ -29,14 +30,16 @@ class GPLoadingView: UIView {
     var isLoading:Bool = false;
     var isAuxiliaryGear:Bool = false;
     override init(frame: CGRect) {
-        super.init(frame: frame);
-        self.backgroundColor = RGB(37, g: 77, b: 138);
-        self.clipsToBounds = true;
         
+        super.init(frame: frame);
+        
+        self.backgroundColor = UIColor(red: 37/255.0, green: 77/255.0, blue: 138/255.0, alpha: 1.0);
+        self.clipsToBounds = true;
+    
         self.errorView = UIView(frame: CGRectMake(0,0,10,10));
         self.errorView?.center = CGPointMake(-10, -10);
         self.errorView?.clipsToBounds = true;
-        self.backgroundColor = UIColor.clearColor();
+        self.errorView?.backgroundColor = UIColor.clearColor();
         self.addSubview(self.errorView!);
         
         self.leftView = UIView();
@@ -47,42 +50,42 @@ class GPLoadingView: UIView {
         self.rightView?.backgroundColor = RGB(94, g: 136, b: 233);
         self.addSubview(self.rightView!);
         
-        
         self.mainGear = UIImageView(frame: CGRectMake(0,0,70,70));
         self.mainGear?.tintColor = RGB(99, g: 141, b: 237);
-        self.mainGear?.image = UIImage(named: "maingear");
+        self.mainGear?.image = UIImage(named: "maingear")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
         self.mainGear?.clipsToBounds = true;
         self.mainGear?.layer.cornerRadius = 35;
+        self.mainGear?.backgroundColor = UIColor.clearColor();
         self.addSubview(self.mainGear!);
         
         self.leftGear = UIImageView(frame: CGRectMake(0,0,140,140));
         self.leftGear?.tintColor = RGB(99, g: 141, b: 237);
-        self.leftGear?.image = UIImage(named: "othergear");
+        self.leftGear?.image = UIImage(named: "othergear")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
         self.leftGear?.clipsToBounds = true;
         self.leftGear?.layer.cornerRadius = 70;
         self.addSubview(self.leftGear!);
         
         self.downGear = UIImageView(frame: CGRectMake(0,0,110,110));
         self.downGear?.tintColor = RGB(99, g: 141, b: 237);
-        self.downGear?.image = UIImage(named: "othergear");
+        self.downGear?.image = UIImage(named: "othergear")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
         self.downGear?.clipsToBounds = true;
         self.downGear?.layer.cornerRadius = 55;
         self.addSubview(self.downGear!);
         
         self.topGear = UIImageView(frame: CGRectMake(0,0,110,110));
         self.topGear?.tintColor = RGB(99, g: 141, b: 237);
-        self.topGear?.image = UIImage(named: "othergear");
+        self.topGear?.image = UIImage(named: "othergear")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
         self.topGear?.clipsToBounds = true;
         self.topGear?.layer.cornerRadius = 55;
         self.addSubview(self.topGear!);
         
         
         self.rightGear = UIImageView(frame: CGRectMake(0,0,140,140));
-        self.topGear?.tintColor = UIColor(red: 94/255.0, green: 136/255.0, blue: 232/255.0, alpha: 0.6);
-        self.topGear?.image = UIImage(named: "othergear");
-        self.topGear?.clipsToBounds = true;
-        self.topGear?.layer.cornerRadius = 70;
-        self.addSubview(self.topGear!);
+        self.rightGear?.tintColor = UIColor(red: 94/255.0, green: 136/255.0, blue: 232/255.0, alpha: 0.6);
+        self.rightGear?.image = UIImage(named: "othergear")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+        self.rightGear?.clipsToBounds = true;
+        self.rightGear?.layer.cornerRadius = 70;
+        self.addSubview(self.rightGear!);
         
         self.topView = UIView(frame: CGRectMake(0,-5,CGRectGetWidth(self.frame),5));
         self.topView?.dropShow(offset: CGSizeMake(0,5), radius: 5, color: UIColor.darkGrayColor(), opacity: 0.8);
@@ -106,6 +109,7 @@ class GPLoadingView: UIView {
         
         let  mainx = self.frame.size.width / 2;
         let mainy = self.frame.size.height / 2;
+        self.mainGear?.center = CGPointMake(mainx,mainy);
         if self.isLoading == false{
         
             self.moveAuxiliaryGear(mainx, mainy: mainy);
@@ -138,6 +142,7 @@ class GPLoadingView: UIView {
         self.rightGear?.center = CGPointMake( rightx , righty );
     }
     func willLoadView(){
+        
         if self.isLoading == false{
             //旋转齿轮
             self.mainGear!.transform = CGAffineTransformRotate(self.mainGear!.transform, CGFloat(-M_PI_4 / 20.0 * 2.0));
@@ -173,6 +178,9 @@ class GPLoadingView: UIView {
     }
     
     func runGear(){
+        
+        self.runMainGear();
+        
         if self.isAuxiliaryGear == false{
         
         }else{
@@ -185,18 +193,23 @@ class GPLoadingView: UIView {
     }
     
     func runMainGear(){
+        
         self.mainGear?.layer.addAnimation(self.rotationGear(Float(M_PI * 1.8)), forKey: "Rotation");
     }
     func runLeftGear(){
+        
         self.leftGear?.layer.addAnimation(self.rotationGear(Float(M_PI * 1.0)), forKey: "Rotation");
     }
     func runTopGear(){
+        
         self.topGear?.layer.addAnimation(self.rotationGear(Float(-M_PI * 1.0)), forKey: "Rotation");
     }
     func runRightGear(){
+        
         self.rightGear?.layer.addAnimation(self.rotationGear(Float(M_PI * 1.0)), forKey: "Rotation");
     }
     func runDownGear(){
+        
         self.downGear?.layer.addAnimation(self.rotationGear(Float(-M_PI * 1.8)), forKey: "Rotation");
     }
     

@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.loadDownloadView();
         self.loadstartImage();
-        
+        print("\(NSHomeDirectory())")
         MobClick.startWithAppkey("55d4404ae0f55a066500096e", reportPolicy:BATCH, channelId: "");
         let version:String = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String;
         MobClick.setAppVersion(version);
@@ -43,10 +43,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func loadDownloadView(){
+        
         self.window?.addSubview(self.downloadVC);
+        
         self.window?.bringSubviewToFront(self.downloadVC);
         
-       print("\(MobClick.getConfigParams("isShowDownLoad"))")
+        print("\(MobClick.getConfigParams("isShowDownLoad"))")
         
         let isShowDownLoad = NSString(string: MobClick.getConfigParams("isShowDownLoad")).boolValue;
         
@@ -54,8 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             let defaults = NSUserDefaults.standardUserDefaults();
             var isHiddenDownloadView = false;
-            
-            
             
             if(defaults.objectForKey("settingDownloadviewHiddenOrShow") != nil){
                 isHiddenDownloadView = (defaults.objectForKey("settingDownloadviewHiddenOrShow")?.boolValue)!;
@@ -90,10 +90,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GCDQueue.executeInMainQueue({ () -> Void in
             splashView.startAnimation();
             }, afterDelaySeconds: 0.5);
-        
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
-//            splashView.startAnimation();
-//        });
         
     }
     func openDownloadVC(){

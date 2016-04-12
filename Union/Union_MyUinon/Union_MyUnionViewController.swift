@@ -10,10 +10,9 @@ import UIKit
 
 class Union_MyUnionViewController: UIViewController {
 
-    
-    
-    
+
     var myTableView:UITableView?
+    
     lazy var dictArr:NSDictionary={
     
         let dictArr = ["1":["召唤师列表",""],"2":["设置",""],
@@ -33,14 +32,15 @@ class Union_MyUnionViewController: UIViewController {
 //        
 //        manager.getModelProperties(model);
         
+        print(self.dictArr);
         
-            self.myTableView = UITableView(frame: CGRectMake(0,0,SCREEN_WIDTH,SCREEN_HEIGHT - 113), style: .Grouped);
-            self.myTableView?.backgroundColor = RGB(245, g: 245, b: 245);
-            self.myTableView?.registerClass(MyUnion_TableViewCell.classForCoder(), forCellReuseIdentifier: "cell");
-            self.myTableView?.registerClass(MyUnion_UserTableViewCell.classForCoder(), forCellReuseIdentifier:"Cell");
-            self.myTableView?.delegate = self;
-            self.myTableView?.dataSource = self;
-            self.view.addSubview(self.myTableView!);
+        self.myTableView = UITableView(frame: CGRectMake(0,0,SCREEN_WIDTH,SCREEN_HEIGHT - 113), style: .Grouped);
+        self.myTableView?.backgroundColor = RGB(245, g: 245, b: 245);
+        self.myTableView?.registerClass(MyUnion_TableViewCell.classForCoder(), forCellReuseIdentifier: "cell");
+        self.myTableView?.registerClass(MyUnion_UserTableViewCell.classForCoder(), forCellReuseIdentifier:"Cell");
+        self.myTableView?.delegate = self;
+        self.myTableView?.dataSource = self;
+        self.view.addSubview(self.myTableView!);
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,15 +96,15 @@ extension Union_MyUnionViewController:UITableViewDelegate,UITableViewDataSource{
     
             let index = NSString(format: "%ld", indexPath.section);
         
-            let dataArr = self.dictArr[index];
-            
-            if indexPath.section != 3{
+            let dataArr = self.dictArr.objectForKey(index) as! NSArray;
+            print(dataArr);
+            if indexPath.section != 3 {
                 
-                cell.titleLabel?.text = dataArr![0] as? String;
+                cell.titleLabel?.text = dataArr[0] as? String;
                 
             }else{
             
-                let section3Data = dataArr![indexPath.row] as! Array<String>;
+                let section3Data = dataArr[indexPath.row] as! Array<String>;
                 
                 cell.titleLabel?.text = section3Data[0]
                 
@@ -170,6 +170,23 @@ extension Union_MyUnionViewController:UITableViewDelegate,UITableViewDataSource{
             }
             break;
         case 3:
+            do{
+                switch indexPath.row{
+                case 0:
+                    break;
+                case 1:
+                    do{
+                        self.navigationController?.pushViewController(FeedBackViewController(), animated: true);
+                    }
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default:
+                    break;
+                }
+            }
             break;
         default:
             break;

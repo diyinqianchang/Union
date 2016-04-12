@@ -36,18 +36,13 @@ class SettingViewController: UIViewController {
 extension SettingViewController:UITableViewDelegate,UITableViewDataSource{
 
     
-    
-   
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2;
     }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
-        
             return 3;
         }else{
-        
             return 1;
         }
     }
@@ -58,11 +53,9 @@ extension SettingViewController:UITableViewDelegate,UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! SettingViewCell;
         switch(indexPath.section){
-        
         case 0:
             do{
                 switch(indexPath.row){
-                
                 case 0:
                     do{
                         cell.titleLabel?.text = "消息推送";
@@ -70,8 +63,9 @@ extension SettingViewController:UITableViewDelegate,UITableViewDataSource{
                     break;
                 case 1:
                     do{
-                        cell.titleLabel?.text = "省流量"; cell.detailLabel?.text = "资讯图片自动加载设置";
-                       }
+                        cell.titleLabel?.text = "省流量";
+                        cell.detailLabel?.text = "资讯图片自动加载设置";
+                    }
                     break;
                 case 2:
                     do{
@@ -90,23 +84,45 @@ extension SettingViewController:UITableViewDelegate,UITableViewDataSource{
                 cell.style = SettingCellStyle.SettingCellStyleSwitch;
                 let defaults = NSUserDefaults.standardUserDefaults();
                 if defaults.objectForKey("settingDownloadviewHiddenOrShow") != nil{
-                
+                    let str = defaults.objectForKey("settingDownloadviewHiddenOrShow")!
+                    print(str);
                     cell.isOpen = (defaults.objectForKey("settingDownloadviewHiddenOrShow")?.boolValue)!
                 }
                 cell.selectionStyle = .None;
-                
             }
             break;
         default:
             break;
         
         }
-        
-        
         return cell;
-        
     }
-
-
-
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: false);
+        
+        if indexPath.section == 0{
+            switch(indexPath.row){
+            case 0:
+                do{
+                
+                }
+                break;
+            case 1:
+                do{
+                
+                }
+                break;
+            case 2:
+                do{
+                    let clearCacheVc = ClearCacheSettingViewController();
+                    self.navigationController?.pushViewController(clearCacheVc, animated: true);
+                }
+                break;
+            default:
+                break;
+            }
+        }
+    }
 }

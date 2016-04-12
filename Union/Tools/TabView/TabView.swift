@@ -18,7 +18,31 @@ class TabView: UIView {
         lineView.backgroundColor = MAINCOLOR;
         return lineView;
     }();
-    var selectIndex:NSInteger?
+    
+    var selectIndex:NSInteger{
+    
+        willSet{
+            if self.selectIndex != newValue{
+                
+                self.selectIndex = newValue;
+            }
+        }
+        didSet{
+            if self.buttonArray.count != 0{
+                let button:UIButton = (self.buttonArray.objectAtIndex(selectIndex)) as! UIButton;
+                self.buttonClickStyle(button);
+                for btn in self.buttonArray{
+                    if btn as! UIButton != button{
+                        self.buttonDefaultStyle(btn as! UIButton)
+                    }else{
+                        self.tabIndex_Block!(selecteIndex:self.selectIndex);
+                    }
+                }
+                self.lineViewMobile(button.frame.origin.x);
+            }
+        }
+    
+    }
     var SCROLL_WIDTH:CGFloat!
     var SCROLL_HEIGHT:CGFloat!
     var tabIndex_Block:TabIndex_Block?
@@ -55,7 +79,7 @@ class TabView: UIView {
 
     override init(frame: CGRect) {
         self.dataArray = Array<String>();
-        
+        self.selectIndex = 0;
         super.init(frame: frame);
        
         self.scrollView = UIScrollView(frame: CGRectMake(0,0,frame.size.width,frame.size.height));
@@ -68,7 +92,6 @@ class TabView: UIView {
         SCROLL_HEIGHT = CGRectGetHeight(self.scrollView!.frame);
         self.scrollView?.addSubview(self.lineView);
         
-        self.selectIndex = 0;
         
         
     }
@@ -91,7 +114,7 @@ class TabView: UIView {
         
         self.scrollView?.contentSize = CGSizeMake(button_width * CGFloat(count) , SCROLL_HEIGHT);
         
-        self.lineView.frame = CGRectMake(button_width * CGFloat(self.selectIndex!) , SCROLL_HEIGHT - 3 , button_width, 3);
+        self.lineView.frame = CGRectMake(button_width * CGFloat(self.selectIndex) , SCROLL_HEIGHT - 3 , button_width, 3);
         
         
         
@@ -112,7 +135,7 @@ class TabView: UIView {
         
         self.scrollView?.contentSize = CGSizeMake(button_width * CGFloat(count) , SCROLL_HEIGHT);
         
-        self.lineView.frame = CGRectMake(button_width * CGFloat(self.selectIndex!) , SCROLL_HEIGHT - 3 , button_width, 3);
+        self.lineView.frame = CGRectMake(button_width * CGFloat(self.selectIndex) , SCROLL_HEIGHT - 3 , button_width, 3);
     }
     
     func initButton(frame:CGRect,title:String){
@@ -153,7 +176,7 @@ class TabView: UIView {
                 self.buttonDefaultStyle(button as! UIButton)
             }else{
             
-                self.tabIndex_Block!(selecteIndex:self.selectIndex!);
+                self.tabIndex_Block!(selecteIndex:self.selectIndex);
             
             }
         }

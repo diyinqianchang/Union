@@ -43,7 +43,7 @@ class GPBottomLoadingView: UIView {
         
         self.mainGear = UIImageView(frame: CGRectMake(0,0,40,40));
         self.mainGear?.tintColor = RGB(99, g: 141, b: 237);
-        self.mainGear?.image = UIImage(named: "maingear");
+        self.mainGear?.image = UIImage(named: "maingear")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
         self.mainGear?.clipsToBounds = true;
         self.addSubview(self.mainGear!);
     }

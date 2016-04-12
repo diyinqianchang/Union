@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 @objc protocol GearPowerDelegate:NSObjectProtocol{
 
     func didLoadData(data:AnyObject);
@@ -16,24 +15,18 @@ import UIKit
     optional func didBottomLoadData(data:AnyObject);
 }
 
-
 class GearPowered: NSObject {
-    
-    
+
     var url:NSURL?
     var bottomUrl:NSURL?
-    
     weak var delegate:GearPowerDelegate?
-    
-    
     var isLoading:Bool?
-    var isLoadingVerification:Bool?
+    var isLoadingVerification:Bool = false
     var GPLView:GPLoadingView?
     var GPBLView:GPBottomLoadingView?
     var height:CGFloat?
     
     var topOrDown:NSInteger? //上拉或下拉 (0为上拉 1为下拉)
-    
     
     var mainScrollView:UIScrollView{
     
@@ -53,9 +46,13 @@ class GearPowered: NSObject {
     }
     var isAuxiliaryGear:Bool{
        
-        willSet{ if self.isAuxiliaryGear != newValue{
+        willSet{
+            if self.isAuxiliaryGear != newValue{
+                
             self.isAuxiliaryGear = newValue;
-            }}
+                
+            }
+        }
         didSet{
          
             self.GPLView?.isAuxiliaryGear = self.isAuxiliaryGear;
@@ -65,8 +62,9 @@ class GearPowered: NSObject {
     }
     
     override init() {
+        
         self.mainScrollView = UIScrollView();
-        self.isAuxiliaryGear = Bool();
+        self.isAuxiliaryGear = false;
         super.init()
         self.GPLView = GPLoadingView(frame: CGRectMake(0,0,CGRectGetWidth(UIScreen.mainScreen().bounds),0));
         self.GPLView?.isAuxiliaryGear = false;
@@ -128,26 +126,22 @@ class GearPowered: NSObject {
                 case 0:
                     do{
                         if (self.delegate != nil && self.delegate!.respondsToSelector(Selector("settingBottomLoadDataURL"))){
-                         self.bottomUrl = self.delegate?.settingBottomLoadDataURL!()
+                            
+                            self.bottomUrl = self.delegate?.settingBottomLoadDataURL!()
                         }
                         if self.bottomUrl != nil{
                           
-                    self.scrollViewBottomLoadingStyle(scrollView.frame.size.height - self.height!);
-                            
+                            self.scrollViewBottomLoadingStyle(scrollView.frame.size.height - self.height!);
                             self.GPBLView?.loadingView();
                             self.loadingData(self.bottomUrl!)
-                            ;
-                            
-                            
                         }
                     }
                     break;
                 case 1:
                     do{
-                     
+                        self.scrollViewLoadingStyle();
                         self.GPLView?.loadingView();
                         self.loadingData(self.url!);
-                    
                     }
                     break;
                 default:
@@ -162,8 +156,11 @@ class GearPowered: NSObject {
     }
     
     func scrollViewLoadingStyle(){
+        
       self.mainScrollView.contentInset = UIEdgeInsetsMake( 100 , 0 , 0 , 0 );
+        
     }
+    
     func scrollViewDidLoadStyle(){
         
         self.mainScrollView.contentInset = UIEdgeInsetsMake( 0 , 0 , 0 , 0 );
@@ -206,7 +203,7 @@ class GearPowered: NSObject {
                             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)),dispatch_get_main_queue(), { () -> Void in
                                 
                                 if (self?.delegate != nil && self!.delegate!.respondsToSelector("didBottomLoadData:")) {
-                                    self?.delegate?.didBottomLoadData!(responseObject);
+                                    self?.delegate?.didBottomLoadData!(responseObject!);
                                 }
                                 
                             });
@@ -216,7 +213,7 @@ class GearPowered: NSObject {
                         do{
                             if (self?.delegate != nil && self!.delegate!.respondsToSelector("didLoadData:")){
                             
-                                self?.delegate?.didLoadData(responseObject);
+                                self?.delegate?.didLoadData(responseObject!);
                             
                             }
                             self?.GPLView?.didLoadView();

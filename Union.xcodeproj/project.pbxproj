@@ -19,6 +19,12 @@
 		64544D481CB74DDA009847E2 /* othergear@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64544D421CB74DDA009847E2 /* othergear@3x.png */; };
 		64544D4A1CB74F8A009847E2 /* Union_News_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64544D491CB74F8A009847E2 /* Union_News_TableViewCell.swift */; };
 		64544D4D1CB75227009847E2 /* AFNetWorkingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64544D4C1CB75227009847E2 /* AFNetWorkingTool.swift */; };
+		649ECDBD1CBCA7C7003C0AFA /* ClearCacheSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649ECDBC1CBCA7C7003C0AFA /* ClearCacheSettingCell.swift */; };
+		649ECDC01CBCD805003C0AFA /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649ECDBF1CBCD805003C0AFA /* FeedBackViewController.swift */; };
+		649ECDC31CBCF93C003C0AFA /* PictureCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649ECDC21CBCF93C003C0AFA /* PictureCycleView.swift */; };
+		649ECDC51CBCF986003C0AFA /* PictureCycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649ECDC41CBCF986003C0AFA /* PictureCycleModel.swift */; };
+		649ECDC71CBD06A6003C0AFA /* PictureCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649ECDC61CBD06A6003C0AFA /* PictureCycleScrollView.swift */; };
+		649ECDC91CBD06BD003C0AFA /* PictureCycleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649ECDC81CBD06BD003C0AFA /* PictureCycleItem.swift */; };
 		64CFBA481CBB2B1200061D05 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CFBA471CBB2B1200061D05 /* SettingViewController.swift */; };
 		64CFBA4A1CBB2BE100061D05 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CFBA491CBB2BE100061D05 /* SettingViewCell.swift */; };
 		64CFBA501CBB346000061D05 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CFBA4F1CBB346000061D05 /* SettingManager.swift */; };
@@ -257,6 +263,12 @@
 		64544D421CB74DDA009847E2 /* othergear@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "othergear@3x.png"; sourceTree = "<group>"; };
 		64544D491CB74F8A009847E2 /* Union_News_TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Union_News_TableViewCell.swift; sourceTree = "<group>"; };
 		64544D4C1CB75227009847E2 /* AFNetWorkingTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFNetWorkingTool.swift; sourceTree = "<group>"; };
+		649ECDBC1CBCA7C7003C0AFA /* ClearCacheSettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearCacheSettingCell.swift; sourceTree = "<group>"; };
+		649ECDBF1CBCD805003C0AFA /* FeedBackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
+		649ECDC21CBCF93C003C0AFA /* PictureCycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCycleView.swift; sourceTree = "<group>"; };
+		649ECDC41CBCF986003C0AFA /* PictureCycleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCycleModel.swift; sourceTree = "<group>"; };
+		649ECDC61CBD06A6003C0AFA /* PictureCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCycleScrollView.swift; sourceTree = "<group>"; };
+		649ECDC81CBD06BD003C0AFA /* PictureCycleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCycleItem.swift; sourceTree = "<group>"; };
 		64CFBA471CBB2B1200061D05 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		64CFBA491CBB2BE100061D05 /* SettingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
 		64CFBA4F1CBB346000061D05 /* SettingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
@@ -503,6 +515,7 @@
 		5809D24D1CB68D900011FC71 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				649ECDC11CBCF904003C0AFA /* PictureCycleView */,
 				64CFBA511CBB355900061D05 /* LXPlaySound */,
 				64DA97E11CB798570009261D /* Others */,
 				64544D4B1CB751EE009847E2 /* NetWork */,
@@ -598,9 +611,37 @@
 			path = NetWork;
 			sourceTree = "<group>";
 		};
+		649ECDBB1CBCA7A4003C0AFA /* ClearCacheSettingCell */ = {
+			isa = PBXGroup;
+			children = (
+				649ECDBC1CBCA7C7003C0AFA /* ClearCacheSettingCell.swift */,
+			);
+			path = ClearCacheSettingCell;
+			sourceTree = "<group>";
+		};
+		649ECDBE1CBCD5ED003C0AFA /* Union_MyUnion_FeedBack */ = {
+			isa = PBXGroup;
+			children = (
+				649ECDBF1CBCD805003C0AFA /* FeedBackViewController.swift */,
+			);
+			path = Union_MyUnion_FeedBack;
+			sourceTree = "<group>";
+		};
+		649ECDC11CBCF904003C0AFA /* PictureCycleView */ = {
+			isa = PBXGroup;
+			children = (
+				649ECDC21CBCF93C003C0AFA /* PictureCycleView.swift */,
+				649ECDC41CBCF986003C0AFA /* PictureCycleModel.swift */,
+				649ECDC61CBD06A6003C0AFA /* PictureCycleScrollView.swift */,
+				649ECDC81CBD06BD003C0AFA /* PictureCycleItem.swift */,
+			);
+			path = PictureCycleView;
+			sourceTree = "<group>";
+		};
 		64CFBA431CBB2B0100061D05 /* ClearCacheSettingViewCotroller */ = {
 			isa = PBXGroup;
 			children = (
+				649ECDBB1CBCA7A4003C0AFA /* ClearCacheSettingCell */,
 				64CFBA5B1CBB48A400061D05 /* ClearCacheSettingViewController.swift */,
 			);
 			path = ClearCacheSettingViewCotroller;
@@ -1075,6 +1116,7 @@
 		64E0E8C01CB62ADF00555075 /* Union_MyUinon */ = {
 			isa = PBXGroup;
 			children = (
+				649ECDBE1CBCD5ED003C0AFA /* Union_MyUnion_FeedBack */,
 				643101821CB9081A0091CB0D /* Union_SettingViewController */,
 				64F377551CB88EA800EE3EEE /* Union_SummonerDataBase */,
 				64F377561CB88EA800EE3EEE /* Union_SummonerModel */,
@@ -1543,14 +1585,19 @@
 				64CFBA531CBB357000061D05 /* LXPlaySound.swift in Sources */,
 				64DA97EC1CB7C5940009261D /* MyUnion_TableViewCell.swift in Sources */,
 				64DA97EA1CB7C3820009261D /* MyUnion_UserTableViewCell.swift in Sources */,
+				649ECDC51CBCF986003C0AFA /* PictureCycleModel.swift in Sources */,
+				649ECDC91CBD06BD003C0AFA /* PictureCycleItem.swift in Sources */,
 				64DA97E31CB798E40009261D /* StringDeal.swift in Sources */,
 				5809D2501CB68DBF0011FC71 /* TabView.swift in Sources */,
 				64CFBA631CBB5C6500061D05 /* GPBottomLoadingView.swift in Sources */,
 				64E0E8D61CB6496900555075 /* Union_EncyViewController.swift in Sources */,
+				649ECDC31CBCF93C003C0AFA /* PictureCycleView.swift in Sources */,
 				64CFBA5C1CBB48A400061D05 /* ClearCacheSettingViewController.swift in Sources */,
+				649ECDBD1CBCA7C7003C0AFA /* ClearCacheSettingCell.swift in Sources */,
 				64E0E8D81CB6498000555075 /* Union_MyUnionViewController.swift in Sources */,
 				64E0E8E11CB6547F00555075 /* GCDSemaphore.swift in Sources */,
 				64CFBA4A1CBB2BE100061D05 /* SettingViewCell.swift in Sources */,
+				649ECDC01CBCD805003C0AFA /* FeedBackViewController.swift in Sources */,
 				64DA97E01CB787E30009261D /* Union_News_TableView_Model.swift in Sources */,
 				64E0E8CE1CB6484E00555075 /* BaseTabBarController.swift in Sources */,
 				64CFBA481CBB2B1200061D05 /* SettingViewController.swift in Sources */,
@@ -1562,6 +1609,7 @@
 				64E0E8D21CB6493E00555075 /* Union_NewsViewController.swift in Sources */,
 				64544D391CB7498D009847E2 /* Union_News_TableView_View.swift in Sources */,
 				64F377581CB88FAF00EE3EEE /* SummonerModel.swift in Sources */,
+				649ECDC71CBD06A6003C0AFA /* PictureCycleScrollView.swift in Sources */,
 				64E0E8C91CB62C9800555075 /* config.swift in Sources */,
 				64E0E8E21CB6547F00555075 /* GCDTimer.swift in Sources */,
 				64E0E8E01CB6547F00555075 /* GCDQueue.swift in Sources */,

@@ -103,7 +103,7 @@ class SettingViewCell: UITableViewCell {
     
         let defaults = NSUserDefaults.standardUserDefaults();
         
-        defaults.setObject(NSString(format: "%d", sw.on), forKey: "settingDownloadviewHiddenOrShow");
+        defaults.setObject(sw.on, forKey: "settingDownloadviewHiddenOrShow");
         defaults.synchronize();
         
         SettingManager.sharedInstance.downloadViewHiddenOrShow(sw.on);

@@ -27,6 +27,7 @@ class Union_News_TableView_View: UIView {
             self.loadData();
             self.tableView?.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
             self.gearPowered?.url = NSURL(string:NSString(format: self.urlString, self.page!) as String);
+            self.gearPowered?.bottomUrl = NSURL(string:NSString(format: self.urlString, self.page!) as String);
 
         }
     
@@ -53,6 +54,24 @@ class Union_News_TableView_View: UIView {
     var gearPowered:GearPowered?
     var loadingView:LoadingView?
     var isBottomLoading:Bool?
+    //这个可以优化成一个装文的的视图
+    lazy var reloadImageView:UIImageView={
+       
+        let tap:UITapGestureRecognizer =  UITapGestureRecognizer(target: self, action: Selector("reloadImageViewTapAction:"));
+        
+        let touchImageV:UIImageView = UIImageView(frame: CGRectMake(0,0,200,200));
+        touchImageV.center = CGPointMake(CGRectGetWidth(self.frame) / 2 , CGRectGetHeight(self.frame) / 2);
+        touchImageV.image = UIImage(named: "reloadImage");
+        touchImageV.tintColor = UIColor.lightGrayColor();
+        touchImageV.backgroundColor = UIColor.clearColor();
+        touchImageV.addGestureRecognizer(tap);
+        touchImageV.hidden = true;
+        touchImageV.userInteractionEnabled = true;
+        self.addSubview(touchImageV);
+        return touchImageV;
+    }();
+    
+    
     
     override init(frame: CGRect) {
         self.urlString = String();
@@ -69,7 +88,7 @@ class Union_News_TableView_View: UIView {
         self.gearPowered = GearPowered();
         self.gearPowered?.mainScrollView = self.tableView!
         self.gearPowered?.isAuxiliaryGear = true;
-//        self.gearPowered?.delegate = self;
+        self.gearPowered?.delegate = self;
         
         self.loadingView = LoadingView(frame: CGRectMake(0,0,CGRectGetWidth(self.frame),CGRectGetHeight(self.frame)));
         self.loadingView?.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3);
@@ -89,7 +108,9 @@ class Union_News_TableView_View: UIView {
         
         let cacheData = DataCache.shareInstance.getDataForDocument(dataName:NSString(format:"%@%ld","NewsListData",self.scrollPage!) as String, ClassifyName: "News");
         if cacheData is NSNull{
+            
             self.loadingView?.hidden = true;
+            
         }else{
           
             self.dataArray.removeAllObjects();
@@ -100,28 +121,33 @@ class Union_News_TableView_View: UIView {
         self.isBottomLoading = false;
         
         AFNetWorkingTool.getDataFromNet(NSString(format: self.urlString, self.page!) as String, params:NSDictionary(), success: {[weak self] (responseObject) -> Void in
-
-//             let dict = responseObject as! NSDictionary
-//
-//
-//            let dataArr:NSArray = dict["data"] as! NSArray;
-////            print(dataArr.count);
-//
-//            for(_,dictData) in dataArr.enumerate() {
-//                let model:Union_News_TableView_Model = Union_News_TableView_Model();
-//                model.setValuesForKeysWithDictionary(dictData as! [String : AnyObject]);
-//                self?.dataArray.addObject(model);
-//            }
-            self?.dataArray.removeAllObjects();
-            self?.tableView?.reloadData();
-            self?.JSONSerializationWithData(responseObject);
-            DataCache.shareInstance.saveDataForDocument(responseObject, DataName:"NewsListData" + ((NSString(format: "%ld", (self?.scrollPage)!)) as String) as String, Classify: "News");
-           
+            
+            if responseObject != nil{
+                self?.dataArray.removeAllObjects();
+                self?.tableView?.reloadData();
+                self?.JSONSerializationWithData(responseObject);
+                DataCache.shareInstance.saveDataForDocument(responseObject, DataName:"NewsListData" + ((NSString(format: "%ld", (self?.scrollPage)!)) as String) as String, Classify: "News");
+                
+            
+            }else{
+               
+                if self?.dataArray.count == 0{
+                
+                    self?.reloadImageView.hidden = false;
+                
+                }
+            
+            }
             self?.loadingView?.hidden = true;
             
-            }) { (error) -> Void in
+            }) {[weak self] (error) -> Void in
                 
-               
+                if self?.dataArray.count == 0{
+                    self?.reloadImageView.hidden = false;
+                    self?.loadingView?.hidden = true;
+                }else{
+                   
+                }
                 
                 print("error=="+"\(error)");
         }
@@ -153,7 +179,44 @@ class Union_News_TableView_View: UIView {
     
 
 }
-extension Union_News_TableView_View:UITableViewDelegate,UITableViewDataSource{
+extension Union_News_TableView_View:UITableViewDelegate,UITableViewDataSource,GearPowerDelegate{
+    
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        self.gearPowered?.scrollViewDidScroll(scrollView)
+    }
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        self.gearPowered?.scrollViewDidEndDragging(scrollView, willDecelerate: decelerate);
+    }
+    
+    func didLoadData(data: AnyObject) {
+        self.page = 1;
+        self.dataArray.removeAllObjects();
+        self.JSONSerializationWithData(data);
+    }
+    
+    func didBottomLoadData(data: AnyObject) {
+        self.JSONSerializationWithData(data);
+    }
+    
+    func settingBottomLoadDataURL() -> NSURL {
+        self.isBottomLoading = true;
+        self.page!++
+        let url:NSURL = NSURL(string: NSString(format: self.urlString, self.page!) as String)!;
+        return url
+    }
+    
+    
+    
+    func reloadImageViewTapAction(tap:UITapGestureRecognizer){
+    
+        self.loadData();
+    
+    }
+    
+    
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataArray.count;
