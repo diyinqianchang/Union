@@ -38,7 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UMFeedback.setAppkey("55d4404ae0f55a066500096e");
         
         MobClick.updateOnlineConfig();
-       
+    
+        NetStatus.currentNetworkStatus();
+        
         return true
     }
     
@@ -99,6 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillResignActive(application: UIApplication) {
         
+//        NetStatus.stopMonitoringNetWork(self);
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
@@ -107,10 +110,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
        
-    }
+            }
 
     func applicationDidBecomeActive(application: UIApplication) {
         
+//        NetStatus.startMonitoringNetWork(self);
+
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -119,12 +124,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-extension AppDelegate:UITabBarControllerDelegate{
+extension AppDelegate:UITabBarControllerDelegate,CoreStatusProtocol{
 
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
         let transiton:CATransition = CATransition();
         transiton.type = kCATransitionFade;
         baseTabBarVc!.view.layer.addAnimation(transiton, forKey: nil);
+    }
+    func coreNetworkChangeNoti(noti: NSNotification) {
+        
     }
 
 }

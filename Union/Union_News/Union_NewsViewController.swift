@@ -68,12 +68,15 @@ class Union_NewsViewController: UIViewController {
     }
     func loadNewsTableViews(){
     
-        do{
+        do{  //头条
             self.newsTopTableView = Union_News_TableView_View(frame: CGRectMake(0,0,CGRectGetWidth(self.mainScrollView.frame),CGRectGetHeight(self.mainScrollView.frame)));
             self.newsTopTableView?.scrollPage = 0;
             self.newsTopTableView?.detailBlock = {[weak self](string:String,type:String) -> Void in
             
-                print("\(string)hehe\(type)");
+                let detailVc:Union_News_DetailViewController = Union_News_DetailViewController();
+                detailVc.urlString = News_WebViewURl + string; 
+                detailVc.type = type;
+                self?.navigationController?.pushViewController(detailVc, animated: true);
             
             }
             self.newsTopTableView?.topicBlock = {(string:String,type:String) -> Void in

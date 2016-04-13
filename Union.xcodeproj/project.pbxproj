@@ -230,6 +230,12 @@
 		64E0E8E21CB6547F00555075 /* GCDTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0E8DE1CB6547F00555075 /* GCDTimer.swift */; };
 		64E0E8E51CB65EAF00555075 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0E8E41CB65EAF00555075 /* DownloadView.swift */; };
 		64F377581CB88FAF00EE3EEE /* SummonerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F377571CB88FAF00EE3EEE /* SummonerModel.swift */; };
+		64FAC7FB1CBE1184007A9E14 /* Union_News_DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FAC7FA1CBE1184007A9E14 /* Union_News_DetailViewController.swift */; };
+		64FAC8001CBE402D007A9E14 /* VideoListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FAC7FF1CBE402D007A9E14 /* VideoListModel.swift */; };
+		64FAC8021CBE4260007A9E14 /* VideoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FAC8011CBE4260007A9E14 /* VideoListTableViewCell.swift */; };
+		64FAC8041CBE442D007A9E14 /* Union_VideoListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FAC8031CBE442D007A9E14 /* Union_VideoListTableView.swift */; };
+		64FAC8071CBE4AF4007A9E14 /* NetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FAC8061CBE4AF4007A9E14 /* NetStatus.swift */; };
+		64FAC8091CBE5087007A9E14 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FAC8081CBE5087007A9E14 /* NetworkStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -481,6 +487,12 @@
 		64E0E8DE1CB6547F00555075 /* GCDTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDTimer.swift; sourceTree = "<group>"; };
 		64E0E8E41CB65EAF00555075 /* DownloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		64F377571CB88FAF00EE3EEE /* SummonerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerModel.swift; sourceTree = "<group>"; };
+		64FAC7FA1CBE1184007A9E14 /* Union_News_DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Union_News_DetailViewController.swift; sourceTree = "<group>"; };
+		64FAC7FF1CBE402D007A9E14 /* VideoListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListModel.swift; sourceTree = "<group>"; };
+		64FAC8011CBE4260007A9E14 /* VideoListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListTableViewCell.swift; sourceTree = "<group>"; };
+		64FAC8031CBE442D007A9E14 /* Union_VideoListTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Union_VideoListTableView.swift; sourceTree = "<group>"; };
+		64FAC8061CBE4AF4007A9E14 /* NetStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetStatus.swift; sourceTree = "<group>"; };
+		64FAC8081CBE5087007A9E14 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		C9BC953AF3FE34E33A1DE64D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -515,6 +527,7 @@
 		5809D24D1CB68D900011FC71 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				64FAC8051CBE47FF007A9E14 /* CoreStatus */,
 				649ECDC11CBCF904003C0AFA /* PictureCycleView */,
 				64CFBA511CBB355900061D05 /* LXPlaySound */,
 				64DA97E11CB798570009261D /* Others */,
@@ -1129,6 +1142,7 @@
 		64E0E8C11CB62ADF00555075 /* Union_News */ = {
 			isa = PBXGroup;
 			children = (
+				64FAC7F91CBE1165007A9E14 /* Union_News_Details_ViewController */,
 				64544D351CB73DA6009847E2 /* Union_News_TableView */,
 				64E0E8D11CB6493E00555075 /* Union_NewsViewController.swift */,
 			);
@@ -1138,6 +1152,7 @@
 		64E0E8C21CB62ADF00555075 /* Union_Video */ = {
 			isa = PBXGroup;
 			children = (
+				64FAC7FC1CBE3E1D007A9E14 /* VideoListView */,
 				64E0E8E31CB65E9A00555075 /* DownloadView */,
 				64E0E8D31CB6495300555075 /* Union_VideoViewController.swift */,
 			);
@@ -1202,6 +1217,49 @@
 				64F377571CB88FAF00EE3EEE /* SummonerModel.swift */,
 			);
 			path = Union_SummonerModel;
+			sourceTree = "<group>";
+		};
+		64FAC7F91CBE1165007A9E14 /* Union_News_Details_ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				64FAC7FA1CBE1184007A9E14 /* Union_News_DetailViewController.swift */,
+			);
+			path = Union_News_Details_ViewController;
+			sourceTree = "<group>";
+		};
+		64FAC7FC1CBE3E1D007A9E14 /* VideoListView */ = {
+			isa = PBXGroup;
+			children = (
+				64FAC7FD1CBE3EE3007A9E14 /* VideoListModel */,
+				64FAC7FE1CBE3EE3007A9E14 /* VideoListTableViewCell */,
+				64FAC8031CBE442D007A9E14 /* Union_VideoListTableView.swift */,
+			);
+			path = VideoListView;
+			sourceTree = "<group>";
+		};
+		64FAC7FD1CBE3EE3007A9E14 /* VideoListModel */ = {
+			isa = PBXGroup;
+			children = (
+				64FAC7FF1CBE402D007A9E14 /* VideoListModel.swift */,
+			);
+			path = VideoListModel;
+			sourceTree = "<group>";
+		};
+		64FAC7FE1CBE3EE3007A9E14 /* VideoListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				64FAC8011CBE4260007A9E14 /* VideoListTableViewCell.swift */,
+			);
+			path = VideoListTableViewCell;
+			sourceTree = "<group>";
+		};
+		64FAC8051CBE47FF007A9E14 /* CoreStatus */ = {
+			isa = PBXGroup;
+			children = (
+				64FAC8061CBE4AF4007A9E14 /* NetStatus.swift */,
+				64FAC8081CBE5087007A9E14 /* NetworkStatus.swift */,
+			);
+			path = CoreStatus;
 			sourceTree = "<group>";
 		};
 		7908857C24D4D7297A671FB0 /* Frameworks */ = {
@@ -1581,9 +1639,11 @@
 			files = (
 				64E0E8E51CB65EAF00555075 /* DownloadView.swift in Sources */,
 				64E0E8D41CB6495300555075 /* Union_VideoViewController.swift in Sources */,
+				64FAC8091CBE5087007A9E14 /* NetworkStatus.swift in Sources */,
 				64CFBA671CBB862500061D05 /* GearPowered.swift in Sources */,
 				64CFBA531CBB357000061D05 /* LXPlaySound.swift in Sources */,
 				64DA97EC1CB7C5940009261D /* MyUnion_TableViewCell.swift in Sources */,
+				64FAC8071CBE4AF4007A9E14 /* NetStatus.swift in Sources */,
 				64DA97EA1CB7C3820009261D /* MyUnion_UserTableViewCell.swift in Sources */,
 				649ECDC51CBCF986003C0AFA /* PictureCycleModel.swift in Sources */,
 				649ECDC91CBD06BD003C0AFA /* PictureCycleItem.swift in Sources */,
@@ -1593,6 +1653,7 @@
 				64E0E8D61CB6496900555075 /* Union_EncyViewController.swift in Sources */,
 				649ECDC31CBCF93C003C0AFA /* PictureCycleView.swift in Sources */,
 				64CFBA5C1CBB48A400061D05 /* ClearCacheSettingViewController.swift in Sources */,
+				64FAC7FB1CBE1184007A9E14 /* Union_News_DetailViewController.swift in Sources */,
 				649ECDBD1CBCA7C7003C0AFA /* ClearCacheSettingCell.swift in Sources */,
 				64E0E8D81CB6498000555075 /* Union_MyUnionViewController.swift in Sources */,
 				64E0E8E11CB6547F00555075 /* GCDSemaphore.swift in Sources */,
@@ -1609,6 +1670,8 @@
 				64E0E8D21CB6493E00555075 /* Union_NewsViewController.swift in Sources */,
 				64544D391CB7498D009847E2 /* Union_News_TableView_View.swift in Sources */,
 				64F377581CB88FAF00EE3EEE /* SummonerModel.swift in Sources */,
+				64FAC8001CBE402D007A9E14 /* VideoListModel.swift in Sources */,
+				64FAC8041CBE442D007A9E14 /* Union_VideoListTableView.swift in Sources */,
 				649ECDC71CBD06A6003C0AFA /* PictureCycleScrollView.swift in Sources */,
 				64E0E8C91CB62C9800555075 /* config.swift in Sources */,
 				64E0E8E21CB6547F00555075 /* GCDTimer.swift in Sources */,
@@ -1618,6 +1681,7 @@
 				64E0E8BE1CB62A4600555075 /* AppDelegate.swift in Sources */,
 				64CFBA5E1CBB577A00061D05 /* LoadingView.swift in Sources */,
 				64CFBA611CBB5C4B00061D05 /* GPLoadingView.swift in Sources */,
+				64FAC8021CBE4260007A9E14 /* VideoListTableViewCell.swift in Sources */,
 				64CFBA571CBB3A9200061D05 /* DownloadManager.swift in Sources */,
 				64CFBA651CBB5C7300061D05 /* Shadow.swift in Sources */,
 			);

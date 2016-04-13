@@ -18,6 +18,7 @@ class LoadingView: UIView {
             if self.loadingColor != newValue {
                 self.loadingColor = newValue
             }
+//            print(newValue);
         }
         didSet{
             
@@ -41,22 +42,24 @@ class LoadingView: UIView {
              }else{
                 self.showView();
             }
-        
+            self.hidden = self.viewHidden;
         }
-    
     }
+    
     
     override init(var frame: CGRect) {
         if frame.size.width < 70 || frame.size.height < 70{
             frame.size.height = 70;
             frame.size.width = 70;
         }
+        
         self.loadingColor = UIColor.whiteColor();
         self.viewHidden = Bool();
+        
         super.init(frame: frame);
         self.mainGear = UIImageView(frame: CGRectMake(0,0,70,70));
         self.mainGear?.center = CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetHeight(self.frame)/2);
-        self.mainGear?.image = UIImage(named: "maingear");
+        self.mainGear?.image = UIImage(named: "maingear")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
         self.mainGear?.layer.cornerRadius = 35;
         self.mainGear?.clipsToBounds = true;
         self.addSubview(self.mainGear!);
@@ -71,13 +74,15 @@ class LoadingView: UIView {
     
     func showView(){
     
-        self.mainGear?.layer.addAnimation(self.rotationGear(Float(M_PI * 2.0)), forKey: "Rotation");
+        self.mainGear?.layer.addAnimation(self.rotationGear(Float(M_PI * 1.8)), forKey: "Rotation");
+        
     
     }
     
     func hiddenView(){
      
         self.mainGear?.layer.removeAnimationForKey("Rotation");
+       
     }
     
     

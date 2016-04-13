@@ -24,7 +24,7 @@ class Union_News_TableView_Model: NSObject {
     }
     
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
-        
+//        super.setValue(value, forUndefinedKey: key)
     }
     
     

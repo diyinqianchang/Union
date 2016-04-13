@@ -71,7 +71,7 @@ class Union_News_TableView_View: UIView {
         return touchImageV;
     }();
     
-    
+    var pictureCycleView:PictureCycleView?
     
     override init(frame: CGRect) {
         self.urlString = String();
@@ -95,6 +95,16 @@ class Union_News_TableView_View: UIView {
         self.loadingView?.loadingColor = UIColor.whiteColor();
         self.loadingView?.viewHidden = true;
         self.addSubview(self.loadingView!);
+        
+        self.pictureCycleView = PictureCycleView(frame: CGRectMake(0,0,SCREEN_WIDTH,SCREEN_WIDTH / 7 * 4));
+        self.pictureCycleView?.timeInterval = 3;
+        self.pictureCycleView?.isPicturePlay = true;
+        self.pictureCycleView?.selectPicBlock = {[weak self](model)->Void in
+        
+            let pid = model.pid!
+            self?.detailBlock!(string:pid,type:String());
+           
+        }
         
     }
 
@@ -161,7 +171,39 @@ class Union_News_TableView_View: UIView {
         if data != nil{
             
             let dict = data as! NSDictionary
-            let dataArr:NSArray = dict["data"] as! NSArray;
+            
+            
+            //轮播图数据
+            if  ((dict.allKeys) as NSArray).containsObject("headerline"){
+                    if dict.objectForKey("headerline") != nil{
+                        self.picArray.removeAllObjects();
+                        let temPicArr:NSArray = dict.objectForKey("headerline") as! NSArray;
+                        
+                        temPicArr.forEach({[weak self] (dataDic) -> () in
+                            let picDataDict:NSDictionary = (dataDic as! NSDictionary);
+                            let picModel:PictureCycleModel = PictureCycleModel();
+                            picModel.pid = picDataDict.objectForKey("id") as? String;
+                            picModel.photoUrl = picDataDict.objectForKey("photo") as? String;
+                            self?.picArray.addObject(picModel);
+                            
+//                            print(dataDic as! NSDictionary);
+                        })
+                    
+                        self.tableView?.tableHeaderView = self.pictureCycleView!;
+                        self.pictureCycleView?.dataArray = self.picArray
+                    }else{
+                        
+                        if self.isBottomLoading == false{
+                            
+                            self.tableView?.tableHeaderView = nil;
+                        }
+                    
+                   }
+                }
+            
+    
+            
+            let dataArr:NSArray = dict["data"] as! NSArray; //表格的数据
             for(_,dictData) in dataArr.enumerate() {
             let model:Union_News_TableView_Model = Union_News_TableView_Model();
             model.setValuesForKeysWithDictionary(dictData as! [String : AnyObject]);
