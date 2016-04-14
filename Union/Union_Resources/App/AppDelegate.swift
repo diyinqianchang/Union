@@ -38,9 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UMFeedback.setAppkey("55d4404ae0f55a066500096e");
         
         MobClick.updateOnlineConfig();
-    
-        NetStatus.currentNetworkStatus();
-        
         return true
     }
     
@@ -101,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillResignActive(application: UIApplication) {
         
-//        NetStatus.stopMonitoringNetWork(self);
+        NetStatus.stopMonitoringNetWork(self);
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
@@ -110,15 +107,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
        
-            }
+        
+    }
 
     func applicationDidBecomeActive(application: UIApplication) {
         
-//        NetStatus.startMonitoringNetWork(self);
+        NetStatus.startMonitoringNetWork(self);
 
     }
 
     func applicationWillTerminate(application: UIApplication) {
+        
         
     }
 
@@ -133,6 +132,14 @@ extension AppDelegate:UITabBarControllerDelegate,CoreStatusProtocol{
     }
     func coreNetworkChangeNoti(noti: NSNotification) {
         
+        print(NetStatus.currentNetworkStatus().rawValue);
+        
+        let userInfo = noti.userInfo! as NSDictionary;
+        print(userInfo);
+        
+        let statusStr:String = userInfo["currentStatusString"] as! String
+        
+        UIView.addNotifier(text: "你处于" + statusStr + "状态", dismissAutomatically: true);
     }
 
 }

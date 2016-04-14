@@ -4,10 +4,6 @@
 
 #import <AFNetworking.h>
 
-//#import <AFURLRequestSerialization.h>
-//
-//#import <AFURLResponseSerialization.h>
-
 #import <UIImageView+WebCache.h>
 
 #import <CBZSplashView.h>
@@ -17,12 +13,9 @@
 #import <UMFeedback.h>
 
 #import <FMDB.h>
-
+#import "Reachability.h"
 #import "MBProgressHUD.h"
 #import "IQKeyboardManager.h"
 #import "SKPSMTPMessage.h"
 
 //#import "UIView+LXAlertView.h"
-
-
-//#import "SettingManager.h"

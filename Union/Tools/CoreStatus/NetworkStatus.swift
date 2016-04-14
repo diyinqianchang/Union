@@ -8,25 +8,21 @@
 
 import Foundation
 
-enum CoreNetWorkStatus:Int {
+enum CoreNetWorkStatus:Int{
     //未知网络
-    case CoreNetWorkStatusUnknown = -1,
+    case Unknown = 0,
     /** 无网络 */
-     CoreNetWorkStatusNone = 0,
+     None,
     /** 蜂窝网络 */
-     CoreNetWorkStatusWWAN = 1,
+     WWAN,
     /** Wifi网络 */
-     CoreNetWorkStatusWifi = 2
+     Wifi,
+    /** 2G网络*/
+     Status2G,
+    /** 3G网络 */
+    Status3G,
+    /** 4G网络 */
+    Status4G
    
 }
 
-enum CoreNetWorkStatusWWAN:Int{
-
-    /** 2G网络 */
-   case CoreNetWorkStatus2G = 3,
-    /** 3G网络 */
-    CoreNetWorkStatus3G,
-    /** 4G网络 */
-    CoreNetWorkStatus4G
-
-}

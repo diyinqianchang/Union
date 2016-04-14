@@ -67,7 +67,8 @@ class Union_News_DetailViewController: UIViewController {
         
         loadView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.0);
         loadView.loadingColor = MAINCOLOR;
-        loadView.viewHidden = true;
+//        loadView.viewHidden = true;
+        loadView.hidden = true;
         return loadView;
     
     }();
@@ -122,7 +123,8 @@ class Union_News_DetailViewController: UIViewController {
         
         self.view.addSubview(self.reloadImageView);
         
-        self.loadingView.viewHidden = false;
+//        self.loadingView.viewHidden = false;
+        self.loadingView.hidden = false;
         
         self.reloadImageView.hidden = true;
         
@@ -135,7 +137,8 @@ class Union_News_DetailViewController: UIViewController {
                 
                     self?.reloadImageView.hidden = true;
                 }else{
-                    self?.loadingView.viewHidden = true;
+//                    self?.loadingView.viewHidden = true;
+                    self?.loadingView.hidden = true;
                     self?.reloadImageView.hidden = false;
                 }
             
@@ -143,14 +146,16 @@ class Union_News_DetailViewController: UIViewController {
             }) {[weak self] (error) -> Void in
             
                 self?.reloadImageView.hidden = false;
-                self?.loadingView.viewHidden = true;
+//                self?.loadingView.viewHidden = true; //重写hidden的get set方法
+                self?.loadingView.hidden = true;
         }
     
     }
     
     func JSONSerializationWithData(data:AnyObject?){
         
-           self.loadingView.viewHidden = true;
+//           self.loadingView.viewHidden = true;
+        self.loadingView.hidden = true;
         
         if data != nil{
             do{

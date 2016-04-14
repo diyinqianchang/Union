@@ -10,6 +10,12 @@ import UIKit
 
 class VideoListTableViewCell: UITableViewCell {
 
+    var coverImgV:UIImageView?
+    var titleLabel:UILabel?
+    var video_lengthLable:UILabel?
+    var upload_timeLabel:UILabel?
+    var downloadButtonView:DownloadDynamicEffectView?
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier);
     }

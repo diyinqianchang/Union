@@ -26,25 +26,44 @@ class LoadingView: UIView {
         }
     
     }
-    var viewHidden:Bool{
+//    var viewHidden:Bool{
+//    
+//        willSet{
+//            if self.viewHidden != newValue {
+//                self.viewHidden = newValue
+//            }
+//        }
+//        didSet{
+//        
+//            if viewHidden{
+//            
+//                self.hiddenView();
+//            
+//             }else{
+//                self.showView();
+//            }
+//            self.hidden = self.viewHidden;
+//        }
+//    }
     
-        willSet{
-            if self.viewHidden != newValue {
-                self.viewHidden = newValue
-            }
+    
+   override var hidden: Bool{
+        get{
+          return super.hidden
         }
-        didSet{
-        
-            if viewHidden{
+        set{
             
+            if newValue{
                 self.hiddenView();
-            
-             }else{
+            }else{
                 self.showView();
             }
-            self.hidden = self.viewHidden;
+            super.hidden = newValue;
+        
         }
+    
     }
+    
     
     
     override init(var frame: CGRect) {
@@ -54,7 +73,7 @@ class LoadingView: UIView {
         }
         
         self.loadingColor = UIColor.whiteColor();
-        self.viewHidden = Bool();
+//        self.viewHidden = Bool();
         
         super.init(frame: frame);
         self.mainGear = UIImageView(frame: CGRectMake(0,0,70,70));

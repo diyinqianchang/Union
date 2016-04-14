@@ -18,7 +18,7 @@ class VideoListModel: NSObject {
     var upload_time:String?
     
     override func setValue(value: AnyObject?, forKey key: String) {
-          super.setValue(value, forUndefinedKey: key)
+          super.setValue(value, forKey: key)
     }
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
           super.setValue(value, forUndefinedKey: key)

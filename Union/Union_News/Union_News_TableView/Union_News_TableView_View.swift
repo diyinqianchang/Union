@@ -93,7 +93,7 @@ class Union_News_TableView_View: UIView {
         self.loadingView = LoadingView(frame: CGRectMake(0,0,CGRectGetWidth(self.frame),CGRectGetHeight(self.frame)));
         self.loadingView?.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3);
         self.loadingView?.loadingColor = UIColor.whiteColor();
-        self.loadingView?.viewHidden = true;
+        self.loadingView?.hidden = true;
         self.addSubview(self.loadingView!);
         
         self.pictureCycleView = PictureCycleView(frame: CGRectMake(0,0,SCREEN_WIDTH,SCREEN_WIDTH / 7 * 4));

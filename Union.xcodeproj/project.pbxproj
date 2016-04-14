@@ -44,6 +44,27 @@
 		64DA97E71CB7AEFE0009261D /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DA97E61CB7AEFD0009261D /* Reveal.framework */; };
 		64DA97EA1CB7C3820009261D /* MyUnion_UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA97E91CB7C3820009261D /* MyUnion_UserTableViewCell.swift */; };
 		64DA97EC1CB7C5940009261D /* MyUnion_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA97EB1CB7C5940009261D /* MyUnion_TableViewCell.swift */; };
+		64DCFCB41CBF2705009F4FE4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DCFCB31CBF2705009F4FE4 /* Reachability.m */; };
+		64DCFCB91CBF3FFA009F4FE4 /* UIView+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DCFCB81CBF3FFA009F4FE4 /* UIView+AlertView.swift */; };
+		64DCFCCB1CBF80BB009F4FE4 /* BDItemImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCBC1CBF80BB009F4FE4 /* BDItemImage.png */; };
+		64DCFCCC1CBF80BB009F4FE4 /* BDItemImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCBD1CBF80BB009F4FE4 /* BDItemImage@2x.png */; };
+		64DCFCCD1CBF80BB009F4FE4 /* BDItemImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCBE1CBF80BB009F4FE4 /* BDItemImage@3x.png */; };
+		64DCFCCE1CBF80BB009F4FE4 /* downloadedimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCBF1CBF80BB009F4FE4 /* downloadedimage.png */; };
+		64DCFCCF1CBF80BB009F4FE4 /* downloadedimage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCC01CBF80BB009F4FE4 /* downloadedimage@2x.png */; };
+		64DCFCD01CBF80BB009F4FE4 /* downloadedimage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCC11CBF80BB009F4FE4 /* downloadedimage@3x.png */; };
+		64DCFCD11CBF80BB009F4FE4 /* downloadingimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCC21CBF80BB009F4FE4 /* downloadingimage.png */; };
+		64DCFCD21CBF80BB009F4FE4 /* downloadingimage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCC31CBF80BB009F4FE4 /* downloadingimage@2x.png */; };
+		64DCFCD31CBF80BB009F4FE4 /* downloadingimage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCC41CBF80BB009F4FE4 /* downloadingimage@3x.png */; };
+		64DCFCD41CBF80BB009F4FE4 /* FHDItemImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCC51CBF80BB009F4FE4 /* FHDItemImage.png */; };
+		64DCFCD51CBF80BB009F4FE4 /* FHDItemImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCC61CBF80BB009F4FE4 /* FHDItemImage@2x.png */; };
+		64DCFCD61CBF80BB009F4FE4 /* FHDItemImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCC71CBF80BB009F4FE4 /* FHDItemImage@3x.png */; };
+		64DCFCD71CBF80BB009F4FE4 /* HDItemImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCC81CBF80BB009F4FE4 /* HDItemImage.png */; };
+		64DCFCD81CBF80BB009F4FE4 /* HDItemImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCC91CBF80BB009F4FE4 /* HDItemImage@2x.png */; };
+		64DCFCD91CBF80BB009F4FE4 /* HDItemImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64DCFCCA1CBF80BB009F4FE4 /* HDItemImage@3x.png */; };
+		64DCFCDB1CBF8125009F4FE4 /* DownloadDynamicEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DCFCDA1CBF8125009F4FE4 /* DownloadDynamicEffectView.swift */; };
+		64DCFCDE1CBF8A8A009F4FE4 /* LXAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DCFCDD1CBF8A8A009F4FE4 /* LXAlertViewController.swift */; };
+		64DCFCE11CBF8AF8009F4FE4 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DCFCE01CBF8AF8009F4FE4 /* VideoPlayerViewController.swift */; };
+		64DCFCE31CBF9F76009F4FE4 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DCFCE21CBF9F76009F4FE4 /* CoreTelephony.framework */; };
 		64E0E7341CB6268400555075 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64E0E7331CB6268400555075 /* Assets.xcassets */; };
 		64E0E7371CB6268400555075 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E0E7351CB6268400555075 /* LaunchScreen.storyboard */; };
 		64E0E7421CB6268400555075 /* UnionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0E7411CB6268400555075 /* UnionTests.swift */; };
@@ -294,6 +315,28 @@
 		64DA97E61CB7AEFD0009261D /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		64DA97E91CB7C3820009261D /* MyUnion_UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUnion_UserTableViewCell.swift; sourceTree = "<group>"; };
 		64DA97EB1CB7C5940009261D /* MyUnion_TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUnion_TableViewCell.swift; sourceTree = "<group>"; };
+		64DCFCB21CBF2705009F4FE4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		64DCFCB31CBF2705009F4FE4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		64DCFCB81CBF3FFA009F4FE4 /* UIView+AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AlertView.swift"; sourceTree = "<group>"; };
+		64DCFCBC1CBF80BB009F4FE4 /* BDItemImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BDItemImage.png; sourceTree = "<group>"; };
+		64DCFCBD1CBF80BB009F4FE4 /* BDItemImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BDItemImage@2x.png"; sourceTree = "<group>"; };
+		64DCFCBE1CBF80BB009F4FE4 /* BDItemImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BDItemImage@3x.png"; sourceTree = "<group>"; };
+		64DCFCBF1CBF80BB009F4FE4 /* downloadedimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloadedimage.png; sourceTree = "<group>"; };
+		64DCFCC01CBF80BB009F4FE4 /* downloadedimage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downloadedimage@2x.png"; sourceTree = "<group>"; };
+		64DCFCC11CBF80BB009F4FE4 /* downloadedimage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downloadedimage@3x.png"; sourceTree = "<group>"; };
+		64DCFCC21CBF80BB009F4FE4 /* downloadingimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloadingimage.png; sourceTree = "<group>"; };
+		64DCFCC31CBF80BB009F4FE4 /* downloadingimage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downloadingimage@2x.png"; sourceTree = "<group>"; };
+		64DCFCC41CBF80BB009F4FE4 /* downloadingimage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downloadingimage@3x.png"; sourceTree = "<group>"; };
+		64DCFCC51CBF80BB009F4FE4 /* FHDItemImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FHDItemImage.png; sourceTree = "<group>"; };
+		64DCFCC61CBF80BB009F4FE4 /* FHDItemImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FHDItemImage@2x.png"; sourceTree = "<group>"; };
+		64DCFCC71CBF80BB009F4FE4 /* FHDItemImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FHDItemImage@3x.png"; sourceTree = "<group>"; };
+		64DCFCC81CBF80BB009F4FE4 /* HDItemImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HDItemImage.png; sourceTree = "<group>"; };
+		64DCFCC91CBF80BB009F4FE4 /* HDItemImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HDItemImage@2x.png"; sourceTree = "<group>"; };
+		64DCFCCA1CBF80BB009F4FE4 /* HDItemImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HDItemImage@3x.png"; sourceTree = "<group>"; };
+		64DCFCDA1CBF8125009F4FE4 /* DownloadDynamicEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadDynamicEffectView.swift; sourceTree = "<group>"; };
+		64DCFCDD1CBF8A8A009F4FE4 /* LXAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXAlertViewController.swift; sourceTree = "<group>"; };
+		64DCFCE01CBF8AF8009F4FE4 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		64DCFCE21CBF9F76009F4FE4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		64E0E7291CB6268400555075 /* Union.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Union.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E0E7331CB6268400555075 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64E0E7361CB6268400555075 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -501,6 +544,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64DCFCE31CBF9F76009F4FE4 /* CoreTelephony.framework in Frameworks */,
 				64CFBA551CBB358500061D05 /* AudioToolbox.framework in Frameworks */,
 				5486416BA907E613A8E4E7A6 /* libPods.a in Frameworks */,
 				64DA97E71CB7AEFE0009261D /* Reveal.framework in Frameworks */,
@@ -527,6 +571,9 @@
 		5809D24D1CB68D900011FC71 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				64DCFCDC1CBF8A50009F4FE4 /* AlertViewController */,
+				64DCFCBA1CBF808D009F4FE4 /* DownloadDynamicEffect */,
+				64DCFCB51CBF3FD0009F4FE4 /* AlertView */,
 				64FAC8051CBE47FF007A9E14 /* CoreStatus */,
 				649ECDC11CBCF904003C0AFA /* PictureCycleView */,
 				64CFBA511CBB355900061D05 /* LXPlaySound */,
@@ -750,6 +797,61 @@
 				64DA97EB1CB7C5940009261D /* MyUnion_TableViewCell.swift */,
 			);
 			path = Union_MyUnion_Cells;
+			sourceTree = "<group>";
+		};
+		64DCFCB51CBF3FD0009F4FE4 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				64DCFCB81CBF3FFA009F4FE4 /* UIView+AlertView.swift */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
+		64DCFCBA1CBF808D009F4FE4 /* DownloadDynamicEffect */ = {
+			isa = PBXGroup;
+			children = (
+				64DCFCBB1CBF80BB009F4FE4 /* LXDownloadDynamicEffectResources */,
+				64DCFCDA1CBF8125009F4FE4 /* DownloadDynamicEffectView.swift */,
+			);
+			path = DownloadDynamicEffect;
+			sourceTree = "<group>";
+		};
+		64DCFCBB1CBF80BB009F4FE4 /* LXDownloadDynamicEffectResources */ = {
+			isa = PBXGroup;
+			children = (
+				64DCFCBC1CBF80BB009F4FE4 /* BDItemImage.png */,
+				64DCFCBD1CBF80BB009F4FE4 /* BDItemImage@2x.png */,
+				64DCFCBE1CBF80BB009F4FE4 /* BDItemImage@3x.png */,
+				64DCFCBF1CBF80BB009F4FE4 /* downloadedimage.png */,
+				64DCFCC01CBF80BB009F4FE4 /* downloadedimage@2x.png */,
+				64DCFCC11CBF80BB009F4FE4 /* downloadedimage@3x.png */,
+				64DCFCC21CBF80BB009F4FE4 /* downloadingimage.png */,
+				64DCFCC31CBF80BB009F4FE4 /* downloadingimage@2x.png */,
+				64DCFCC41CBF80BB009F4FE4 /* downloadingimage@3x.png */,
+				64DCFCC51CBF80BB009F4FE4 /* FHDItemImage.png */,
+				64DCFCC61CBF80BB009F4FE4 /* FHDItemImage@2x.png */,
+				64DCFCC71CBF80BB009F4FE4 /* FHDItemImage@3x.png */,
+				64DCFCC81CBF80BB009F4FE4 /* HDItemImage.png */,
+				64DCFCC91CBF80BB009F4FE4 /* HDItemImage@2x.png */,
+				64DCFCCA1CBF80BB009F4FE4 /* HDItemImage@3x.png */,
+			);
+			path = LXDownloadDynamicEffectResources;
+			sourceTree = "<group>";
+		};
+		64DCFCDC1CBF8A50009F4FE4 /* AlertViewController */ = {
+			isa = PBXGroup;
+			children = (
+				64DCFCDD1CBF8A8A009F4FE4 /* LXAlertViewController.swift */,
+			);
+			path = AlertViewController;
+			sourceTree = "<group>";
+		};
+		64DCFCDF1CBF8AE2009F4FE4 /* VideoPlayController */ = {
+			isa = PBXGroup;
+			children = (
+				64DCFCE01CBF8AF8009F4FE4 /* VideoPlayerViewController.swift */,
+			);
+			path = VideoPlayController;
 			sourceTree = "<group>";
 		};
 		64E0E7201CB6268400555075 = {
@@ -1152,6 +1254,7 @@
 		64E0E8C21CB62ADF00555075 /* Union_Video */ = {
 			isa = PBXGroup;
 			children = (
+				64DCFCDF1CBF8AE2009F4FE4 /* VideoPlayController */,
 				64FAC7FC1CBE3E1D007A9E14 /* VideoListView */,
 				64E0E8E31CB65E9A00555075 /* DownloadView */,
 				64E0E8D31CB6495300555075 /* Union_VideoViewController.swift */,
@@ -1256,6 +1359,8 @@
 		64FAC8051CBE47FF007A9E14 /* CoreStatus */ = {
 			isa = PBXGroup;
 			children = (
+				64DCFCB21CBF2705009F4FE4 /* Reachability.h */,
+				64DCFCB31CBF2705009F4FE4 /* Reachability.m */,
 				64FAC8061CBE4AF4007A9E14 /* NetStatus.swift */,
 				64FAC8081CBE5087007A9E14 /* NetworkStatus.swift */,
 			);
@@ -1265,6 +1370,7 @@
 		7908857C24D4D7297A671FB0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				64DCFCE21CBF9F76009F4FE4 /* CoreTelephony.framework */,
 				64CFBA541CBB358500061D05 /* AudioToolbox.framework */,
 				64DA97E61CB7AEFD0009261D /* Reveal.framework */,
 				26D6E4860E500534EB5FA197 /* libPods.a */,
@@ -1404,6 +1510,7 @@
 				64E0E86D1CB6270500555075 /* aboutlogo@3x.png in Resources */,
 				64E0E89E1CB6270500555075 /* iconfont-myself@2x.png in Resources */,
 				64E0E85A1CB6270500555075 /* iconfont-yingxiongpifu.png in Resources */,
+				64DCFCD71CBF80BB009F4FE4 /* HDItemImage.png in Resources */,
 				64E0E8601CB6270500555075 /* iconfont-zhandou-small.png in Resources */,
 				64E0E83F1CB6270500555075 /* iconfont-hero-details-xia@2x.png in Resources */,
 				64E0E84B1CB6270500555075 /* poluoimage@3x.png in Resources */,
@@ -1412,8 +1519,10 @@
 				64E0E8431CB6270500555075 /* iconfont-herodatajia@3x.png in Resources */,
 				64E0E8531CB6270500555075 /* iconfont-yingxiongduibi@2x.png in Resources */,
 				64E0E8BB1CB6270500555075 /* iconfont-yinliangxiao@3x.png in Resources */,
+				64DCFCD31CBF80BB009F4FE4 /* downloadingimage@3x.png in Resources */,
 				64E0E85B1CB6270500555075 /* iconfont-yingxiongpifu@2x.png in Resources */,
 				64E0E8961CB6270500555075 /* iconfont-xiazaiimage.png in Resources */,
+				64DCFCCB1CBF80BB009F4FE4 /* BDItemImage.png in Resources */,
 				64E0E85E1CB6270500555075 /* iconfont-yingxiongyizhoutubiao@2x.png in Resources */,
 				64E0E8751CB6270500555075 /* iconfont-youxia@3x.png in Resources */,
 				64E0E8361CB6270500555075 /* myheropromptImage@3x.png in Resources */,
@@ -1422,6 +1531,7 @@
 				64E0E8741CB6270500555075 /* iconfont-youxia@2x.png in Resources */,
 				64E0E8B01CB6270500555075 /* iconfont-zanting.png in Resources */,
 				64E0E8691CB6270500555075 /* iconfont-guanbicuowu@2x.png in Resources */,
+				64DCFCD51CBF80BB009F4FE4 /* FHDItemImage@2x.png in Resources */,
 				64E0E8B81CB6270500555075 /* iconfont-yinliangjingyin@3x.png in Resources */,
 				64E0E86B1CB6270500555075 /* aboutlogo.png in Resources */,
 				64E0E8801CB6270500555075 /* iconfont-gengduo.png in Resources */,
@@ -1430,6 +1540,7 @@
 				64E0E8341CB6270500555075 /* myheropromptImage.png in Resources */,
 				64E0E87B1CB6270500555075 /* stateImageisYes@2x.png in Resources */,
 				64E0E8571CB6270500555075 /* iconfont-yingxiongpeiyin.png in Resources */,
+				64DCFCD91CBF80BB009F4FE4 /* HDItemImage@3x.png in Resources */,
 				64E0E89D1CB6270500555075 /* iconfont-myself.png in Resources */,
 				64E0E83C1CB6270500555075 /* iconfont-caidanyingyong@2x.png in Resources */,
 				64E0E82E1CB6270500555075 /* EnycHero.png in Resources */,
@@ -1442,12 +1553,14 @@
 				64E0E88D1CB6270500555075 /* iconfont-newsbofang@2x.png in Resources */,
 				64E0E86F1CB6270500555075 /* iconfont-dacumojian@2x.png in Resources */,
 				64E0E89C1CB6270500555075 /* iconfont-ency@3x.png in Resources */,
+				64DCFCD01CBF80BB009F4FE4 /* downloadedimage@3x.png in Resources */,
 				64E0E8141CB6270500555075 /* reloadImage.png in Resources */,
 				64E0E8331CB6270500555075 /* HeroDetailsBackground@2x.png in Resources */,
 				64E0E8441CB6270500555075 /* iconfont-herodatajian.png in Resources */,
 				64E0E8A21CB6270500555075 /* iconfont-news@3x.png in Resources */,
 				64E0E8581CB6270500555075 /* iconfont-yingxiongpeiyin@2x.png in Resources */,
 				64E0E8BA1CB6270500555075 /* iconfont-yinliangxiao@2x.png in Resources */,
+				64DCFCCE1CBF80BB009F4FE4 /* downloadedimage.png in Resources */,
 				64E0E8AC1CB6270500555075 /* iconfont-dian.png in Resources */,
 				64E0E8161CB6270500555075 /* startImagewhite.png in Resources */,
 				64E0E8B91CB6270500555075 /* iconfont-yinliangxiao.png in Resources */,
@@ -1479,6 +1592,7 @@
 				64E0E87C1CB6270500555075 /* stateImageisYes@3x.png in Resources */,
 				64E0E8541CB6270500555075 /* iconfont-yingxionggaidong.png in Resources */,
 				64E0E8631CB6270500555075 /* iconfont-zhandou.png in Resources */,
+				64DCFCD41CBF80BB009F4FE4 /* FHDItemImage.png in Resources */,
 				64E0E8281CB6270500555075 /* ency_zhanzhengxueyuan@3x.png in Resources */,
 				64E0E8381CB6270500555075 /* HoneycombBackground.png in Resources */,
 				64E0E8981CB6270500555075 /* iconfont-download.png in Resources */,
@@ -1491,8 +1605,11 @@
 				64E0E8251CB6270500555075 /* ency_nuokesasi@3x.png in Resources */,
 				64E0E89F1CB6270500555075 /* iconfont-myself@3x.png in Resources */,
 				64E0E8401CB6270500555075 /* iconfont-hero-details-xia@3x.png in Resources */,
+				64DCFCCF1CBF80BB009F4FE4 /* downloadedimage@2x.png in Resources */,
 				64E0E8651CB6270500555075 /* iconfont-zhandou@3x.png in Resources */,
+				64DCFCD61CBF80BB009F4FE4 /* FHDItemImage@3x.png in Resources */,
 				64E0E7371CB6268400555075 /* LaunchScreen.storyboard in Resources */,
+				64DCFCD21CBF80BB009F4FE4 /* downloadingimage@2x.png in Resources */,
 				64E0E8A51CB6270500555075 /* iconfont-shipin@3x.png in Resources */,
 				64E0E8831CB6270500555075 /* iconfont-iconfont-sharebutton.png in Resources */,
 				64E0E8211CB6270500555075 /* ency_demaxiya@2x.png in Resources */,
@@ -1507,6 +1624,7 @@
 				64E0E8AB1CB6270500555075 /* iconfont-bofang@3x.png in Resources */,
 				64E0E8671CB6270500555075 /* 37x-Checkmark@2x.png in Resources */,
 				64E0E8591CB6270500555075 /* iconfont-yingxiongpeiyin@3x.png in Resources */,
+				64DCFCCC1CBF80BB009F4FE4 /* BDItemImage@2x.png in Resources */,
 				64E0E84F1CB6270500555075 /* iconfont-guanbianniu.png in Resources */,
 				64E0E84D1CB6270500555075 /* poluoimage_gray@2x.png in Resources */,
 				64E0E8371CB6270500555075 /* HoneycombBackgorund@2x.png in Resources */,
@@ -1515,6 +1633,7 @@
 				64E0E8231CB6270500555075 /* ency_nuokesasi.png in Resources */,
 				64E0E8891CB6270500555075 /* iconfont-xiazai.png in Resources */,
 				64E0E8681CB6270500555075 /* iconfont-guanbicuowu.png in Resources */,
+				64DCFCD81CBF80BB009F4FE4 /* HDItemImage@2x.png in Resources */,
 				64E0E84E1CB6270500555075 /* poluoimage_gray@3x.png in Resources */,
 				64E0E8B61CB6270500555075 /* iconfont-yinliangjingyin.png in Resources */,
 				64E0E8471CB6270500555075 /* iconfont-herodetailsbiaoqian.png in Resources */,
@@ -1546,10 +1665,12 @@
 				64E0E8711CB6270500555075 /* iconfont-xiajiantou.png in Resources */,
 				64E0E8861CB6270500555075 /* iconfont-sharebutton.png in Resources */,
 				64E0E8241CB6270500555075 /* ency_nuokesasi@2x.png in Resources */,
+				64DCFCCD1CBF80BB009F4FE4 /* BDItemImage@3x.png in Resources */,
 				64E0E83D1CB6270500555075 /* iconfont-caidanyingyong@3x.png in Resources */,
 				64E0E85C1CB6270500555075 /* iconfont-yingxiongpifu@3x.png in Resources */,
 				64E0E8791CB6270500555075 /* stateImageisNo@3x.png in Resources */,
 				64E0E8A61CB6270500555075 /* iconfont-sousuo.png in Resources */,
+				64DCFCD11CBF80BB009F4FE4 /* downloadingimage.png in Resources */,
 				64E0E8661CB6270500555075 /* 37x-Checkmark.png in Resources */,
 				64E0E7341CB6268400555075 /* Assets.xcassets in Resources */,
 				64E0E8A11CB6270500555075 /* iconfont-news@2x.png in Resources */,
@@ -1647,6 +1768,7 @@
 				64DA97EA1CB7C3820009261D /* MyUnion_UserTableViewCell.swift in Sources */,
 				649ECDC51CBCF986003C0AFA /* PictureCycleModel.swift in Sources */,
 				649ECDC91CBD06BD003C0AFA /* PictureCycleItem.swift in Sources */,
+				64DCFCB41CBF2705009F4FE4 /* Reachability.m in Sources */,
 				64DA97E31CB798E40009261D /* StringDeal.swift in Sources */,
 				5809D2501CB68DBF0011FC71 /* TabView.swift in Sources */,
 				64CFBA631CBB5C6500061D05 /* GPBottomLoadingView.swift in Sources */,
@@ -1655,6 +1777,7 @@
 				64CFBA5C1CBB48A400061D05 /* ClearCacheSettingViewController.swift in Sources */,
 				64FAC7FB1CBE1184007A9E14 /* Union_News_DetailViewController.swift in Sources */,
 				649ECDBD1CBCA7C7003C0AFA /* ClearCacheSettingCell.swift in Sources */,
+				64DCFCDB1CBF8125009F4FE4 /* DownloadDynamicEffectView.swift in Sources */,
 				64E0E8D81CB6498000555075 /* Union_MyUnionViewController.swift in Sources */,
 				64E0E8E11CB6547F00555075 /* GCDSemaphore.swift in Sources */,
 				64CFBA4A1CBB2BE100061D05 /* SettingViewCell.swift in Sources */,
@@ -1668,6 +1791,7 @@
 				64CFBA501CBB346000061D05 /* SettingManager.swift in Sources */,
 				64CFBA5A1CBB3F4800061D05 /* DataCache.swift in Sources */,
 				64E0E8D21CB6493E00555075 /* Union_NewsViewController.swift in Sources */,
+				64DCFCB91CBF3FFA009F4FE4 /* UIView+AlertView.swift in Sources */,
 				64544D391CB7498D009847E2 /* Union_News_TableView_View.swift in Sources */,
 				64F377581CB88FAF00EE3EEE /* SummonerModel.swift in Sources */,
 				64FAC8001CBE402D007A9E14 /* VideoListModel.swift in Sources */,
@@ -1675,11 +1799,13 @@
 				649ECDC71CBD06A6003C0AFA /* PictureCycleScrollView.swift in Sources */,
 				64E0E8C91CB62C9800555075 /* config.swift in Sources */,
 				64E0E8E21CB6547F00555075 /* GCDTimer.swift in Sources */,
+				64DCFCE11CBF8AF8009F4FE4 /* VideoPlayerViewController.swift in Sources */,
 				64E0E8E01CB6547F00555075 /* GCDQueue.swift in Sources */,
 				64DA97E51CB7A64A0009261D /* TimeFormattor.swift in Sources */,
 				64544D4D1CB75227009847E2 /* AFNetWorkingTool.swift in Sources */,
 				64E0E8BE1CB62A4600555075 /* AppDelegate.swift in Sources */,
 				64CFBA5E1CBB577A00061D05 /* LoadingView.swift in Sources */,
+				64DCFCDE1CBF8A8A009F4FE4 /* LXAlertViewController.swift in Sources */,
 				64CFBA611CBB5C4B00061D05 /* GPLoadingView.swift in Sources */,
 				64FAC8021CBE4260007A9E14 /* VideoListTableViewCell.swift in Sources */,
 				64CFBA571CBB3A9200061D05 /* DownloadManager.swift in Sources */,
@@ -1818,6 +1944,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1839,6 +1966,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

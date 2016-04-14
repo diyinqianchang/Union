@@ -12,7 +12,18 @@ typealias VideoListSelectedVideoBlock=(videoArr:NSMutableArray,videoTitle:String
 
 class Union_VideoListTableView: UITableView {
 
-    var urlStr:String?
+    var urlStr:String{
+    
+        willSet{
+            if self.urlStr != newValue{
+                self.urlStr = newValue;
+            }
+        }
+        didSet{
+        
+        }
+    
+    }
     var selectVideoBlick:VideoListSelectedVideoBlock?
     var rootVc:UIViewController{
         willSet{
@@ -26,8 +37,21 @@ class Union_VideoListTableView: UITableView {
     
     }
     var isShowLoadingView:Bool?
+    
+    var tableArr:NSMutableArray?
+    var gearPowered:GearPowered?
+    var loadingView:LoadingView?
+    var page:NSInteger? //页数
+    var videoArray:NSMutableArray? //视频详情数组
+    var selectedCellIndex:NSInteger?//选中的cell
+    var lastSelectCellIndex:NSInteger? //上一次选中的cell
+    var reloadImageView:UIImageView?
+    
+    
+    
     override init(frame: CGRect, style: UITableViewStyle) {
         self.rootVc = UIViewController();
+        self.urlStr = String();
         super.init(frame: frame, style: style);
     }
 
@@ -42,4 +66,10 @@ class Union_VideoListTableView: UITableView {
     }
     
     
+}
+extension Union_VideoListTableView{
+
+
+
+
 }

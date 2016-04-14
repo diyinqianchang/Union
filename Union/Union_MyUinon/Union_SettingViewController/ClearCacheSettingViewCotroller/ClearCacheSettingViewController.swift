@@ -66,6 +66,11 @@ class ClearCacheSettingViewController: UIViewController {
     }
     func clearButtonAction(btn:UIButton){
         
+        /**
+        *  方式按钮重复点击
+        */
+        NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: Selector("clearButtonAction:"), object: nil);
+        
         if (self.clearDict?.valueForKey("HeroCell") as! ClearCacheSettingCell).isClear {
             self.dataCache?.removeClassifyCache("Hero");
             (self.clearDict?.valueForKey("HeroCell") as! ClearCacheSettingCell).detailTitleLabel?.text = "0.00KB";
@@ -93,8 +98,6 @@ class ClearCacheSettingViewController: UIViewController {
         hud.labelText = "成功清空缓存";
         hud.show(true);
         hud.hide(true, afterDelay: 2.0);
-        
-    
     }
 
 }
