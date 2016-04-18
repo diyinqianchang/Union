@@ -28,8 +28,6 @@ class AFNetWorkingTool: NSObject {
         let set :Set = NSSet(objects: "application/json","text/html","text/json","text/javascript") as Set;
         manager.responseSerializer.acceptableContentTypes = set;
         manager.GET(url, parameters: params, success: { (operation, responseObject) -> Void in
-          
-            
                 success(responseObject: responseObject);
             
             }) { (operation, error) -> Void in

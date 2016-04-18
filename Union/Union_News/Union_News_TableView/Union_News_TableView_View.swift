@@ -233,13 +233,13 @@ extension Union_News_TableView_View:UITableViewDelegate,UITableViewDataSource,Ge
         self.gearPowered?.scrollViewDidEndDragging(scrollView, willDecelerate: decelerate);
     }
     
-    func didLoadData(data: AnyObject) {
+    func didLoadData(data: AnyObject?) {
         self.page = 1;
         self.dataArray.removeAllObjects();
         self.JSONSerializationWithData(data);
     }
     
-    func didBottomLoadData(data: AnyObject) {
+    func didBottomLoadData(data: AnyObject?) {
         self.JSONSerializationWithData(data);
     }
     

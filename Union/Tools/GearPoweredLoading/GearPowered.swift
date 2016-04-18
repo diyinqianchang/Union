@@ -10,9 +10,9 @@ import UIKit
 
 @objc protocol GearPowerDelegate:NSObjectProtocol{
 
-    func didLoadData(data:AnyObject);
+    func didLoadData(data:AnyObject?);
     optional func settingBottomLoadDataURL() -> NSURL;
-    optional func didBottomLoadData(data:AnyObject);
+    optional func didBottomLoadData(data:AnyObject?);
 }
 
 class GearPowered: NSObject {
@@ -203,7 +203,7 @@ class GearPowered: NSObject {
                             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)),dispatch_get_main_queue(), { () -> Void in
                                 
                                 if (self?.delegate != nil && self!.delegate!.respondsToSelector("didBottomLoadData:")) {
-                                    self?.delegate?.didBottomLoadData!(responseObject!);
+                                    self?.delegate?.didBottomLoadData!(responseObject);
                                 }
                                 
                             });
@@ -213,7 +213,7 @@ class GearPowered: NSObject {
                         do{
                             if (self?.delegate != nil && self!.delegate!.respondsToSelector("didLoadData:")){
                             
-                                self?.delegate?.didLoadData(responseObject!);
+                                self?.delegate?.didLoadData(responseObject);
                             
                             }
                             self?.GPLView?.didLoadView();

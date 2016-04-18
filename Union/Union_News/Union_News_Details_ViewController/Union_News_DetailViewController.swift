@@ -88,6 +88,13 @@ class Union_News_DetailViewController: UIViewController {
     
     }()
     
+    lazy var videoListTableView:Union_VideoListTableView = {
+    
+        let tableView:Union_VideoListTableView = Union_VideoListTableView();
+        tableView.rootVc = self;
+        return tableView;
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "资讯详情";
@@ -205,8 +212,45 @@ extension Union_News_DetailViewController:UIWebViewDelegate{
         
         return false;
     }
-    func webViewVideoWithUrl(urlString:String){
+    func webViewVideoWithUrl(var urlString:String){
     
+        if urlString.hasPrefix("http://box.dwstatic.com/unsupport"){
+        
+            
+            var vid:String?
+            var type:String?
+            
+            urlString = (urlString as NSString).stringByReplacingOccurrencesOfString("http://box.dwstatic.com/unsupport", withString: "");
+            let range = (urlString as NSString).rangeOfString("?");
+            urlString = (urlString as NSString).substringFromIndex(range.location + range.length);
+            
+            let tempArray = urlString.componentsSeparatedByString("&");
+            
+            for (_,item) in tempArray.enumerate(){
+            
+                if item.hasPrefix("vid="){
+                    vid = (item as NSString).substringFromIndex(4);
+                }
+                if item.hasPrefix("lolboxAction="){
+                    type = (item as NSString).substringFromIndex(13);
+                }
+            
+            }
+            
+            if vid != nil && type != nil{
+            
+                if type == "videoPlay"{
+                
+                    self.videoListTableView.netWorkingGetVideoDetails(vid: vid!, title: self.htmlTitle!);
+                    
+                }else if type == "videoDownLoad"{
+                
+                
+                }
+            
+            }
+        
+        }
     
     }
 

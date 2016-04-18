@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5486416BA907E613A8E4E7A6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D6E4860E500534EB5FA197 /* libPods.a */; };
 		5809D2501CB68DBF0011FC71 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5809D24F1CB68DBF0011FC71 /* TabView.swift */; };
+		640979111CC4D1CD0093576F /* VideoDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640979101CC4D1CD0093576F /* VideoDetailsModel.swift */; };
+		640979131CC4D37B0093576F /* VideoTranscodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640979121CC4D37B0093576F /* VideoTranscodeModel.swift */; };
 		643101811CB8F0010091CB0D /* SummonerDataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643101801CB8F0010091CB0D /* SummonerDataBaseManager.swift */; };
 		64544D391CB7498D009847E2 /* Union_News_TableView_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64544D381CB7498D009847E2 /* Union_News_TableView_View.swift */; };
 		64544D431CB74DDA009847E2 /* maingear.png in Resources */ = {isa = PBXBuildFile; fileRef = 64544D3D1CB74DDA009847E2 /* maingear.png */; };
@@ -280,6 +282,8 @@
 		26D6E4860E500534EB5FA197 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDD245B5EB30F8E7AD012BB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5809D24F1CB68DBF0011FC71 /* TabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		640979101CC4D1CD0093576F /* VideoDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDetailsModel.swift; sourceTree = "<group>"; };
+		640979121CC4D37B0093576F /* VideoTranscodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTranscodeModel.swift; sourceTree = "<group>"; };
 		643101801CB8F0010091CB0D /* SummonerDataBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerDataBaseManager.swift; sourceTree = "<group>"; };
 		64544D381CB7498D009847E2 /* Union_News_TableView_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Union_News_TableView_View.swift; sourceTree = "<group>"; };
 		64544D3D1CB74DDA009847E2 /* maingear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maingear.png; sourceTree = "<group>"; };
@@ -591,6 +595,15 @@
 				5809D24F1CB68DBF0011FC71 /* TabView.swift */,
 			);
 			path = TabView;
+			sourceTree = "<group>";
+		};
+		6409790F1CC4D1B10093576F /* VideoDetailsModel */ = {
+			isa = PBXGroup;
+			children = (
+				640979101CC4D1CD0093576F /* VideoDetailsModel.swift */,
+				640979121CC4D37B0093576F /* VideoTranscodeModel.swift */,
+			);
+			path = VideoDetailsModel;
 			sourceTree = "<group>";
 		};
 		643101821CB9081A0091CB0D /* Union_SettingViewController */ = {
@@ -1254,6 +1267,7 @@
 		64E0E8C21CB62ADF00555075 /* Union_Video */ = {
 			isa = PBXGroup;
 			children = (
+				6409790F1CC4D1B10093576F /* VideoDetailsModel */,
 				64DCFCDF1CBF8AE2009F4FE4 /* VideoPlayController */,
 				64FAC7FC1CBE3E1D007A9E14 /* VideoListView */,
 				64E0E8E31CB65E9A00555075 /* DownloadView */,
@@ -1769,6 +1783,7 @@
 				649ECDC51CBCF986003C0AFA /* PictureCycleModel.swift in Sources */,
 				649ECDC91CBD06BD003C0AFA /* PictureCycleItem.swift in Sources */,
 				64DCFCB41CBF2705009F4FE4 /* Reachability.m in Sources */,
+				640979131CC4D37B0093576F /* VideoTranscodeModel.swift in Sources */,
 				64DA97E31CB798E40009261D /* StringDeal.swift in Sources */,
 				5809D2501CB68DBF0011FC71 /* TabView.swift in Sources */,
 				64CFBA631CBB5C6500061D05 /* GPBottomLoadingView.swift in Sources */,
@@ -1794,6 +1809,7 @@
 				64DCFCB91CBF3FFA009F4FE4 /* UIView+AlertView.swift in Sources */,
 				64544D391CB7498D009847E2 /* Union_News_TableView_View.swift in Sources */,
 				64F377581CB88FAF00EE3EEE /* SummonerModel.swift in Sources */,
+				640979111CC4D1CD0093576F /* VideoDetailsModel.swift in Sources */,
 				64FAC8001CBE402D007A9E14 /* VideoListModel.swift in Sources */,
 				64FAC8041CBE442D007A9E14 /* Union_VideoListTableView.swift in Sources */,
 				649ECDC71CBD06A6003C0AFA /* PictureCycleScrollView.swift in Sources */,

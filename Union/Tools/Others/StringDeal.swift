@@ -43,6 +43,13 @@ extension String{
         
     }
     
+    //URLCode
+    func URLEncodedString()-> String{
+    
+        let charaSet:NSCharacterSet = NSCharacterSet(charactersInString: "!$&'()*+,-./:;=?@_~%#[]");
+        return (self as NSString).stringByAddingPercentEncodingWithAllowedCharacters(charaSet)!;
+    }
+    
 
 
 }
