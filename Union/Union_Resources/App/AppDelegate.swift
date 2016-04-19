@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("\(MobClick.getConfigParams("isShowDownLoad"))")
         
-        let isShowDownLoad = NSString(string: MobClick.getConfigParams("isShowDownLoad")).boolValue;
+        let isShowDownLoad = true //NSString(string: MobClick.getConfigParams("isShowDownLoad")).boolValue;
         
         if isShowDownLoad {
         

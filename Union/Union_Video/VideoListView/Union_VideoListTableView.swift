@@ -219,9 +219,9 @@ class Union_VideoListTableView: UITableView {
                 }
             })
             
-            self.videoArray.forEach({ (model1) -> () in
-                print("\((model1 as! VideoDetailsModel).definition!)");
-            })
+//            self.videoArray.forEach({ (model1) -> () in
+//                print("\((model1 as! VideoDetailsModel).definition!)");
+//            })
            
             
         

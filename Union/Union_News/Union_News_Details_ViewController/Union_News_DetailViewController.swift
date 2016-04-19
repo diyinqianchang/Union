@@ -212,6 +212,7 @@ extension Union_News_DetailViewController:UIWebViewDelegate{
         
         return false;
     }
+    
     func webViewVideoWithUrl(var urlString:String){
     
         if urlString.hasPrefix("http://box.dwstatic.com/unsupport"){

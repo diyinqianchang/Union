@@ -28,7 +28,7 @@ class VideoDetailsModel: NSObject {
             
             let tempDict:NSDictionary = [key:value!];
             let dict:NSDictionary = tempDict.objectForKey("transcode") as! NSDictionary;
-            print("dict ====>\(dict)");
+//            print("dict ====>\(dict)");
             self.transcode?.setValuesForKeysWithDictionary(dict as! [String : AnyObject])
 
         }else{

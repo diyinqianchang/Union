@@ -20,7 +20,8 @@ class VideoPlayerViewController: UIViewController {
             }
         }
         didSet{
-            
+             print("=====>\(self.videoTitle)");
+            self.topTitleLabel?.text = self.videoTitle;
         }
     }
     var videoArr:NSMutableArray = []{
@@ -32,6 +33,7 @@ class VideoPlayerViewController: UIViewController {
                 self.videoArr = newValue;
                 
                 print("----->\(self.videoArr)");
+                
             }
         }
         didSet{
@@ -49,12 +51,13 @@ class VideoPlayerViewController: UIViewController {
                 })
                 for(i,_) in self.videoArr.enumerate(){
                     print(i);
-//                    let btn = self.topDefinitionListView?.subviews[i] as! UIButton;
-//                    btn.hidden = false;
+                    let btn = self.topDefinitionListView?.subviews[i] as! UIButton;
+                    btn.hidden = false;
                 }
                 self.loadingView?.hidden = false;
                 self.moviePlayer.contentURL = self.getNetworkUrl();
-//                //缓冲
+                self.addNotification();
+                 //缓冲
                 self.moviePlayer.prepareToPlay();
                 self.moviePlayer.play();
             }
@@ -65,26 +68,38 @@ class VideoPlayerViewController: UIViewController {
     //视屏播放控制请
     lazy var moviePlayer:MPMoviePlayerController = {
         
-        let player = MPMoviePlayerController();
-        player.view.frame = self.view.bounds;
-        player.view.autoresizingMask = [.FlexibleWidth,.FlexibleHeight];
+        let player = MPMoviePlayerController(contentURL: nil);
+        
+        player.view.frame = CGRectMake(0,0,self.view.bounds.size.width,self.view.bounds.size.height);
+        
+        print(player.view.frame);
+        
+        player.view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth,UIViewAutoresizing.FlexibleHeight];
         
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTap:"));
+          tap.delegate = self;
         player.view.addGestureRecognizer(tap);
         
         let doubleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleDoubleTap:"));
            doubleTap.numberOfTapsRequired = 2;
+        
         player.view.addGestureRecognizer(doubleTap);
         //长按
-        let longPress:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("andleLongPress:"));
+        let longPress:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("handleLongPress:"));
         longPress.minimumPressDuration = 2;
         player.view.addGestureRecognizer(longPress);
         
         return player;
     
     }();
-//    var mo:AVPlayerViewController?
-    var timer:NSTimer?
+    
+    lazy var timer:NSTimer? = {
+        let timer = NSTimer(timeInterval: 1.0, target: self, selector: Selector("playTimerAction:"), userInfo: nil, repeats: true);
+        let runLoop = NSRunLoop.currentRunLoop();
+        runLoop.addTimer(timer, forMode: NSDefaultRunLoopMode);
+        return timer;
+    }()
+    
     var loadingView:LoadingView?
     
     var topView:UIView? //顶部控制视图
@@ -113,8 +128,8 @@ class VideoPlayerViewController: UIViewController {
     
     var startPoint:CGPoint?       //触摸起始点
     var endPoint:CGPoint?         //触摸结束点
-    var changeTime:NSInteger?      //改变的时间
-    var nowPlayTime:CGFloat?       //当前播放时间
+    var changeTime:NSInteger = 0      //改变的时间
+    var nowPlayTime:Double?       //当前播放时间
     var moveDirection:NSInteger?  //触摸移动方向
     var definitionIndex:NSInteger = 0{
     
@@ -206,6 +221,34 @@ class VideoPlayerViewController: UIViewController {
         self.topDefinitionListView?.backgroundColor = UIColor.blackColor();
         self.topDefinitionListView?.hidden = true;
         self.topDefinitionListView?.alpha = 0;    //默认隐藏
+        self.view.addSubview(self.topDefinitionListView!);
+        
+        do{
+            let BDButton = UIButton(type: UIButtonType.Custom);
+            BDButton.frame = CGRectMake(0, 10, CGRectGetWidth(self.topDefinitionListView!.frame), 40);
+            BDButton.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6);
+            BDButton.setTitle("标清", forState: .Normal);
+            BDButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal);
+            BDButton.addTarget(self, action: Selector("BDButtonAction:"), forControlEvents: .TouchUpInside);
+            self.topDefinitionListView?.addSubview(BDButton);
+            
+            let HDButton = UIButton(type: UIButtonType.Custom);
+            HDButton.frame = CGRectMake(0, 60, CGRectGetWidth(self.topDefinitionListView!.frame), 40);
+            HDButton.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6);
+            HDButton.setTitle("高清", forState: .Normal);
+            HDButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal);
+            HDButton.addTarget(self, action: Selector("HDButtonAction:"), forControlEvents: .TouchUpInside);
+            self.topDefinitionListView?.addSubview(HDButton);
+
+            let FHDButton = UIButton(type: UIButtonType.Custom);
+            FHDButton.frame = CGRectMake(0, 110, CGRectGetWidth(self.topDefinitionListView!.frame), 40);
+            FHDButton.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6);
+            FHDButton.setTitle("超清", forState: .Normal);
+            FHDButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal);
+            FHDButton.addTarget(self, action: Selector("FHDButtonAction:"), forControlEvents: .TouchUpInside);
+            self.topDefinitionListView?.addSubview(FHDButton);
+        }
+        
         
         
         //初始化标题
@@ -213,7 +256,6 @@ class VideoPlayerViewController: UIViewController {
         self.topTitleLabel?.textColor = UIColor.whiteColor();
         self.topTitleLabel?.textAlignment = .Center;
         self.topTitleLabel?.font = UIFont.systemFontOfSize(16);
-        self.topTitleLabel?.text = self.videoTitle;
         self.topView?.addSubview(self.topTitleLabel!);
     
     
@@ -236,7 +278,7 @@ class VideoPlayerViewController: UIViewController {
         
         //进度条
         self.progressView = UIProgressView(progressViewStyle: .Default);
-        self.progressView?.frame = CGRectMake(70, 29, CGRectGetWidth(self.view.frame), 10);
+        self.progressView?.frame = CGRectMake(70, 29, CGRectGetWidth(self.view.frame) - 100, 10);
         self.progressView?.trackTintColor = UIColor.blackColor();  //进度条颜色
         self.progressView?.progressTintColor = UIColor.lightGrayColor();
         self.progressView?.userInteractionEnabled = false;
@@ -299,16 +341,14 @@ class VideoPlayerViewController: UIViewController {
         let systemVolumeView = MPVolumeView();
         systemVolumeView.center = CGPointMake(-1000, -1000);
         systemVolumeView.hidden = false;
-        
-        
         for (_,view) in systemVolumeView.subviews.enumerate(){
             if  view.classForCoder.description() == "MPVolumeSlider"{
-                
                 self.systemVolumeSlider = view as? UISlider;
                 break;
             }
         
         }
+        print("系统音量\(self.systemVolumeSlider!.value)");
         //同步系统音量
         self.volumeSlider?.value = self.systemVolumeSlider!.value;
     
@@ -352,7 +392,7 @@ class VideoPlayerViewController: UIViewController {
         self.bottomView?.frame = CGRectMake(0, CGRectGetHeight(self.view.frame) - 60, CGRectGetWidth(self.view.frame), 60);
         self.playButton?.frame = CGRectMake(5, 5, 50, 50);
         self.progressView?.frame = CGRectMake(70, 29, CGRectGetWidth(self.view.frame) - 100, 10);
-        self.slider?.frame = CGRectMake(68, 15, CGRectGetWidth(self.view.frame) - 96, 10);
+        self.slider?.frame = CGRectMake(68, 15, CGRectGetWidth(self.view.frame) - 96, 30);
         self.playTimeLabel?.frame = CGRectMake(CGRectGetWidth(self.view.frame) - 150, 30, 60, 30);
         self.videoDurationLabel?.frame = CGRectMake(CGRectGetWidth(self.view.frame) - 90 , 30 , 70 , 30);
         
@@ -369,19 +409,49 @@ class VideoPlayerViewController: UIViewController {
     }
     
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        self.isDismiss = false;
+        SettingManager.sharedInstance.downloadViewHiddenOrShow(true);
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated);
+        
+        if self.moviePlayer.isPreparedToPlay == true{
+            
+            self.moviePlayer.stop();
+            
+        }else{
+         
+            self.isDismiss = true;
+            
+        }
+        SettingManager.sharedInstance.downloadViewHiddenOrShow(false);
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+         print("0");
+        
         
         self.view.addSubview(self.moviePlayer.view);
+        self.moviePlayer.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height);
         self.moviePlayer.controlStyle = .None;
-        self.moviePlayer.scalingMode = .AspectFit;
+        self.moviePlayer.scalingMode = MPMovieScalingMode.AspectFill;
         
-        self.addNotification();
+       
+        
         self.loadTopView();
         self.loadBottomView();
         self.loadVolumeView();
         self.loadPromptView();
+        
+        
         
         self.loadingView = LoadingView(frame: CGRectMake(0,0,100,100));
         self.loadingView?.center = CGPointMake(CGRectGetWidth(self.view.frame) / 2, CGRectGetHeight(self.view.frame) / 2);
@@ -389,7 +459,6 @@ class VideoPlayerViewController: UIViewController {
         self.loadingView?.hidden = true;
         self.view.addSubview(self.loadingView!);
         
-        print("=====>\(self.videoTitle)");
         
 
 
@@ -437,8 +506,42 @@ class VideoPlayerViewController: UIViewController {
     
     func DefinitionButtonAction(btn:UIButton){
     
-    
-    
+        if self.topDefinitionListView?.hidden == true {
+        
+            self.topDefinitionButton?.setTitleColor(UIColor.whiteColor(), forState: .Normal);
+            
+            for(i,_) in self.videoArr.enumerate(){
+            
+                if self.definitionIndex == i{
+                
+                    (self.topDefinitionListView?.subviews[i] as! UIButton).setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal);
+                }else{
+                
+                    (self.topDefinitionListView?.subviews[i] as! UIButton).setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Normal);
+                
+                }
+            
+            }
+            
+            self.topDefinitionListView?.hidden = false;
+            
+            UIView.animateWithDuration(0.3, animations: {[weak self] () -> Void in
+                self?.topDefinitionListView?.alpha = 1;
+                }, completion: { (finished) -> Void in
+                    
+            })
+        
+        }else{
+        
+            self.topDefinitionButton?.setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Normal);
+            UIView.animateWithDuration(0.3, animations: {[weak self] () -> Void in
+                self?.topDefinitionListView?.alpha = 0;
+                }, completion: { (finished) -> Void in
+                    self.topDefinitionListView?.hidden = true;
+            })
+        
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -446,9 +549,160 @@ class VideoPlayerViewController: UIViewController {
         
     }
     
+    
+    //标清事件按钮
+    func BDButtonAction(btn:UIButton){
+    
+        self.definitionIndex = 0;
+    
+    }
+    //MARK:超清事件
+    func HDButtonAction(btn:UIButton){
+       
+        self.definitionIndex = 1;
+    }
+    func FHDButtonAction(btn:UIButton){
+        
+        self.definitionIndex = 2;
+    }
+    
+    
+    deinit{
+        
+        self.timer!.invalidate();
+        self.timer = nil;
+        NSNotificationCenter.defaultCenter().removeObserver(self);
+    
+    }
+    
 
 }
-extension VideoPlayerViewController{
+extension VideoPlayerViewController:UIGestureRecognizerDelegate{
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true;
+    }
+    
+    //MARK:触摸事件
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        self.view.bringSubviewToFront(self.promptView!);
+        let touch:UITouch = (touches as NSSet).anyObject() as! UITouch;
+        self.startPoint = touch.locationInView(self.view);
+        
+        self.endPoint = self.startPoint;
+        self.moveDirection = 0;
+        
+    }
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        let endTouch:UITouch = (touches as NSSet).anyObject() as! UITouch;
+        self.endPoint = endTouch.locationInView(self.view);
+        
+        if self.moveDirection == 1 || self.moveDirection == 0{
+        
+            if self.startPoint!.x - self.endPoint!.x > 10 || self.startPoint!.x - self.endPoint!.x < -10{
+                self.moveDirection = 1
+            }
+            if self.moveDirection == 1{
+            
+                self.promptView?.hidden = false;
+                if self.startPoint?.x < self.endPoint?.x{
+                    self.changeTime = 2 + self.changeTime;
+                }else if self.startPoint?.x > self.endPoint?.x{
+                    self.changeTime = self.changeTime - 2;
+                }
+                self.promptValueLable?.text = NSString(format: "%@%@", self.changeTime > 0 ? "+" : "-",self.getStringWithTime(Double(self.changeTime))) as String;
+            }
+            
+        
+        }
+        
+        if self.moveDirection == 2 || self.moveDirection == 0{
+        
+            if (self.startPoint?.y)! - (self.endPoint?.y)! > 10 || (self.startPoint?.y)! - (self.endPoint?.y)! < -10{
+            
+                self.moveDirection = 2;
+            
+            }
+            if self.moveDirection == 2{
+            
+                if self.startPoint!.y > self.endPoint!.y{
+                    
+                    self.volumeSlider?.value += 0.02;
+                }else if self.startPoint!.y < self.endPoint!.y{
+                    
+                    self.volumeSlider?.value -= 0.02;
+                }
+                
+                self.VolumeSliderAction(self.volumeSlider!);
+            
+            }
+        
+        }
+        
+        if self.moveDirection != 0{
+        
+            self.startPoint = self.endPoint;
+        
+        }
+        
+    }
+    
+    //MARK: 触控结束
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        self.changeTimeHandele();
+    }
+    
+    //MARK:========改变播放时间
+    func changeTimeHandele(){
+    
+        if self.changeTime != 0{
+        
+            self.slider?.value += Float(self.changeTime);
+            self.SliderAction(self.slider!);
+        
+        }
+        self.moveDirection = 0;
+        self.changeTime = 0;
+        self.promptView?.hidden = true;
+    
+    
+    }
+    
+    
+    //时间格式装换
+    func getStringWithTime(var time:Double)->String{
+    
+        if time < 0{
+            time  = 0 - time;
+        }
+        
+//        print(time);
+        
+        var timeString:String?
+        
+        var MM:Int = 0;
+        var HH:Int = 0;
+        if 59 < time{
+        
+            MM = Int(time / 60);
+            if 3599 < time{
+            
+                HH = Int(time / 3600);
+            }
+            
+        }
+//         print("\(MM)==>\(HH)");
+        timeString = NSString(format: "%.2d:%.2d:%.2d",HH, MM > 59 ? MM - 60 : MM,Int(time - Double(MM * 60)) ) as String;
+        
+//        print(timeString!);
+        
+        return timeString!;
+    
+    
+    }
     
     
     func getNetworkUrl()->NSURL{
@@ -460,7 +714,7 @@ extension VideoPlayerViewController{
       urlStr
          = urlStr.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!;
         let url = NSURL(string: urlStr as String);
-        print("heheh  \(urlStr)")
+//        print("heheh  \(url)")
         return url!;
     
     
@@ -469,28 +723,264 @@ extension VideoPlayerViewController{
     
     func addNotification(){
     
-    
-    
+        let notificationCenter = NSNotificationCenter.defaultCenter();
+        notificationCenter.addObserver(self, selector: Selector("mediaPlayerPlaybackStateChange:"), name: MPMoviePlayerPlaybackStateDidChangeNotification, object: self.moviePlayer);
+        //媒体播放完成或手动退出
+        notificationCenter.addObserver(self, selector: Selector("mediaPlayerPlaybackFinished:"), name: MPMoviePlayerPlaybackDidFinishNotification, object: self.moviePlayer);
+        //确定媒体播放时长后
+        notificationCenter.addObserver(self, selector: Selector("mediaPlayerPlaybackDuration:"), name: MPMovieDurationAvailableNotification, object: self.moviePlayer);
+        //媒体网络加载状态改变
+        notificationCenter.addObserver(self, selector: Selector("mediaPlayerLoadStateDidChange:"), name: MPMoviePlayerLoadStateDidChangeNotification, object: self.moviePlayer);
+        
+        notificationCenter.addObserver(self, selector: Selector("systemVolumeChanged:"), name: "AVSystemController_SystemVolumeDidChangeNotification", object:nil);
+        
     }
+    
+    
+        func mediaPlayerPlaybackStateChange(notice:NSNotification){
+        
+            switch self.moviePlayer.playbackState{
+            
+            case MPMoviePlaybackState.Playing:
+                print("正在播放")
+                print(self.moviePlayer.view.frame);
+                self.playButton?.selected = false;
+                //启动定时器
+                self.timer!.fireDate = NSDate();
+                self.moviePlayer.currentPlaybackTime = self.nowPlayTime!;
+                
+                if self.loadingView?.hidden == false{
+                    self.loadingView?.hidden = true;
+                }
+                
+                break;
+            case MPMoviePlaybackState.Paused:
+                print("暂停");
+                self.playButton?.selected = true;
+                self.timer!.fireDate = NSDate.distantFuture();
+                if self.moviePlayer.currentPlaybackTime >= self.moviePlayer.playableDuration{
+                
+                    self.loadingView?.hidden = false;
+                
+                }
+                break;
+            case MPMoviePlaybackState.Stopped:
+                print("停止");
+                self.playButton?.selected = true;
+                self.timer!.fireDate = NSDate.distantFuture();
+                break;
+            case MPMoviePlaybackState.Interrupted:
+                print("中断");
+                self.playButton?.selected = true;
+                self.timer!.fireDate = NSDate.distantFuture();
+                break;
+            case MPMoviePlaybackState.SeekingForward:
+                print("前进");
+                break;
+            case MPMoviePlaybackState.SeekingBackward:
+                print("后退");
+                break;
+            default:
+                print(self.moviePlayer.playbackState);
+                break;
+            
+            }
+        }
+    
+    
+        func mediaPlayerPlaybackFinished(notice:NSNotification){
+        
+          self.dismissViewControllerAnimated(true) { () -> Void in
+            
+            };
+        
+        }
+    
+        func mediaPlayerPlaybackDuration(notice:NSNotification){
+        
+            self.videoDurationLabel?.text = NSString(format: "- %@", self.getStringWithTime(Double(self.moviePlayer.duration))) as String;
+            
+            self.slider?.maximumValue = Float(self.moviePlayer.duration);
+        
+        }
+    
+    
+        func mediaPlayerLoadStateDidChange(notice:NSNotification){
+            
+            switch self.moviePlayer.loadState{
+            
+                case MPMovieLoadState.Unknown:      //未知状态
+                    print("======未知")
+                    break;
+                case MPMovieLoadState.Playable:    //可播状态
+                    print("kebo")
+                    self.loadingView?.hidden = true;
+                    if self.isDismiss == true{
+                        self.moviePlayer.pause();
+                        self.moviePlayer.stop();
+                    }
+                    break;
+                case MPMovieLoadState.PlaythroughOK:  //加载完成
+                    
+                    self.loadingView?.hidden = true;
+                    
+                    break;
+                case MPMovieLoadState.Stalled:  //正在加载
+                    self.loadingView?.hidden = false;
+                    break;
+                
+                default:
+                    break;
+            
+            
+            }
+        
+        
+        }
+    
+        func systemVolumeChanged(notice:NSNotification){
+        
+            self.volumeSlider?.value = self.systemVolumeSlider!.value;
+            self.VolumeSliderAction(self.volumeSlider!)
+        
+        }
+    
 
-    //单击
-    func handleTap(tap:UIGestureRecognizer){
+    func playTimerAction(timer:NSTimer){
+    
+        self.playTimeLabel?.text = NSString(format: "%@", self.getStringWithTime(Double(self.moviePlayer.currentPlaybackTime))) as String;
+        
+        self.promptTimeLable?.text = NSString(format: "%@/%@", self.getStringWithTime(Double(self.moviePlayer.currentPlaybackTime)),self.getStringWithTime(Double(self.moviePlayer.duration))) as String;
+        
+        self.slider?.value = Float(self.moviePlayer.currentPlaybackTime);
+        
+        self.nowPlayTime = self.moviePlayer.currentPlaybackTime;
+        
+        let loadProgress = self.moviePlayer.playableDuration / self.moviePlayer.duration;
+        
+        self.progressView?.setProgress(Float(loadProgress), animated: true);
     
     
     }
-    //双击
+    
+    
+    
+    
+    //单击 隐藏控制器的边框
+    func handleTap(tap:UIGestureRecognizer){
+        //提示视图隐藏判断 (由于点击手势可能会截获touchEnded响应 所以要在这里判断做出操作)
+        if self.promptView?.hidden == true{
+        
+            if self.topView?.frame.origin.y >= 0{
+            
+                self.hiddenControllerView()
+                UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide);
+            }else{
+            
+                self.showControlView();
+                UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Slide);
+            
+            }
+            
+        }else{
+        
+            self.changeTimeHandele();
+        
+        }
+    
+    }
+    //双击 横竖屏的变换
     func handleDoubleTap(doubelTap:UIGestureRecognizer){
     
+        if UIDevice.currentDevice().orientation == UIDeviceOrientation.Portrait{
+        
+            UIDevice.currentDevice().setValue(NSNumber(integer:UIDeviceOrientation.Portrait.rawValue), forKey: "orientation");
+            UIDevice.currentDevice().setValue(NSNumber(integer:UIDeviceOrientation.LandscapeLeft.rawValue), forKey: "orientation");
+        }else{
+            
+            UIDevice.currentDevice().setValue(NSNumber(integer: Int(UIDeviceOrientation.Portrait.rawValue)), forKey: "orientation");
+            UIDevice.currentDevice().setValue(NSNumber(integer: Int(UIDeviceOrientation.LandscapeLeft.rawValue)), forKey: "orientation");
+        
+        }
+        
     
     }
-    //长按
+    //长按 播放速率
     func handleLongPress(longPress:UILongPressGestureRecognizer){
     
+        self.moviePlayer.currentPlaybackRate = 0.2;
+        
+        if longPress.state == UIGestureRecognizerState.Ended{
+        
+            self.moviePlayer.currentPlaybackRate = 1.0;
+        
+        }
     
     }
     
+    
+    
+    //MARK:隐藏或者显示视图
+    func showControlView(){
+    
+    
+        UIView.animateWithDuration(0.5, animations: {[weak self] () -> Void in
+            
+            self?.bottomView?.frame = CGRectMake(0, CGRectGetHeight((self?.moviePlayer.view.frame)!) - 60, CGRectGetWidth((self?.bottomView!.frame)!), 60);
+            self?.topView?.frame = CGRectMake(0 , 0 , CGRectGetWidth((self?.topView!.frame)!), CGRectGetHeight((self?.topView!.frame)!));
+            self?.showVolumeControlView();
+            }) { (finished) -> Void in
+        }
+    }
+    func showVolumeControlView(){
+    
+        UIView.animateWithDuration(0.5, animations: {[weak self] () -> Void in
+            
+            self?.volumeView?.frame = CGRectMake(CGRectGetWidth((self?.moviePlayer.view.frame)!) -  40, (self?.volumeView!.frame.origin.y)!, CGRectGetWidth((self?.volumeView!.frame)!), CGRectGetHeight((self?.volumeView!.frame)!))
+            
+            
+            }) { (finished) -> Void in
+                
+        }
 
+    
+    }
+    func hiddenControllerView(){
+    
+        UIView.animateWithDuration(0.5, animations: {[weak self] () -> Void in
+            
+            self?.topView?.frame = CGRectMake(0, -64, CGRectGetWidth((self?.topView!.frame)!), CGRectGetHeight((self?.topView!.frame)!));
+            self?.bottomView?.frame = CGRectMake(0, CGRectGetHeight((self?.moviePlayer.view.frame)!), CGRectGetWidth((self?.bottomView!.frame)!), 60);
+//            self?.topView?.frame.origin = CGPointMake(0, -64);
+            self?.hiddenVolumeControlView();
+            }) { (finished) -> Void in
+                
+        }
+    
+    }
+    func hiddenVolumeControlView(){
+    
+        UIView.animateWithDuration(0.4, animations: {[weak self] () -> Void in
+            
+            self?.volumeView?.frame = CGRectMake(CGRectGetWidth((self?.moviePlayer.view.frame)!), (self?.volumeView!.frame.origin.y)!, CGRectGetWidth((self?.volumeView!.frame)!), CGRectGetHeight((self?.volumeView!.frame)!))
+            
+            
+            }) { (finished) -> Void in
+                
+        }
+        
+    }
+    
 
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        
+        return UIStatusBarStyle.LightContent;
+    }
+
+    override func shouldAutorotate() -> Bool {
+        
+        return true;
+    }
 
 
 
