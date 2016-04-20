@@ -68,7 +68,7 @@ class VideoPlayerViewController: UIViewController {
     //视屏播放控制请
     lazy var moviePlayer:MPMoviePlayerController = {
         
-        let player = MPMoviePlayerController(contentURL: nil);
+        let player = MPMoviePlayerController.init();
         
         player.view.frame = CGRectMake(0,0,self.view.bounds.size.width,self.view.bounds.size.height);
         
@@ -674,7 +674,12 @@ extension VideoPlayerViewController:UIGestureRecognizerDelegate{
     
     //时间格式装换
     func getStringWithTime(var time:Double)->String{
-    
+        
+        
+        if time.isNaN{
+           return "00:00:00";
+        }
+        
         if time < 0{
             time  = 0 - time;
         }
@@ -695,7 +700,10 @@ extension VideoPlayerViewController:UIGestureRecognizerDelegate{
             
         }
 //         print("\(MM)==>\(HH)");
-        timeString = NSString(format: "%.2d:%.2d:%.2d",HH, MM > 59 ? MM - 60 : MM,Int(time - Double(MM * 60)) ) as String;
+        
+        let SS:Int = Int(floor(time - Double(MM * 60)));
+        
+        timeString = NSString(format: "%.2d:%.2d:%.2d",HH, MM > 59 ? MM - 60 : MM,SS) as String;
         
 //        print(timeString!);
         

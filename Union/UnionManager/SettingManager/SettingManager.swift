@@ -10,11 +10,64 @@ import UIKit
 
 private let instance = SettingManager();
 
+enum SaveFlowSettingType:Int{
+
+    case AllNetWorking = 0,OnlyWiFi,Close
+
+}
+
+
+
 class SettingManager: NSObject {
     
     class var sharedInstance:SettingManager {
         return instance;
     }
+    
+    
+    func loadImageAccordingToTheSetType()->Bool{
+    
+    
+        let defaults = NSUserDefaults.standardUserDefaults();
+        
+        let type:NSNumber? = defaults.objectForKey("setting_saveflow_selectedindexpath") as! NSNumber?
+        
+        
+        if type != nil{
+        
+        switch type!{
+        
+        case SaveFlowSettingType.AllNetWorking.rawValue:
+                return true;
+                break;
+            case SaveFlowSettingType.OnlyWiFi.rawValue:
+                
+                let currentStatus = NetStatus.currentNetworkStatus();
+                if currentStatus == CoreNetWorkStatus.Wifi{
+                    return true;
+                
+                }else{
+                  return false;
+                }
+
+                break;
+            case SaveFlowSettingType.Close.rawValue:
+                return false;
+                break;
+        default:
+            return true;
+            break;
+        }
+    
+        }else{
+        
+            return true;
+        }
+    }
+    
+    
+    
+    
     
     func playSoundAccordingToTheSetType(){
     

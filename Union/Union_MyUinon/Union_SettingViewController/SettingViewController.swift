@@ -111,7 +111,8 @@ extension SettingViewController:UITableViewDelegate,UITableViewDataSource{
                 break;
             case 1:
                 do{
-                
+                    let saveImgLoadVc:SaveFlowSettingViewController = SaveFlowSettingViewController();
+                    self.navigationController?.pushViewController(saveImgLoadVc, animated: true);
                 }
                 break;
             case 2:

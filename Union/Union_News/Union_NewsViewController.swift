@@ -29,7 +29,10 @@ class Union_NewsViewController: UIViewController {
         return scrollView;
     
     }();
-    var newsTopTableView:Union_News_TableView_View?
+    var newsTopTableView:Union_News_TableView_View?  //头条
+    
+    var prettyCharmingPicturesView:Union_News_PrettyPictures_View? //靓照
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,19 +64,41 @@ class Union_NewsViewController: UIViewController {
         self.view.addSubview(self.mainScrollView);
         self.mainScrollView.delegate = self;
         self.loadNewsTableViews();
-        
-        
-        
-        
+//        self.loadPicturesViews()
+    
     }
+    
+    func loadPicturesViews(){
+      
+        do{  //靓图
+            self.prettyCharmingPicturesView = Union_News_PrettyPictures_View(frame: CGRectMake(CGRectGetWidth(self.mainScrollView.frame) * 3,0,CGRectGetWidth(self.mainScrollView.frame),CGRectGetHeight(self.mainScrollView.frame)));
+            self.prettyCharmingPicturesView?.urlString = NSString(format: News_PrettyPicturesURL, "beautifulWoman","%ld") as String;
+            
+            self.mainScrollView.addSubview(self.prettyCharmingPicturesView!);
+            
+        
+        }
+        
+    
+    
+    
+    
+    
+    }
+    
     func loadNewsTableViews(){
     
         do{  //头条
+            
+            let detailVc:Union_News_DetailViewController = Union_News_DetailViewController();
+            detailVc.hidesBottomBarWhenPushed = true;
+            
+            
             self.newsTopTableView = Union_News_TableView_View(frame: CGRectMake(0,0,CGRectGetWidth(self.mainScrollView.frame),CGRectGetHeight(self.mainScrollView.frame)));
             self.newsTopTableView?.scrollPage = 0;
             self.newsTopTableView?.detailBlock = {[weak self](string:String,type:String) -> Void in
             
-                let detailVc:Union_News_DetailViewController = Union_News_DetailViewController();
+               
                 detailVc.urlString = News_WebViewURl + string; 
                 detailVc.type = type;
                 self?.navigationController?.pushViewController(detailVc, animated: true);

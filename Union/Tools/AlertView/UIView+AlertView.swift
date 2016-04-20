@@ -171,7 +171,11 @@ extension UIView{
             }
         })
         defer{
-          self.startExitAnimation(notifier!);
+            
+            if notifier != nil{
+            
+             self.startExitAnimation(notifier!);
+            }
         }
     
     }
