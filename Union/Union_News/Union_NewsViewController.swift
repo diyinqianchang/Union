@@ -69,10 +69,32 @@ class Union_NewsViewController: UIViewController {
     }
     
     func loadPicturesViews(){
+        
+       
       
         do{  //靓图
+            
+            
+            
+             let picturesVc = Union_News_Pictures_Scroll_ViewController();
+              picturesVc.hidesBottomBarWhenPushed = true;
+            
             self.prettyCharmingPicturesView = Union_News_PrettyPictures_View(frame: CGRectMake(CGRectGetWidth(self.mainScrollView.frame) * 3,0,CGRectGetWidth(self.mainScrollView.frame),CGRectGetHeight(self.mainScrollView.frame)));
             self.prettyCharmingPicturesView?.urlString = NSString(format: News_PrettyPicturesURL, "beautifulWoman","%ld") as String;
+            self.prettyCharmingPicturesView?.prettyPictures_View_Block = {[weak self](galleryId)->Void in
+                
+               
+                print(NSString(format: "%@%@", News_PicturesURL,galleryId) as String);
+                picturesVc.picturesString = News_PicturesURL + galleryId //NSString(format: "%@%@", News_PicturesURL,galleryId) as String
+                print(picturesVc.picturesString)
+                
+//                self?.navigationController?.pushViewController(picturesVc, animated: true);
+                
+                self?.presentViewController(picturesVc, animated: true, completion: { () -> Void in
+                
+                });
+            
+            }
             
             self.mainScrollView.addSubview(self.prettyCharmingPicturesView!);
             

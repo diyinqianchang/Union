@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+typealias PrettyPictures_View_Block = (galleryId:String)->Void
+
 class Union_News_PrettyPictures_View: UIView {
 
     var urlString:String = ""{
@@ -50,6 +53,8 @@ class Union_News_PrettyPictures_View: UIView {
     
     }()
     var page:NSInteger?
+    
+    var prettyPictures_View_Block:PrettyPictures_View_Block?
     
     override init(frame: CGRect) {
         
@@ -221,6 +226,10 @@ extension Union_News_PrettyPictures_View:UICollectionViewDelegateFlowLayout,UICo
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let model = self.dataArray[indexPath.item] as! PrettyPicturesModel;
+        
+        self.prettyPictures_View_Block!(galleryId: model.galleryId!);
         
         
     }

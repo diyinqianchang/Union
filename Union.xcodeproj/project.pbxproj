@@ -28,6 +28,9 @@
 		649ECDC71CBD06A6003C0AFA /* PictureCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649ECDC61CBD06A6003C0AFA /* PictureCycleScrollView.swift */; };
 		649ECDC91CBD06BD003C0AFA /* PictureCycleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649ECDC81CBD06BD003C0AFA /* PictureCycleItem.swift */; };
 		64B828721CC8766F005E343B /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B828711CC8766F005E343B /* WaterFlowLayout.m */; };
+		64B828751CC88874005E343B /* Union_News_Pictures_Scroll_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B828741CC88874005E343B /* Union_News_Pictures_Scroll_ViewController.swift */; };
+		64B828771CC8A15D005E343B /* Pictures_Sroll_CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B828761CC8A15D005E343B /* Pictures_Sroll_CollectionViewCell.swift */; };
+		64B828791CC8A17E005E343B /* Pictures_Sreoll_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B828781CC8A17E005E343B /* Pictures_Sreoll_Model.swift */; };
 		64CFBA481CBB2B1200061D05 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CFBA471CBB2B1200061D05 /* SettingViewController.swift */; };
 		64CFBA4A1CBB2BE100061D05 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CFBA491CBB2BE100061D05 /* SettingViewCell.swift */; };
 		64CFBA501CBB346000061D05 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CFBA4F1CBB346000061D05 /* SettingManager.swift */; };
@@ -310,6 +313,9 @@
 		649ECDC81CBD06BD003C0AFA /* PictureCycleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCycleItem.swift; sourceTree = "<group>"; };
 		64B828701CC8766F005E343B /* WaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
 		64B828711CC8766F005E343B /* WaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowLayout.m; sourceTree = "<group>"; };
+		64B828741CC88874005E343B /* Union_News_Pictures_Scroll_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Union_News_Pictures_Scroll_ViewController.swift; sourceTree = "<group>"; };
+		64B828761CC8A15D005E343B /* Pictures_Sroll_CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pictures_Sroll_CollectionViewCell.swift; sourceTree = "<group>"; };
+		64B828781CC8A17E005E343B /* Pictures_Sreoll_Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pictures_Sreoll_Model.swift; sourceTree = "<group>"; };
 		64CFBA471CBB2B1200061D05 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		64CFBA491CBB2BE100061D05 /* SettingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
 		64CFBA4F1CBB346000061D05 /* SettingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
@@ -728,6 +734,16 @@
 				649ECDC81CBD06BD003C0AFA /* PictureCycleItem.swift */,
 			);
 			path = PictureCycleView;
+			sourceTree = "<group>";
+		};
+		64B828731CC88859005E343B /* Union_News_Pictures_Scroll_ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				64B828741CC88874005E343B /* Union_News_Pictures_Scroll_ViewController.swift */,
+				64B828761CC8A15D005E343B /* Pictures_Sroll_CollectionViewCell.swift */,
+				64B828781CC8A17E005E343B /* Pictures_Sreoll_Model.swift */,
+			);
+			path = Union_News_Pictures_Scroll_ViewController;
 			sourceTree = "<group>";
 		};
 		64CFBA431CBB2B0100061D05 /* ClearCacheSettingViewCotroller */ = {
@@ -1277,6 +1293,7 @@
 		64E0E8C11CB62ADF00555075 /* Union_News */ = {
 			isa = PBXGroup;
 			children = (
+				64B828731CC88859005E343B /* Union_News_Pictures_Scroll_ViewController */,
 				64FB641B1CC7174A0014A207 /* Union_News_PrettyPictures */,
 				64FAC7F91CBE1165007A9E14 /* Union_News_Details_ViewController */,
 				64544D351CB73DA6009847E2 /* Union_News_TableView */,
@@ -1842,6 +1859,7 @@
 			files = (
 				64E0E8E51CB65EAF00555075 /* DownloadView.swift in Sources */,
 				64E0E8D41CB6495300555075 /* Union_VideoViewController.swift in Sources */,
+				64B828771CC8A15D005E343B /* Pictures_Sroll_CollectionViewCell.swift in Sources */,
 				64FAC8091CBE5087007A9E14 /* NetworkStatus.swift in Sources */,
 				64CFBA671CBB862500061D05 /* GearPowered.swift in Sources */,
 				64CFBA531CBB357000061D05 /* LXPlaySound.swift in Sources */,
@@ -1893,12 +1911,14 @@
 				64DA97E51CB7A64A0009261D /* TimeFormattor.swift in Sources */,
 				64544D4D1CB75227009847E2 /* AFNetWorkingTool.swift in Sources */,
 				64E0E8BE1CB62A4600555075 /* AppDelegate.swift in Sources */,
+				64B828751CC88874005E343B /* Union_News_Pictures_Scroll_ViewController.swift in Sources */,
 				64CFBA5E1CBB577A00061D05 /* LoadingView.swift in Sources */,
 				64DCFCDE1CBF8A8A009F4FE4 /* LXAlertViewController.swift in Sources */,
 				64FB642B1CC759020014A207 /* SaveFlowSettingViewController.swift in Sources */,
 				64CFBA611CBB5C4B00061D05 /* GPLoadingView.swift in Sources */,
 				64FAC8021CBE4260007A9E14 /* VideoListTableViewCell.swift in Sources */,
 				64CFBA571CBB3A9200061D05 /* DownloadManager.swift in Sources */,
+				64B828791CC8A17E005E343B /* Pictures_Sreoll_Model.swift in Sources */,
 				64CFBA651CBB5C7300061D05 /* Shadow.swift in Sources */,
 				64FB641D1CC717640014A207 /* Union_News_PrettyPictures_View.swift in Sources */,
 				64FB642D1CC760230014A207 /* SaveFlowSettingCell.swift in Sources */,
