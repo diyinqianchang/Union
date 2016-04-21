@@ -64,7 +64,7 @@ class Union_NewsViewController: UIViewController {
         self.view.addSubview(self.mainScrollView);
         self.mainScrollView.delegate = self;
         self.loadNewsTableViews();
-//        self.loadPicturesViews()
+        self.loadPicturesViews()
     
     }
     

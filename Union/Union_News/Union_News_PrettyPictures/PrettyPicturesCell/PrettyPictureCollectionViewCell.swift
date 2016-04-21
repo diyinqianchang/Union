@@ -42,7 +42,7 @@ class PrettyPictureCollectionViewCell: UICollectionViewCell,MBProgressHUDDelegat
                     self?.roundProgressView?.progress = progressFloat;
                     
                     }, completed: {[weak self] (image, error, cachType, imageURL) -> Void in
-                        self?.HUD?.hidden;
+                        self?.hudWasHidden(self?.HUD!);
                 })
             
             }else{
@@ -64,7 +64,9 @@ class PrettyPictureCollectionViewCell: UICollectionViewCell,MBProgressHUDDelegat
     
     
     override init(frame: CGRect) {
+        
         self.model = PrettyPicturesModel();
+        
         super.init(frame: frame);
         
         self.coverImageView = UIImageView();
@@ -103,7 +105,7 @@ class PrettyPictureCollectionViewCell: UICollectionViewCell,MBProgressHUDDelegat
         self.HUD?.customView = self.roundProgressView!;
         
         
-        
+//        self.backgroundColor = UIColor.redColor();
         
         
     }

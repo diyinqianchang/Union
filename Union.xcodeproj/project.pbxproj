@@ -27,6 +27,7 @@
 		649ECDC51CBCF986003C0AFA /* PictureCycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649ECDC41CBCF986003C0AFA /* PictureCycleModel.swift */; };
 		649ECDC71CBD06A6003C0AFA /* PictureCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649ECDC61CBD06A6003C0AFA /* PictureCycleScrollView.swift */; };
 		649ECDC91CBD06BD003C0AFA /* PictureCycleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649ECDC81CBD06BD003C0AFA /* PictureCycleItem.swift */; };
+		64B828721CC8766F005E343B /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B828711CC8766F005E343B /* WaterFlowLayout.m */; };
 		64CFBA481CBB2B1200061D05 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CFBA471CBB2B1200061D05 /* SettingViewController.swift */; };
 		64CFBA4A1CBB2BE100061D05 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CFBA491CBB2BE100061D05 /* SettingViewCell.swift */; };
 		64CFBA501CBB346000061D05 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CFBA4F1CBB346000061D05 /* SettingManager.swift */; };
@@ -307,6 +308,8 @@
 		649ECDC41CBCF986003C0AFA /* PictureCycleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCycleModel.swift; sourceTree = "<group>"; };
 		649ECDC61CBD06A6003C0AFA /* PictureCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCycleScrollView.swift; sourceTree = "<group>"; };
 		649ECDC81CBD06BD003C0AFA /* PictureCycleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCycleItem.swift; sourceTree = "<group>"; };
+		64B828701CC8766F005E343B /* WaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
+		64B828711CC8766F005E343B /* WaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowLayout.m; sourceTree = "<group>"; };
 		64CFBA471CBB2B1200061D05 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		64CFBA491CBB2BE100061D05 /* SettingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
 		64CFBA4F1CBB346000061D05 /* SettingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
@@ -628,6 +631,7 @@
 				64CFBA451CBB2B0100061D05 /* SaveFlowSettingViewController */,
 				64CFBA461CBB2B0100061D05 /* SettingCell */,
 				64CFBA471CBB2B1200061D05 /* SettingViewController.swift */,
+				64F377551CB88EA800EE3EEE /* Union_SummonerDataBase */,
 			);
 			path = Union_SettingViewController;
 			sourceTree = "<group>";
@@ -1263,7 +1267,6 @@
 			children = (
 				649ECDBE1CBCD5ED003C0AFA /* Union_MyUnion_FeedBack */,
 				643101821CB9081A0091CB0D /* Union_SettingViewController */,
-				64F377551CB88EA800EE3EEE /* Union_SummonerDataBase */,
 				64F377561CB88EA800EE3EEE /* Union_SummonerModel */,
 				64DA97E81CB7C3610009261D /* Union_MyUnion_Cells */,
 				64E0E8D71CB6498000555075 /* Union_MyUnionViewController.swift */,
@@ -1343,7 +1346,8 @@
 			children = (
 				643101801CB8F0010091CB0D /* SummonerDataBaseManager.swift */,
 			);
-			path = Union_SummonerDataBase;
+			name = Union_SummonerDataBase;
+			path = ../Union_SummonerDataBase;
 			sourceTree = "<group>";
 		};
 		64F377561CB88EA800EE3EEE /* Union_SummonerModel */ = {
@@ -1421,6 +1425,8 @@
 		64FB64211CC722A30014A207 /* GZCollectionViewFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
+				64B828701CC8766F005E343B /* WaterFlowLayout.h */,
+				64B828711CC8766F005E343B /* WaterFlowLayout.m */,
 				64FB64251CC7232E0014A207 /* GZCollectionViewFlowLayout.swift */,
 			);
 			path = GZCollectionViewFlowLayout;
@@ -1843,6 +1849,7 @@
 				64FAC8071CBE4AF4007A9E14 /* NetStatus.swift in Sources */,
 				64DA97EA1CB7C3820009261D /* MyUnion_UserTableViewCell.swift in Sources */,
 				64FB64261CC7232E0014A207 /* GZCollectionViewFlowLayout.swift in Sources */,
+				64B828721CC8766F005E343B /* WaterFlowLayout.m in Sources */,
 				649ECDC51CBCF986003C0AFA /* PictureCycleModel.swift in Sources */,
 				649ECDC91CBD06BD003C0AFA /* PictureCycleItem.swift in Sources */,
 				64DCFCB41CBF2705009F4FE4 /* Reachability.m in Sources */,

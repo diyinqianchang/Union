@@ -1,4 +1,4 @@
-//
+
 //  GZCollectionViewFlowLayout.swift
 //  Union
 //
@@ -9,42 +9,28 @@
 import UIKit
 
 
-
-
-
 class GZCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
-   
     weak var delegate:UICollectionViewDelegateFlowLayout?
-    
     var colMuArray:NSMutableArray?
     var attributes:NSMutableDictionary?
-    
     var columnCount:NSInteger = 2{
-    
         willSet{
-            
             if self.columnCount != newValue{
-                
                 self.columnCount = newValue;
-                
             }
-            
         }
         didSet{
             
         }
 
-    
     }
     var interItemSpacing:CGFloat = 10.0{
     
         willSet{
         
             if self.interItemSpacing != newValue{
-            
                 self.interItemSpacing = newValue;
-            
             }
           
         }
@@ -70,9 +56,7 @@ class GZCollectionViewFlowLayout: UICollectionViewFlowLayout {
         
     }
 
-    
-   
-    
+
     override init() {
         super.init();
     }
@@ -98,7 +82,7 @@ class GZCollectionViewFlowLayout: UICollectionViewFlowLayout {
         //网格的section
         let sectionCount = self.collectionView?.numberOfSections();
         
-        for section in 0...sectionCount!{
+        for section in 0..<sectionCount!{
             let itemCount = self.collectionView?.numberOfItemsInSection(section);
             for item in 0...itemCount!{
                 self.layoutItemFrameAtIndexPath(NSIndexPath(forItem: item, inSection: section));
@@ -112,27 +96,38 @@ class GZCollectionViewFlowLayout: UICollectionViewFlowLayout {
         
         var smallCol = 0;
         var lessHeight = self.colMuArray![0] as! CGFloat
-        
-        for col in 1...self.colMuArray!.count{
+        print(self.colMuArray![1] as! CGFloat)
+        for col in 1..<self.colMuArray!.count{
             if ((self.colMuArray![col] as! CGFloat) < lessHeight) {
                 lessHeight = self.colMuArray![col] as! CGFloat;
                 smallCol = col;
             }
         }
         
-        let insets = self.delegate?.collectionView!(self.collectionView!, layout: self, insetForSectionAtIndex: indexPath.row);
+        let insets = self.delegate?.collectionView?(self.collectionView!, layout: self, insetForSectionAtIndex: indexPath.row);
         
-        let x = (insets?.left)! + CGFloat(smallCol) * ((insets?.left)! + (itemSize?.width)!);
+        if insets != nil{
+            let x = (insets?.left)! + CGFloat(smallCol) * ((insets?.left)! + (itemSize?.width)!);
+            let frame:CGRect = CGRect( x: x,y: (insets?.top)! + lessHeight,width: (itemSize?.width)!,height: (itemSize?.height)!)
+            self.attributes?.setValue(indexPath, forKey: NSStringFromCGRect(frame));
+            self.colMuArray?.replaceObjectAtIndex(smallCol, withObject: CGRectGetMaxY(frame));
+            print("-------------->\(NSStringFromCGRect(frame))");
         
-        let frame:CGRect = CGRect( x: x,y: (insets?.top)! + lessHeight,width: (itemSize?.width)!,height: (itemSize?.height)!)
+        }else{
         
-        self.colMuArray?.replaceObjectAtIndex(smallCol, withObject: CGRectGetMaxY(frame));
+        
+        }
+        
+        
+       
         
         
     
     }
     
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        
+        super.layoutAttributesForElementsInRect(rect);
         
         let indexPaths:NSMutableArray = NSMutableArray();
         
@@ -166,6 +161,8 @@ class GZCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         
+//        super.layoutAttributesForItemAtIndexPath(indexPath);
+        
         let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath);
         for (_,frame) in self.attributes!.allKeys.enumerate(){
         
@@ -173,13 +170,14 @@ class GZCollectionViewFlowLayout: UICollectionViewFlowLayout {
             break;
         
         }
+        print("-------------->attributes\(self.attributes!.allKeys)");
         return attributes;
         
     }
     
     
     override func collectionViewContentSize() -> CGSize {
-        
+        super.collectionViewContentSize()
         var maxHeight = self.colMuArray![0].floatValue;
         
         self.colMuArray?.enumerateObjectsUsingBlock({ (height, idx, stop) -> Void in
@@ -192,6 +190,7 @@ class GZCollectionViewFlowLayout: UICollectionViewFlowLayout {
             
         })
         let size:CGSize = CGSizeMake(CGRectGetWidth(self.collectionView!.frame),  CGFloat(maxHeight) + self.collectionView!.contentInset.bottom);
+        print("-------------->size == \(size)");
         
         return size;
         
@@ -199,6 +198,8 @@ class GZCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
     
     override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+        
+        super.shouldInvalidateLayoutForBoundsChange(newBounds);
         
         return !CGRectEqualToRect(self.collectionView!.bounds, newBounds);
     }

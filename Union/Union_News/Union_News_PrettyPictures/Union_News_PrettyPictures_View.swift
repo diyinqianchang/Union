@@ -32,7 +32,7 @@ class Union_News_PrettyPictures_View: UIView {
     
     }
     
-    var collectionView:UICollectionView?
+    var mainCollectionView:UICollectionView?
     var dataArray:NSMutableArray = NSMutableArray();
     var imageArray:NSMutableArray?
     var gearPowered:GearPowered?
@@ -55,20 +55,25 @@ class Union_News_PrettyPictures_View: UIView {
         
         super.init(frame: frame);
         
-        let layOut = GZCollectionViewFlowLayout();
-        layOut.delegate = self;
-        self.collectionView = UICollectionView(frame: CGRectMake(0,0,self.frame.width,self.frame.height), collectionViewLayout: layOut);
-        self.collectionView?.backgroundColor = UIColor.whiteColor();
-        self.collectionView?.delegate = self;
-        self.collectionView?.dataSource = self;
-        self.addSubview(self.collectionView!);
+//        let layOut:UICollectionViewFlowLayout = UICollectionViewFlowLayout();
+//        layOut.minimumInteritemSpacing = 5;
+//        layOut.minimumLineSpacing = 10;
         
+        let layOut:WaterFlowLayout = WaterFlowLayout()
         
-        self.collectionView?.registerClass(PrettyPictureCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "CELL");
+        self.mainCollectionView = UICollectionView(frame: CGRectMake(0,0,self.frame.width,self.frame.height), collectionViewLayout: layOut);
+        self.mainCollectionView?.backgroundColor = UIColor.whiteColor();
+        self.mainCollectionView?.delegate = self;
+        self.mainCollectionView?.dataSource = self;
+        self.mainCollectionView?.alwaysBounceVertical = true;
+        
+        self.addSubview(self.mainCollectionView!);
+        
+        self.mainCollectionView?.registerClass(PrettyPictureCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "CELL");
         self.page = 1;
         
         self.gearPowered = GearPowered();
-        self.gearPowered?.mainScrollView = self.collectionView!;
+        self.gearPowered?.mainScrollView = self.mainCollectionView!;
         self.gearPowered?.isAuxiliaryGear = true;
         self.gearPowered?.delegate = self;
         
@@ -77,11 +82,6 @@ class Union_News_PrettyPictures_View: UIView {
         self.loadingView?.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3);
         self.loadingView?.loadingColor = UIColor.whiteColor();
         self.addSubview(self.loadingView!);
-        
-        
-        
-        
-        
         
     }
     
@@ -98,7 +98,7 @@ class Union_News_PrettyPictures_View: UIView {
             
             self?.reloadImageView.hidden = true;
             self?.dataArray.removeAllObjects();
-            self?.collectionView?.reloadData();
+            self?.mainCollectionView!.reloadData();
             
             if responseObject != nil{
             
@@ -116,7 +116,7 @@ class Union_News_PrettyPictures_View: UIView {
                 
                 self?.dataArray.removeAllObjects();
                 
-                self?.collectionView?.reloadData();
+                self?.mainCollectionView?.reloadData();
                 
                 self?.reloadImageView.hidden = false;
                 
@@ -134,7 +134,20 @@ class Union_News_PrettyPictures_View: UIView {
         if data != nil{
         
             print(data!);
-        
+            
+            let tempArray:NSArray = (data as! NSDictionary).objectForKey("data") as! NSArray
+            
+            for (_,dict) in tempArray.enumerate(){
+            
+                let model:PrettyPicturesModel = PrettyPicturesModel();
+                
+                model.setValuesForKeysWithDictionary(dict as! [String : AnyObject]);
+               
+                self.dataArray.addObject(model);
+                
+            }
+//            print(self.dataArray);
+            self.mainCollectionView!.reloadData();
         
         
         }
@@ -152,19 +165,32 @@ class Union_News_PrettyPictures_View: UIView {
     
     
 }
-extension Union_News_PrettyPictures_View:GZCollectionViewFlowLayoutDelegate,UICollectionViewDataSource,UICollectionViewDelegate,GearPowerDelegate{
+extension Union_News_PrettyPictures_View:UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UICollectionViewDelegate,GearPowerDelegate{
 
-    func waterFlow(waterFlow: GZCollectionViewFlowLayout, heightForWidth: CGFloat, indexPath: NSIndexPath) -> CGFloat {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
-        if self.dataArray.count == 0{
+        return 1;
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-            return 0.0;
+        if self.dataArray.count != 0{
+            
+        let model:PrettyPicturesModel = self.dataArray[indexPath.item] as! PrettyPicturesModel;
+        let width = (model.coverWidth! as NSString).floatValue
+        let height = (model.coverHeight! as NSString).floatValue
+            
+            return CGSizeMake((SCREEN_WIDTH - 20) / 2, CGFloat(height) / CGFloat(width) * (SCREEN_WIDTH - 20) / 2.0 );
+            
+        }else{
+        
+            return CGSizeZero;
         
         }
         
-        let model = self.dataArray[indexPath.row] as! PrettyPicturesModel;
-        return CGFloat((model.coverHeight! as NSString).floatValue / (model.coverWidth! as NSString).floatValue * (model.coverWidth! as NSString).floatValue)
+        
     }
+
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -172,21 +198,30 @@ extension Union_News_PrettyPictures_View:GZCollectionViewFlowLayoutDelegate,UICo
         
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsetsMake(5, 5, 5, 5);
+        
+    }
+    
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CELL", forIndexPath: indexPath) as! PrettyPictureCollectionViewCell;
         
         cell.model = self.dataArray[indexPath.item] as! PrettyPicturesModel;
-        
+//        print("234");
         return cell;
         
     }
     
     func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+       
         return true;
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
         
     }
     
@@ -216,7 +251,7 @@ extension Union_News_PrettyPictures_View:GZCollectionViewFlowLayoutDelegate,UICo
     
     func settingBottomLoadDataURL() -> NSURL {
         
-        self.page!++ ;
+      self.page!++ ;
       return  NSURL(string: NSString(format: self.urlString,self.page!) as String)!
         
     }
