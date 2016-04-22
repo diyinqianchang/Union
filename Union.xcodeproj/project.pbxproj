@@ -257,6 +257,18 @@
 		64E0E8E21CB6547F00555075 /* GCDTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0E8DE1CB6547F00555075 /* GCDTimer.swift */; };
 		64E0E8E51CB65EAF00555075 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0E8E41CB65EAF00555075 /* DownloadView.swift */; };
 		64F377581CB88FAF00EE3EEE /* SummonerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F377571CB88FAF00EE3EEE /* SummonerModel.swift */; };
+		64F4CCB11CC9B4E2009FD8BD /* Union_Video_SortCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCB01CC9B4E2009FD8BD /* Union_Video_SortCollectionView.swift */; };
+		64F4CCB51CC9B6BA009FD8BD /* SortCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCB41CC9B6BA009FD8BD /* SortCollectionViewCell.swift */; };
+		64F4CCB71CC9B6DB009FD8BD /* SortCollectionViewReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCB61CC9B6DB009FD8BD /* SortCollectionViewReusableView.swift */; };
+		64F4CCBA1CC9B72D009FD8BD /* SortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCB91CC9B72D009FD8BD /* SortModel.swift */; };
+		64F4CCBD1CC9FAA5009FD8BD /* EncyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCBC1CC9FAA5009FD8BD /* EncyModel.swift */; };
+		64F4CCBF1CC9FBD7009FD8BD /* EncyModel1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCBE1CC9FBD7009FD8BD /* EncyModel1.swift */; };
+		64F4CCC21CCA008C009FD8BD /* EncyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCC11CCA008C009FD8BD /* EncyItemView.swift */; };
+		64F4CCC51CCA0F78009FD8BD /* Union_Hero_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCC41CCA0F78009FD8BD /* Union_Hero_ViewController.swift */; };
+		64F4CCC71CCA12BC009FD8BD /* Union_Hero_AllHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCC61CCA12BC009FD8BD /* Union_Hero_AllHeroView.swift */; };
+		64F4CCCA1CCA133A009FD8BD /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCC91CCA133A009FD8BD /* FilterView.swift */; };
+		64F4CCCC1CCA163C009FD8BD /* FilterMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCCB1CCA163C009FD8BD /* FilterMenuModel.swift */; };
+		64F4CCCE1CCA16C7009FD8BD /* FilterMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCCD1CCA16C7009FD8BD /* FilterMenuItem.swift */; };
 		64FAC7FB1CBE1184007A9E14 /* Union_News_DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FAC7FA1CBE1184007A9E14 /* Union_News_DetailViewController.swift */; };
 		64FAC8001CBE402D007A9E14 /* VideoListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FAC7FF1CBE402D007A9E14 /* VideoListModel.swift */; };
 		64FAC8021CBE4260007A9E14 /* VideoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FAC8011CBE4260007A9E14 /* VideoListTableViewCell.swift */; };
@@ -550,6 +562,18 @@
 		64E0E8DE1CB6547F00555075 /* GCDTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDTimer.swift; sourceTree = "<group>"; };
 		64E0E8E41CB65EAF00555075 /* DownloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		64F377571CB88FAF00EE3EEE /* SummonerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerModel.swift; sourceTree = "<group>"; };
+		64F4CCB01CC9B4E2009FD8BD /* Union_Video_SortCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Union_Video_SortCollectionView.swift; sourceTree = "<group>"; };
+		64F4CCB41CC9B6BA009FD8BD /* SortCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortCollectionViewCell.swift; sourceTree = "<group>"; };
+		64F4CCB61CC9B6DB009FD8BD /* SortCollectionViewReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortCollectionViewReusableView.swift; sourceTree = "<group>"; };
+		64F4CCB91CC9B72D009FD8BD /* SortModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortModel.swift; sourceTree = "<group>"; };
+		64F4CCBC1CC9FAA5009FD8BD /* EncyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncyModel.swift; sourceTree = "<group>"; };
+		64F4CCBE1CC9FBD7009FD8BD /* EncyModel1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncyModel1.swift; sourceTree = "<group>"; };
+		64F4CCC11CCA008C009FD8BD /* EncyItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncyItemView.swift; sourceTree = "<group>"; };
+		64F4CCC41CCA0F78009FD8BD /* Union_Hero_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Union_Hero_ViewController.swift; sourceTree = "<group>"; };
+		64F4CCC61CCA12BC009FD8BD /* Union_Hero_AllHeroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Union_Hero_AllHeroView.swift; sourceTree = "<group>"; };
+		64F4CCC91CCA133A009FD8BD /* FilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		64F4CCCB1CCA163C009FD8BD /* FilterMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterMenuModel.swift; sourceTree = "<group>"; };
+		64F4CCCD1CCA16C7009FD8BD /* FilterMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterMenuItem.swift; sourceTree = "<group>"; };
 		64FAC7FA1CBE1184007A9E14 /* Union_News_DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Union_News_DetailViewController.swift; sourceTree = "<group>"; };
 		64FAC7FF1CBE402D007A9E14 /* VideoListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListModel.swift; sourceTree = "<group>"; };
 		64FAC8011CBE4260007A9E14 /* VideoListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListTableViewCell.swift; sourceTree = "<group>"; };
@@ -598,6 +622,7 @@
 		5809D24D1CB68D900011FC71 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				64F4CCC81CCA132E009FD8BD /* FilterView */,
 				64DCFCDC1CBF8A50009F4FE4 /* AlertViewController */,
 				64DCFCBA1CBF808D009F4FE4 /* DownloadDynamicEffect */,
 				64DCFCB51CBF3FD0009F4FE4 /* AlertView */,
@@ -1273,6 +1298,9 @@
 		64E0E8BF1CB62ADF00555075 /* Union_Ency */ = {
 			isa = PBXGroup;
 			children = (
+				64F4CCC31CCA0F6A009FD8BD /* Union_hero */,
+				64F4CCC01CCA004F009FD8BD /* Union_Ency_ItemView */,
+				64F4CCBB1CC9FA8D009FD8BD /* Union_Ency_Model */,
 				64E0E8D51CB6496900555075 /* Union_EncyViewController.swift */,
 			);
 			path = Union_Ency;
@@ -1305,6 +1333,7 @@
 		64E0E8C21CB62ADF00555075 /* Union_Video */ = {
 			isa = PBXGroup;
 			children = (
+				64F4CCAF1CC9B49E009FD8BD /* SortCollectionView */,
 				6409790F1CC4D1B10093576F /* VideoDetailsModel */,
 				64DCFCDF1CBF8AE2009F4FE4 /* VideoPlayController */,
 				64FAC7FC1CBE3E1D007A9E14 /* VideoListView */,
@@ -1373,6 +1402,77 @@
 				64F377571CB88FAF00EE3EEE /* SummonerModel.swift */,
 			);
 			path = Union_SummonerModel;
+			sourceTree = "<group>";
+		};
+		64F4CCAF1CC9B49E009FD8BD /* SortCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				64F4CCB81CC9B71C009FD8BD /* SortModel */,
+				64F4CCB21CC9B6A6009FD8BD /* SortCollectionViewCell */,
+				64F4CCB31CC9B6A6009FD8BD /* SortCollectionViewHeaderView */,
+				64F4CCB01CC9B4E2009FD8BD /* Union_Video_SortCollectionView.swift */,
+			);
+			path = SortCollectionView;
+			sourceTree = "<group>";
+		};
+		64F4CCB21CC9B6A6009FD8BD /* SortCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				64F4CCB41CC9B6BA009FD8BD /* SortCollectionViewCell.swift */,
+			);
+			path = SortCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		64F4CCB31CC9B6A6009FD8BD /* SortCollectionViewHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				64F4CCB61CC9B6DB009FD8BD /* SortCollectionViewReusableView.swift */,
+			);
+			path = SortCollectionViewHeaderView;
+			sourceTree = "<group>";
+		};
+		64F4CCB81CC9B71C009FD8BD /* SortModel */ = {
+			isa = PBXGroup;
+			children = (
+				64F4CCB91CC9B72D009FD8BD /* SortModel.swift */,
+			);
+			path = SortModel;
+			sourceTree = "<group>";
+		};
+		64F4CCBB1CC9FA8D009FD8BD /* Union_Ency_Model */ = {
+			isa = PBXGroup;
+			children = (
+				64F4CCBC1CC9FAA5009FD8BD /* EncyModel.swift */,
+				64F4CCBE1CC9FBD7009FD8BD /* EncyModel1.swift */,
+			);
+			path = Union_Ency_Model;
+			sourceTree = "<group>";
+		};
+		64F4CCC01CCA004F009FD8BD /* Union_Ency_ItemView */ = {
+			isa = PBXGroup;
+			children = (
+				64F4CCC11CCA008C009FD8BD /* EncyItemView.swift */,
+			);
+			path = Union_Ency_ItemView;
+			sourceTree = "<group>";
+		};
+		64F4CCC31CCA0F6A009FD8BD /* Union_hero */ = {
+			isa = PBXGroup;
+			children = (
+				64F4CCC41CCA0F78009FD8BD /* Union_Hero_ViewController.swift */,
+				64F4CCC61CCA12BC009FD8BD /* Union_Hero_AllHeroView.swift */,
+			);
+			path = Union_hero;
+			sourceTree = "<group>";
+		};
+		64F4CCC81CCA132E009FD8BD /* FilterView */ = {
+			isa = PBXGroup;
+			children = (
+				64F4CCC91CCA133A009FD8BD /* FilterView.swift */,
+				64F4CCCB1CCA163C009FD8BD /* FilterMenuModel.swift */,
+				64F4CCCD1CCA16C7009FD8BD /* FilterMenuItem.swift */,
+			);
+			path = FilterView;
 			sourceTree = "<group>";
 		};
 		64FAC7F91CBE1165007A9E14 /* Union_News_Details_ViewController */ = {
@@ -1863,8 +1963,12 @@
 				64FAC8091CBE5087007A9E14 /* NetworkStatus.swift in Sources */,
 				64CFBA671CBB862500061D05 /* GearPowered.swift in Sources */,
 				64CFBA531CBB357000061D05 /* LXPlaySound.swift in Sources */,
+				64F4CCC71CCA12BC009FD8BD /* Union_Hero_AllHeroView.swift in Sources */,
+				64F4CCC21CCA008C009FD8BD /* EncyItemView.swift in Sources */,
+				64F4CCBF1CC9FBD7009FD8BD /* EncyModel1.swift in Sources */,
 				64DA97EC1CB7C5940009261D /* MyUnion_TableViewCell.swift in Sources */,
 				64FAC8071CBE4AF4007A9E14 /* NetStatus.swift in Sources */,
+				64F4CCBD1CC9FAA5009FD8BD /* EncyModel.swift in Sources */,
 				64DA97EA1CB7C3820009261D /* MyUnion_UserTableViewCell.swift in Sources */,
 				64FB64261CC7232E0014A207 /* GZCollectionViewFlowLayout.swift in Sources */,
 				64B828721CC8766F005E343B /* WaterFlowLayout.m in Sources */,
@@ -1874,8 +1978,11 @@
 				640979131CC4D37B0093576F /* VideoTranscodeModel.swift in Sources */,
 				64DA97E31CB798E40009261D /* StringDeal.swift in Sources */,
 				5809D2501CB68DBF0011FC71 /* TabView.swift in Sources */,
+				64F4CCCE1CCA16C7009FD8BD /* FilterMenuItem.swift in Sources */,
 				64CFBA631CBB5C6500061D05 /* GPBottomLoadingView.swift in Sources */,
+				64F4CCB11CC9B4E2009FD8BD /* Union_Video_SortCollectionView.swift in Sources */,
 				64FB64291CC74F130014A207 /* PrettyPicturesModel.swift in Sources */,
+				64F4CCCC1CCA163C009FD8BD /* FilterMenuModel.swift in Sources */,
 				64E0E8D61CB6496900555075 /* Union_EncyViewController.swift in Sources */,
 				649ECDC31CBCF93C003C0AFA /* PictureCycleView.swift in Sources */,
 				64CFBA5C1CBB48A400061D05 /* ClearCacheSettingViewController.swift in Sources */,
@@ -1888,6 +1995,8 @@
 				649ECDC01CBCD805003C0AFA /* FeedBackViewController.swift in Sources */,
 				64FB64241CC722C20014A207 /* PrettyPictureCollectionViewCell.swift in Sources */,
 				64DA97E01CB787E30009261D /* Union_News_TableView_Model.swift in Sources */,
+				64F4CCB71CC9B6DB009FD8BD /* SortCollectionViewReusableView.swift in Sources */,
+				64F4CCC51CCA0F78009FD8BD /* Union_Hero_ViewController.swift in Sources */,
 				64E0E8CE1CB6484E00555075 /* BaseTabBarController.swift in Sources */,
 				64CFBA481CBB2B1200061D05 /* SettingViewController.swift in Sources */,
 				643101811CB8F0010091CB0D /* SummonerDataBaseManager.swift in Sources */,
@@ -1896,6 +2005,7 @@
 				64CFBA501CBB346000061D05 /* SettingManager.swift in Sources */,
 				64CFBA5A1CBB3F4800061D05 /* DataCache.swift in Sources */,
 				64E0E8D21CB6493E00555075 /* Union_NewsViewController.swift in Sources */,
+				64F4CCB51CC9B6BA009FD8BD /* SortCollectionViewCell.swift in Sources */,
 				64DCFCB91CBF3FFA009F4FE4 /* UIView+AlertView.swift in Sources */,
 				64544D391CB7498D009847E2 /* Union_News_TableView_View.swift in Sources */,
 				64F377581CB88FAF00EE3EEE /* SummonerModel.swift in Sources */,
@@ -1907,6 +2017,7 @@
 				64E0E8E21CB6547F00555075 /* GCDTimer.swift in Sources */,
 				64DCFCE11CBF8AF8009F4FE4 /* VideoPlayerViewController.swift in Sources */,
 				64E0E8E01CB6547F00555075 /* GCDQueue.swift in Sources */,
+				64F4CCCA1CCA133A009FD8BD /* FilterView.swift in Sources */,
 				64FB64201CC71F2B0014A207 /* ReloadImageView.swift in Sources */,
 				64DA97E51CB7A64A0009261D /* TimeFormattor.swift in Sources */,
 				64544D4D1CB75227009847E2 /* AFNetWorkingTool.swift in Sources */,
@@ -1919,6 +2030,7 @@
 				64FAC8021CBE4260007A9E14 /* VideoListTableViewCell.swift in Sources */,
 				64CFBA571CBB3A9200061D05 /* DownloadManager.swift in Sources */,
 				64B828791CC8A17E005E343B /* Pictures_Sreoll_Model.swift in Sources */,
+				64F4CCBA1CC9B72D009FD8BD /* SortModel.swift in Sources */,
 				64CFBA651CBB5C7300061D05 /* Shadow.swift in Sources */,
 				64FB641D1CC717640014A207 /* Union_News_PrettyPictures_View.swift in Sources */,
 				64FB642D1CC760230014A207 /* SaveFlowSettingCell.swift in Sources */,

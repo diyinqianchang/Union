@@ -9,27 +9,75 @@
 import UIKit
 
 class Union_VideoViewController: UIViewController {
+    
+    
+    lazy var tabView:TabView = {
+    
+        let tabArr = ["分类","最新"];
+        
+        let tab = TabView(frame: CGRectMake(0,0,SCREEN_WIDTH,40));
+        
+        tab.dataArray = tabArr;
+        return tab;
+    
+    
+    }()
+    
+    lazy var sortView:Union_Video_SortCollectionView = {
+    
+        let flowLayOut = UICollectionViewFlowLayout();
+        
+        flowLayOut.itemSize = CGSizeMake((SCREEN_WIDTH - 50) / 4,(SCREEN_WIDTH - 50) / 4 + 20);
+        flowLayOut.minimumInteritemSpacing = 10;
+        flowLayOut.minimumLineSpacing = 10;
+        flowLayOut.scrollDirection = .Vertical;
+        flowLayOut.sectionInset = UIEdgeInsetsMake(10 , 10 , 10 , 10 );
+        
+        let sortCollView = Union_Video_SortCollectionView(frame: CGRectMake(0,40,SCREEN_WIDTH,SCREEN_HEIGHT - 113), collectionViewLayout: flowLayOut);
+        
+        return sortCollView;
+     }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.view.addSubview(self.tabView);
+        self.tabView.tabIndex_Block = {(selectIndex) -> Void in
+        
+            print(selectIndex)
+        
+        }
+        self.view.addSubview(self.sortView);
+        self.sortView.itemClickBlock = {(tag,name) -> Void in
+        
+            print("\(tag) \(name)");
+        
+        }
+        self.sortView.sortSearchBlock = {(videoName)->Void in
+            
+            print(videoName);
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
 
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+}
+
+extension Union_VideoViewController{
+
+
+
+
+
+
+
 
 }

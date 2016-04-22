@@ -173,7 +173,9 @@ class TabView: UIView {
         for button in self.buttonArray{
         
             if button as! UIButton != sender{
+                
                 self.buttonDefaultStyle(button as! UIButton)
+                
             }else{
             
                 self.tabIndex_Block!(selecteIndex:self.selectIndex);

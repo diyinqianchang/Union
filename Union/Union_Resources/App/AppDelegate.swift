@@ -49,9 +49,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("\(MobClick.getConfigParams("isShowDownLoad"))")
         
-        let isShowDownLoad = true //NSString(string: MobClick.getConfigParams("isShowDownLoad")).boolValue;
+        let str:String? =  MobClick.getConfigParams("isShowDownLoad");
         
-        if isShowDownLoad {
+        var isShowDownLoad:Bool? // = NSString(string: MobClick.getConfigParams("isShowDownLoad")).boolValue;
+
+        
+        if str != nil{
+        
+            isShowDownLoad = NSString(string: str!).boolValue;
+        
+        }else{
+           
+            isShowDownLoad = true;
+        
+        }
+        
+        
+        
+        if isShowDownLoad! {
         
             let defaults = NSUserDefaults.standardUserDefaults();
             var isHiddenDownloadView = false;
