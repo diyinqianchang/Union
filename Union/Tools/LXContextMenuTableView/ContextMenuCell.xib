@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ContextMenuCell" customModule="Union" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pm-oy-vtW">
+                        <rect key="frame" x="8" y="11" width="226" height="43"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GGZ-eZ-dee">
+                        <rect key="frame" x="254" y="0.0" width="66" height="66"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="GGZ-eZ-dee" secondAttribute="height" multiplier="1:1" id="f4Q-7g-0TY"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="GGZ-eZ-dee" firstAttribute="leading" secondItem="5Pm-oy-vtW" secondAttribute="trailing" constant="20" id="B06-27-Gti"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="5Pm-oy-vtW" secondAttribute="bottom" constant="3" id="NCV-nH-MSo"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="GGZ-eZ-dee" secondAttribute="bottom" constant="-9" id="ON6-jp-DMl"/>
+                    <constraint firstItem="5Pm-oy-vtW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="Vnf-I1-DNG"/>
+                    <constraint firstItem="GGZ-eZ-dee" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="Xpd-zb-V1m"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="GGZ-eZ-dee" secondAttribute="trailing" constant="-8" id="gAe-z4-nno"/>
+                    <constraint firstItem="5Pm-oy-vtW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="mKF-o1-XvC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="menuImageView" destination="GGZ-eZ-dee" id="UYj-J1-Bc5"/>
+                <outlet property="menuTitleLabel" destination="5Pm-oy-vtW" id="ZHh-XV-Hlq"/>
+            </connections>
+            <point key="canvasLocation" x="621" y="194"/>
+        </tableViewCell>
+        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QbD-aq-kzO">
+            <rect key="frame" x="0.0" y="0.0" width="88" height="79"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <point key="canvasLocation" x="389" y="362.5"/>
+        </imageView>
+    </objects>
+</document>

@@ -32,9 +32,8 @@ class FilterView: UIView {
             if self.dataArray.count > 0{
             
                 let itemWidth = CGRectGetWidth(self.frame) / CGFloat((self.dataArray.count > 4 ? 4 : self.dataArray.count))
-                let itemIndex = 0;
                 
-                for (_,model) in self.dataArray.enumerate(){
+                for (itemIndex,model) in self.dataArray.enumerate(){
                 
                     let fmItem = FilterMenuItem(frame: CGRectMake(itemWidth * CGFloat(itemIndex),0,itemWidth,CGRectGetHeight(self.frame)));
                     fmItem.itemModel(model as! FilterMenuModel);
@@ -42,13 +41,13 @@ class FilterView: UIView {
                     fmItem.selectecColor = MAINCOLOR;
                     self.addSubview(fmItem);
                     
-                    self.itemArray?.addObject(fmItem);
+                    self.itemArray.addObject(fmItem);
                     
                     fmItem.selectedItemBlock = {[weak self](itemIndex)->Void in
                     
                         var itemIsSelected = false;
                         
-                        for (index,item) in (self?.itemArray!.enumerate())!{
+                        for (index,item) in (self?.itemArray.enumerate())!{
                         
                             let tempItem = item as! FilterMenuItem
                             
@@ -76,15 +75,31 @@ class FilterView: UIView {
                         
                             //没有Item为选中状态
                             
-//                            UIView.
+                            UIView.animateWithDuration(0.3, animations: {[weak self] () -> Void in
+                                
+                                self!.backgroundColor = UIColor.blackColor();
+                                
+                                }) { (finished) -> Void in
+                                    
+                                self?.frame = CGRectMake((self?.frame.origin.x)!, (self?.frame.origin.y)!, CGRectGetWidth((self?.frame)!) , (self?.originalHeight!)!);
+                            }
+                            
                         
                         
                         }
                         
-                        
+                    }
+                    fmItem.selectedButtonBlock = {[weak self](buttonTitle:String,type:String)->Void in
                     
+                        if (self?.delegate != nil && self?.delegate?.respondsToSelector("selectedScreeningConditions::") == true){
+                        
+                            self?.delegate?.selectedScreeningConditions(buttonTitle, type: type);
+                        
+                        }
+                        self?.recoveryFilterView();
                     
                     }
+                    
                 
                 
                 }
@@ -99,7 +114,7 @@ class FilterView: UIView {
     }
     weak var delegate:FilterViewDelegate?
     
-    var itemArray:NSMutableArray?
+    var itemArray:NSMutableArray = NSMutableArray();
     var originalHeight:CGFloat?
     
     override init(var frame: CGRect) {
@@ -112,6 +127,35 @@ class FilterView: UIView {
         
         self.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0);
         self.originalHeight = self.frame.size.height;
+        
+       
+        
+        
+    }
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        self.recoveryFilterView();
+    }
+    
+    func recoveryFilterView(){
+    
+        for (_,item) in self.itemArray.enumerate(){
+        
+            let fmItem:FilterMenuItem = item as! FilterMenuItem;
+            fmItem.isSelected = false;
+        }
+        
+        UIView.animateWithDuration(0.3, animations: {[weak self] () -> Void in
+            
+            self?.backgroundColor = UIColor.blackColor();
+            
+            }) { (finished) -> Void in
+                
+            self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, CGRectGetWidth(self.frame), self.originalHeight!);
+        }
+        
+    
+    
     }
 
     required init?(coder aDecoder: NSCoder) {

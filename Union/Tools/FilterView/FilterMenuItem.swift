@@ -149,9 +149,11 @@ class FilterMenuItem: UIView {
             
             for (_,key) in model.menuDic!.allKeys.enumerate(){
             
-                if key as! String == "defalut"{
+                print(key);
                 
-                    self.buttonY! += CGFloat(5.0);
+                if key as! String != "default"{
+                
+                    self.buttonY! += 5;
                     if key as! String  == ""{
                     
                         let lineView:UIView = UIView(frame: CGRectMake(5,self.buttonY!,CGRectGetWidth(self.contentView!.frame) - 10,0.5));
@@ -160,40 +162,36 @@ class FilterMenuItem: UIView {
                     
                     }else{
                     
-                        let groupTitle = UILabel(frame: CGRectMake(5,self.buttonY!,CGRectGetWidth(self.contentView!.frame) - 10 , 10));
+                        let groupTitle:UILabel = UILabel(frame: CGRectMake(5,self.buttonY!,CGRectGetWidth(self.contentView!.frame) - 10 , 10));
                         groupTitle.textColor = UIColor.grayColor();
                         groupTitle.font = UIFont.systemFontOfSize(10);
-                        groupTitle.text = key as! String;
+                        groupTitle.text = key as? String;
                         self.contentView?.addSubview(groupTitle);
-                    
-                    
                     }
                     
-                    self.buttonY! += CGFloat(25.0);
+                    self.buttonY! += 25;
                     self.buttonX = 5;
                 
                 }
                 
                 let tempArray:NSArray = model.menuDic?.valueForKey(key as! String) as! NSArray;
                 
-                for(index,title) in tempArray.enumerate(){
-                
+                var index = 0;
+                for(_,title) in tempArray.enumerate(){
+                    print(title);
                     self.loadButton(title as! String, X: self.buttonX!, Y: self.buttonY!, tag: 5000 + keyID * 100 + index);
+                    
+                    index++;
                     self.buttonX! += (CGRectGetWidth(self.contentView!.frame) - 40) / 4.0 + 10
-                    
                     if index % 4 == 0 && index < tempArray.count{
-                    
                         self.buttonX = 5;
                         self.buttonY! += CGFloat(40.0);
-                    
                     }
                 
                 }
                 
                 if tempArray.count > 0{
-                
                     self.buttonY! += CGFloat(40.0);
-                
                 }
                 
                 keyID++
@@ -242,43 +240,27 @@ class FilterMenuItem: UIView {
         }
         
         for (_,btnItem) in self.buttonArray.enumerate(){
-        
-            if (btnItem as! UIButton) !== btn{
             
+            if (btnItem as! UIButton) !== btn{
                 (btnItem as! UIButton).selected = false;
                 (btnItem as! UIButton).backgroundColor = UIColor.whiteColor();
             
             }else{
-            
                 btn.selected = true;
                 btn.backgroundColor = self.selectecColor;
-            
             }
-        
-        
         }
-        
         self.selectedButtonBlock!(buttonTitle: (btn.titleLabel?.text)!,type: self.fmModel!.menuTitle!);
-    
-    
     }
-    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         if self.isSelected == true{
-        
             self.isSelected = false;
-        
         }else{
-        
             self.isSelected = true;
-        
         }
         self.selectedItemBlock!(itemIndex: self.itemIndex)
-        
-        
-        
     }
     
 
